@@ -1,5 +1,4 @@
 // pages/index.js
-
 import Head from "next/head";
 import Image from "next/image"
 import {BsWhatsapp, BsLinkedin, BsInstagram} from "react-icons/bs"
