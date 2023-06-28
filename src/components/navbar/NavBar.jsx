@@ -12,7 +12,7 @@ const NavBar = () => {
       <Image src={twentyLogo} alt="Twenty Logo" className="h-20 w-44" />
 
       <div className="hidden md:flex items-end w-full justify-between px-4 lg:px-9 ">
-        <ul className="flex gap-4 lg:gap-7 font-medium text-sm lg:text-lg">
+        <ul className="flex gap-4 lg:gap-7 font-bold text-sm lg:text-lg">
           <li>Productos</li>
           <li>Acerca de Twenty</li>
           <li>Contacto</li>

@@ -1,18 +1,21 @@
 import { Carousel } from "@material-tailwind/react";
 import carouselImg from "../../public/assets/carousel-img.png";
+import carouselFirst from "../../public/assets/carouselFirst.png";
+import carouselSecond from "../../public/assets/carouselSecond.png";
+
 import Image from "next/image";
 
 export default function CarouselHero() {
   return (
     <div className="relative">
-      <Carousel transition={{ duration: 1 }} className="h-56 md:h-auto">
+      <Carousel transition={{ duration: 1 }} className="h-56 md:h-96">
         <Image
-          src={carouselImg}
+          src={carouselFirst}
           alt="image 1"
           className="h-full w-full object-cover"
         />
         <Image
-          src={carouselImg}
+          src={carouselSecond}
           alt="image 2"
           className="h-full w-full object-cover"
         />
