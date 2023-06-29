@@ -25,3 +25,10 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.aptitudes{
+  background-image: url(../../public/assets/ImagenAptitudes.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

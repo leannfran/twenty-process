@@ -1,10 +1,12 @@
 // pages/index.js
+import Aptitudes from "../components/Aptitudes";
 import Head from "next/head";
 import {
   BsWhatsapp,
 } from "react-icons/bs";
-import CarouselHero from "@/components/Carousel";
-import NavBar from "@/components/navbar/NavBar";
+import CarouselHero from "../components/Carousel";
+import NavBar from "../components/navbar/NavBar";
+import Nosotros from "../components/Nosotros";
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
       </header>
     <main className="">
         <CarouselHero />
+        <Nosotros/>
+        <Aptitudes/>
       
     </main>
 
