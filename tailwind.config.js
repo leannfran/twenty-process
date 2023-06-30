@@ -11,12 +11,18 @@ module.exports = withMT({
   theme: {
     extend: {
       colors: {
-        primary: "#47A29C",
+        primary: "#47A29B",
+        secondary: "#235F5B",
+        secondary2:"#09433E",
+        texto:'#0F201E'
       },
     },
     dimensions: {
       xxl: "1440px",
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+
+  ],
 });
