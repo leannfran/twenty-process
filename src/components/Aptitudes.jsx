@@ -21,30 +21,30 @@ const Aptitudes = () => {
   </div>
   <div className="flex  w-3/4">
     <div
-      className={`relative w-1/3 transition-all  aptitudes flex flex-col items-start  pt-9 text-xl bg-opacity-70 text-white font-bold shadow-md rounded-l-lg h-96 ${
+      className={`relative w-1/3 transition-all  aptitudes flex flex-col items-start  pt-9 text-xl  text-white font-bold shadow-md rounded-l-lg h-96 ${
         isHovered1 ? 'w-full' : ''
       }`}
       onMouseEnter={() => setIsHovered1(true)}
       onMouseLeave={() => setIsHovered1(false)}
     >
         
-          <div className="absolute inset-0 bg-gradient-to-r from-primary opacity-70 rounded-l-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary  rounded-l-lg"></div>
 
       <h5 className='px-10 z-20'>VALORES</h5>
-      {isHovered1 ? <p className='animate-fade animate-once animate-delay-500 text-lg font-light p-10'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis ab atque laboriosam corrupti nesciunt ducimus. Ad, numquam aspernatur ab expedita sunt dicta incidunt quo perspiciatis iure provident illum quas autem!</p> : null}
+      {isHovered1 ? <p className='animate-fade animate-once animate-delay-500 text-lg font-light p-10 pr-36'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis ab atque laboriosam corrupti nesciunt ducimus. Ad, numquam aspernatur ab expedita sunt dicta incidunt quo perspiciatis iure provident illum quas autem!</p> : null}
     </div>
     <div
-      className={`relative aptitudes transition-all w-1/3 flex flex-col items-start pt-9 text-xl bg-opacity-70 text-white font-bold shadow-md rounded-l-lg h-96 ${
+      className={`relative aptitudes transition-all w-1/3 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-l-lg h-96 ${
         isHovered2 ? 'w-full' : ''
       }`}
       onMouseEnter={() => setIsHovered2(true)}
       onMouseLeave={() => setIsHovered2(false)}
     >
         
-          <div className="absolute inset-0 bg-gradient-to-r from-primary opacity-70 rounded-l-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary  rounded-l-lg"></div>
 
       <h5 className='px-10 z-20'>COMPROMISO</h5>
-      {isHovered2 ? <p className='animate-fade animate-once animate-delay-500 text-lg font-light p-10'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis ab atque laboriosam corrupti nesciunt ducimus. Ad, numquam aspernatur ab expedita sunt dicta incidunt quo perspiciatis iure provident illum quas autem!</p> : null}
+      {isHovered2 ? <p className='animate-fade animate-once animate-delay-500 text-lg font-light pr-36 p-10'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis ab atque laboriosam corrupti nesciunt ducimus. Ad, numquam aspernatur ab expedita sunt dicta incidunt quo perspiciatis iure provident illum quas autem!</p> : null}
     </div>
     <div
       className={`relative aptitudes transition-all w-1/3 flex flex-col items-start pt-9 text-xl bg-opacity-70 text-white font-bold shadow-md rounded-l-lg h-96 ${
@@ -55,10 +55,10 @@ const Aptitudes = () => {
       onMouseLeave={() => 
         setIsHovered3(false)}
     >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary opacity-70 rounded-l-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary rounded-l-lg"></div>
 
-      <h5 className='px-10 z-20'>OBJETIVO</h5>
-      {isHovered3 ? <p className='animate-fade animate-once animate-delay-500 text-lg font-light p-10'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis ab atque laboriosam corrupti nesciunt ducimus. Ad, numquam aspernatur ab expedita sunt dicta incidunt quo perspiciatis iure provident illum quas autem!</p> : null}
+      <h5 className='px-10  z-20'>OBJETIVO</h5>
+      {isHovered3 ? <p className='animate-fade animate-once animate-delay-500 text-lg font-light pr-36 p-10'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis ab atque laboriosam corrupti nesciunt ducimus. Ad, numquam aspernatur ab expedita sunt dicta incidunt quo perspiciatis iure provident illum quas autem!</p> : null}
     </div>
   </div>
 </div>
