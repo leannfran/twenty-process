@@ -4,6 +4,12 @@ import CarouselHero from "@/components/Carousel";
 import NavBar from "@/components/navbar/NavBar";
 import CardSwiper from "@/components/Swiper";
 import CardOpenCatalogue from "@/components/cards/CardOpenCatalogue";
+import Aptitudes from "../components/Aptitudes";
+import {
+  BsWhatsapp,
+} from "react-icons/bs";
+import Nosotros from "../components/Nosotros";
+
 
 export default function Home() {
   const [showCatalogue, setShowCatalogue] = React.useState(false);
@@ -23,6 +29,10 @@ export default function Home() {
         <CarouselHero />
       </header>
       <main className="max-w-[1000px] m-auto py-20">
+      
+
+        <Nosotros/>
+        <Aptitudes/>
         <section className="w-full my-10  relative">
           <h2 className="text-black text-lg py-3">
             DESCARGÁ NUESTROS CATÁLOGOS
@@ -39,7 +49,8 @@ export default function Home() {
             </div>
           )}
         </section>
-      </main>
+      
+    </main>
 
       <footer className="bg-primary py-4 h-[10vh] text-white text-center">
         &copy; {new Date().getFullYear()} Twenty. Todos los derechos reservados.
