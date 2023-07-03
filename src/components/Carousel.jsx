@@ -4,6 +4,7 @@ import carouselFirst from "../../public/assets/carouselFirst.png";
 import carouselSecond from "../../public/assets/carouselSecond.png";
 
 import Image from "next/image";
+import SpeedDial from "./SpeedDial";
 
 export default function CarouselHero() {
   return (
@@ -13,21 +14,28 @@ export default function CarouselHero() {
           src={carouselFirst}
           alt="image 1"
           className="h-full w-full object-cover"
+          priority
         />
         <Image
           src={carouselSecond}
           alt="image 2"
           className="h-full w-full object-cover"
+          priority
         />
         <Image
           src={carouselImg}
           alt="image 3"
           className="h-full w-full object-cover"
+          priority
         />
       </Carousel>
       <h1 className="absolute bottom-10 left-5 font-bold text-[#09433E] text-xl md:text-4xl">
         Merchandising personalizado para potenciar tu marca
       </h1>
+      <div className="absolute right-5 bottom-5">
+      <SpeedDial/>
+
+      </div>
     </div>
   );
 }
