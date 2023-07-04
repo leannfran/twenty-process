@@ -5,6 +5,8 @@ import NavBar from "@/components/navbar/NavBar";
 import CardSwiper from "@/components/Swiper";
 import CardOpenCatalogue from "@/components/cards/CardOpenCatalogue";
 import Aptitudes from "../components/Aptitudes";
+import Productos from "../components/Productos";
+import Categories from "../components/Categories";
 import {
   BsWhatsapp,
 } from "react-icons/bs";
@@ -29,7 +31,9 @@ export default function Home() {
         <CarouselHero />
       </header>
       <main className="max-w-[1000px] m-auto py-20">
-      
+
+        <Productos/>
+        <Categories/>
 
         <Nosotros/>
         <Aptitudes/>
