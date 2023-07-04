@@ -2,7 +2,7 @@ import Image from "next/image";
 import NosotrosImg from "../..//public/assets/NosotrosImg.jpeg";
 const Nosotros = () => {
   return (
-    <div className="flex  bg-gradient-to-t pb-20 from-[#B9D8D6] text-black mt-10 ">
+    <div className="flex  bg-gradient-to-t pb-20 from-[#B9D8D6] text-black mt-0">
       <div className="w-1/2 flex justify-center">
         <Image
           className=" rounded-full overflow-hidden w-96 h-96 object-cover border-8 border-primary"
