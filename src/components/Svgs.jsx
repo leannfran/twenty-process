@@ -1,4 +1,4 @@
-export  function IconMenuSvg () {
+export default function IconMenuSvg () {
   return (
     <svg
       width="25"
