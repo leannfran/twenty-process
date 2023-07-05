@@ -21,29 +21,39 @@ export default function Home() {
         <title>Twenty | Página de inicio</title>
         <link rel="icon" href="./public/logo.jpeg" />
       </Head>
-      
+
       <header>
         <NavBar />
         <CarouselHero />
       </header>
       <main className="max-w-[1000px] m-auto py-20">
-        <Nosotros />
-        <Aptitudes />
+        {/* <Nosotros />
+        <Aptitudes /> */}
         <section className="w-full my-10  relative">
           <h2 className="text-black text-lg py-3 pl-4">
             DESCARGÁ NUESTROS CATÁLOGOS
           </h2>
           <hr className="w-1/4 border border-primary ml-4" />
-          <CardSwiper
-            openCatalogue={handleOpenCatalogue}
-            vertical={true}
-            swiperClass="catalogues"
-            length={2.7}
-            height="800px"
-          />
+          <div className="hidden md:block">
+            <CardSwiper
+              openCatalogue={handleOpenCatalogue}
+              vertical={true}
+              swiperClass="catalogues"
+              length={2.7}
+              height="800px"
+            />
+          </div>
+          <div className="md:hidden">
+            <CardSwiper
+              openCatalogue={handleOpenCatalogue}
+              vertical={false}
+              swiperClass="catalogues"
+              length={2}
+            />
+          </div>
           <div
             style={{ boxShadow: "1px -65px 48px -31px rgba(0,0,0,0.75) inset" }}
-            className="w-full h-28 absolute bottom-0 z-10"
+            className="w-full h-28 absolute bottom-0 z-10 hidden md:block"
           ></div>
           {showCatalogue && (
             <div className="absolute w-full h-full flex items-center justify-center top-0 z-10">
@@ -58,15 +68,10 @@ export default function Home() {
           ALIANZAS DE ÉXITO CON MARCAS LÍDERES
         </h2>
         <hr className="w-1/4 border border-primary ml-4" />
-        <CardSwiper
-          autoplay={true}
-          swiperClass="logos"
-          length={4}
-          height="300px"
-        />
+        <CardSwiper autoplay={true} swiperClass="logos" length={4} />
       </section>
 
-     <Footer/>
+      <Footer />
     </div>
   );
 }

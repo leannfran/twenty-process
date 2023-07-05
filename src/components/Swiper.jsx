@@ -11,13 +11,13 @@ import Image from "next/image";
 import brandLogo from "../../public/assets/slazenger-logo.png"
 
 
-export default function CardSwiper({ openCatalogue , vertical , autoplay , swiperClass , length , height}) {
+export default function CardSwiper({ openCatalogue , vertical , autoplay , swiperClass , length }) {
 
   const cataloguesTest = 7;
 
   return (
     <Swiper
-      className={`my-12 ${swiperClass === "catalogues" ? "h-[600px] md:h-[800px]" : "h-[200px]"}`}
+      className={`my-12 ${swiperClass === "catalogues" ? "h-[350px] md:h-[800px]" : "h-[200px]"}`}
       direction={vertical ? "vertical" : "horizontal"}
       pagination={{ clickable: true }}
       loop={true}
@@ -26,7 +26,16 @@ export default function CardSwiper({ openCatalogue , vertical , autoplay , swipe
       modules={[Autoplay, Navigation]}
       breakpoints={{
         0: {
-          slidesPerView: swiperClass === "catalogues" ? 2.3 : 2
+          slidesPerView: swiperClass === "catalogues" ? 1.1 : 2
+        },
+        400: {
+          slidesPerView: swiperClass === "catalogues" ? 1.2 : 2
+        },
+        568: {
+          slidesPerView: swiperClass === "catalogues" ? 1.4 : 2
+        },
+        630: {
+          slidesPerView: swiperClass === "catalogues" ? 1.8 : 2
         },
         720: {
           slidesPerView: length,

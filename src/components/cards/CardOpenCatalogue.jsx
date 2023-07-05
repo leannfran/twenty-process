@@ -6,9 +6,9 @@ import { BsDownload, BsX } from "react-icons/bs";
 
 export default function CardOpenCatalogue({closeCatalogue}) {
   return (
-    <div className="w-[500px] h-[450px]  rounded-xl shadow-md shadow-gray-700 flex flex-col">
+    <div className="w-full h-[450px] sm:w-[500px]  sm:h-[450px]  sm:rounded-xl shadow-md shadow-gray-700 flex flex-col">
       <Carousel
-        className="rounded-t-xl h-3/4"
+        className="sm:rounded-t-xl h-3/4"
         prevArrow={({ handlePrev }) => (
           <IconButton
             variant="text"
