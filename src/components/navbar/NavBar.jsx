@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { BsBag, BsSearch } from "react-icons/bs";
 import twentyLogo from "../../../public/assets/logo-twenty-lyrics.svg";
-import BtnMenu from "@/components/buttons/BtnMenu";
+import BtnMenu from "../buttons/BtnMenu";
 
 const NavBar = () => {
   return (

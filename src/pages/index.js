@@ -1,12 +1,12 @@
 import React from "react";
 import Head from "next/head";
-import CarouselHero from "@/components/Carousel";
-import NavBar from "@/components/navbar/NavBar";
-import CardSwiper from "@/components/Swiper";
-import CardOpenCatalogue from "@/components/cards/CardOpenCatalogue";
+import CarouselHero from "../components/Carousel";
+import NavBar from "../components/navbar/NavBar";
+import CardSwiper from "../components/Swiper";
+import CardOpenCatalogue from "../components/cards/CardOpenCatalogue";
 import Aptitudes from "../components/Aptitudes";
-import { BsWhatsapp } from "react-icons/bs";
 import Nosotros from "../components/Nosotros";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [showCatalogue, setShowCatalogue] = React.useState(false);
@@ -21,6 +21,7 @@ export default function Home() {
         <title>Twenty | Página de inicio</title>
         <link rel="icon" href="./public/logo.jpeg" />
       </Head>
+      
       <header>
         <NavBar />
         <CarouselHero />
@@ -65,9 +66,7 @@ export default function Home() {
         />
       </section>
 
-      <footer className="bg-primary py-4 h-[10vh] text-white text-center">
-        &copy; {new Date().getFullYear()} Twenty. Todos los derechos reservados.
-      </footer>
+     <Footer/>
     </div>
   );
 }
