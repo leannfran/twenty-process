@@ -11,6 +11,7 @@ import {
   BsWhatsapp,
 } from "react-icons/bs";
 import Nosotros from "../components/Nosotros";
+import ContactForm from "../components/ContactForm";
 
 
 export default function Home() {
@@ -53,6 +54,8 @@ export default function Home() {
             </div>
           )}
         </section>
+
+        <ContactForm/>
       
     </main>
 
