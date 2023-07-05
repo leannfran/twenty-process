@@ -30,8 +30,6 @@ export default function Home() {
         <CarouselHero />
       </header>
       <main className="max-w-[1000px] m-auto py-20">
-        {/* <Nosotros />
-        <Aptitudes /> */}
 
         <Productos/>
         <Categories/>
