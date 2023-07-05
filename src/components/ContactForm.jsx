@@ -78,7 +78,7 @@ const ContactForm = () => {
                                     Email
                                 </label>
 
-                                <input placeholder='Escribe tu email...' type='email' autocomplete='username' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md w-80 caret-black text-black'></input>
+                                <input placeholder='Escribe tu email...' type='email' autoComplete='username' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md w-80 caret-black text-black'></input>
                             </div>
 
 
