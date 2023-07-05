@@ -6,7 +6,7 @@ import {
   MenuItem,
   Input,
 } from "@material-tailwind/react";
-import IconMenuSvg from "../Svgs";
+import {IconMenuSvg} from "../Svgs";
 import React from "react";
 
 export default function BtnMenu() {

@@ -1,34 +1,51 @@
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-
+import { Navigation, Pagination, Scrollbar, A11y , Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import CardCatalogue from "./cards/CardCatalogue";
+import Image from "next/image";
+import brandLogo from "../../public/assets/slazenger-logo.png"
 
 
-export default function CardSwiper({ openCatalogue}) {
+export default function CardSwiper({ openCatalogue , vertical , autoplay , swiperClass , length , height}) {
 
   const cataloguesTest = 7;
 
   return (
     <Swiper
-      className="mySwiper my-12"
-      direction="vertical"
-      slidesPerView={2.7}
+      className={`my-12 ${swiperClass === "catalogues" ? "h-[600px] md:h-[800px]" : "h-[200px]"}`}
+      direction={vertical ? "vertical" : "horizontal"}
       pagination={{ clickable: true }}
       loop={true}
       mousewheel={true}
+      autoplay={autoplay ? {delay: 3000} : false}
+      modules={[Autoplay, Navigation]}
+      breakpoints={{
+        0: {
+          slidesPerView: swiperClass === "catalogues" ? 2.3 : 2
+        },
+        720: {
+          slidesPerView: length,
+        },
+      }}
     >
-      {[...Array(cataloguesTest)].map((e, i) => (
-          <SwiperSlide key={i}>
-          <CardCatalogue openCatalogue={openCatalogue}/>
+      {swiperClass === "catalogues"
+    ? [...Array(cataloguesTest)].map((e, i) => (
+        <SwiperSlide key={i}>
+          <CardCatalogue openCatalogue={openCatalogue} />
         </SwiperSlide>
-      ))}
+      ))
+    : swiperClass === "logos" ? [...Array(cataloguesTest)].map((e, i) => (
+        <SwiperSlide key={i}>
+          <div className="px-12 w-30 md:w-60 ">
+            <Image src={brandLogo}  alt="logo"/>
+          </div>
+        </SwiperSlide>
+      )) : null}
     </Swiper>
   );
 }

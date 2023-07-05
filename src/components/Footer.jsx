@@ -1,8 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import logoIG from "../../public/assets/logo-ig.png"
-import { get } from "react-hook-form";
-import {InstagramLogo, FacebookLogo, LinkedinLogo} from './Svgs'
+import {InstagramLogo, FacebookLogo, LinkedinLogo} from '../components/Svgs'
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 w-full p-8">
