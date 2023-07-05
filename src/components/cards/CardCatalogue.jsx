@@ -11,7 +11,7 @@ import { BsDownload, BsEye } from "react-icons/bs";
 
 export default function CardCatalogue({ openCatalogue}) {
   return (
-    <Card className="flex-row w-full  h-[250px] shadow-xl  shadow shadow-gray-600 ">
+    <Card className="flex-row w-[97%]  h-[250px] shadow shadow-gray-600 m-auto">
       <CardHeader
         shadow={false}
         floated={false}

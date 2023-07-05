@@ -5,11 +5,8 @@ import NavBar from "@/components/navbar/NavBar";
 import CardSwiper from "@/components/Swiper";
 import CardOpenCatalogue from "@/components/cards/CardOpenCatalogue";
 import Aptitudes from "../components/Aptitudes";
-import {
-  BsWhatsapp,
-} from "react-icons/bs";
+import { BsWhatsapp } from "react-icons/bs";
 import Nosotros from "../components/Nosotros";
-
 
 export default function Home() {
   const [showCatalogue, setShowCatalogue] = React.useState(false);
@@ -29,16 +26,20 @@ export default function Home() {
         <CarouselHero />
       </header>
       <main className="max-w-[1000px] m-auto py-20">
-      
-
-        <Nosotros/>
-        <Aptitudes/>
+        <Nosotros />
+        <Aptitudes />
         <section className="w-full my-10  relative">
-          <h2 className="text-black text-lg py-3">
+          <h2 className="text-black text-lg py-3 pl-4">
             DESCARGÁ NUESTROS CATÁLOGOS
           </h2>
-          <hr className="w-1/4 border border-primary" />
-          <CardSwiper openCatalogue={handleOpenCatalogue} />
+          <hr className="w-1/4 border border-primary ml-4" />
+          <CardSwiper
+            openCatalogue={handleOpenCatalogue}
+            vertical={true}
+            swiperClass="catalogues"
+            length={2.7}
+            height="800px"
+          />
           <div
             style={{ boxShadow: "1px -65px 48px -31px rgba(0,0,0,0.75) inset" }}
             className="w-full h-28 absolute bottom-0 z-10"
@@ -49,8 +50,20 @@ export default function Home() {
             </div>
           )}
         </section>
-      
-    </main>
+      </main>
+
+      <section className=" max-w-[1000px]  m-auto">
+        <h2 className="text-black text-lg py-3 pl-4">
+          ALIANZAS DE ÉXITO CON MARCAS LÍDERES
+        </h2>
+        <hr className="w-1/4 border border-primary ml-4" />
+        <CardSwiper
+          autoplay={true}
+          swiperClass="logos"
+          length={4}
+          height="300px"
+        />
+      </section>
 
       <footer className="bg-primary py-4 h-[10vh] text-white text-center">
         &copy; {new Date().getFullYear()} Twenty. Todos los derechos reservados.
