@@ -7,6 +7,9 @@ import CardOpenCatalogue from "../components/cards/CardOpenCatalogue";
 import Aptitudes from "../components/Aptitudes";
 import Nosotros from "../components/Nosotros";
 import Footer from "../components/Footer";
+import Productos from "../components/Productos";
+import Categories from "../components/Categories";
+import ContactForm from "../components/ContactForm";
 
 export default function Home() {
   const [showCatalogue, setShowCatalogue] = React.useState(false);
@@ -29,6 +32,12 @@ export default function Home() {
       <main className="max-w-[1000px] m-auto py-20">
         {/* <Nosotros />
         <Aptitudes /> */}
+
+        <Productos/>
+        <Categories/>
+
+        <Nosotros/>
+        <Aptitudes/>
         <section className="w-full my-10  relative">
           <h2 className="text-black text-lg py-3 pl-4">
             DESCARGÁ NUESTROS CATÁLOGOS
@@ -61,7 +70,7 @@ export default function Home() {
             </div>
           )}
         </section>
-      </main>
+
 
       <section className=" max-w-[1000px]  m-auto">
         <h2 className="text-black text-lg py-3 pl-4">
@@ -70,6 +79,9 @@ export default function Home() {
         <hr className="w-1/4 border border-primary ml-4" />
         <CardSwiper autoplay={true} swiperClass="logos" length={4} />
       </section>
+
+      <ContactForm/>
+      </main>
 
       <Footer />
     </div>
