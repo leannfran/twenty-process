@@ -29,7 +29,8 @@ export default function Home() {
         <NavBar />
         <CarouselHero />
       </header>
-      <main className="max-w-[1000px] m-auto py-20">
+      <main className="max-w-[100%] m-auto py-20">
+        
 
         <Productos/>
         <Categories/>
