@@ -29,19 +29,17 @@ export default function Home() {
         <NavBar />
         <CarouselHero />
       </header>
-      <main className="max-w-[100%] m-auto py-20">
-        
+      <main className="max-w-[1000px] m-auto py-20">
+        <Productos />
+        <Categories />
 
-        <Productos/>
-        <Categories/>
-
-        <Nosotros/>
-        <Aptitudes/>
+     {/*    <Nosotros />
+        <Aptitudes /> */}
         <section className="w-full my-10  relative">
-          <h2 className="text-black text-lg py-3 pl-4">
+          <h2 className="text-black text-lg py-3 pl-4 lg:pl-0">
             DESCARGÁ NUESTROS CATÁLOGOS
           </h2>
-          <hr className="w-1/4 border border-primary ml-4" />
+          <hr className="w-28 border border-primary ml-4 lg:ml-0" />
           <div className="hidden md:block">
             <CardSwiper
               openCatalogue={handleOpenCatalogue}
@@ -70,16 +68,15 @@ export default function Home() {
           )}
         </section>
 
+        <section className=" max-w-[1000px]  m-auto">
+          <h2 className="text-black text-lg py-3 pl-4 lg:pl-0">
+            ALIANZAS DE ÉXITO CON MARCAS LÍDERES
+          </h2>
+          <hr className="w-28 border border-primary ml-4 lg:ml-0" />
+          <CardSwiper autoplay={true} swiperClass="logos" length={4} />
+        </section>
 
-      <section className=" max-w-[1000px]  m-auto">
-        <h2 className="text-black text-lg py-3 pl-4">
-          ALIANZAS DE ÉXITO CON MARCAS LÍDERES
-        </h2>
-        <hr className="w-1/4 border border-primary ml-4" />
-        <CardSwiper autoplay={true} swiperClass="logos" length={4} />
-      </section>
-
-      <ContactForm/>
+       {/*  <ContactForm /> */}
       </main>
 
       <Footer />

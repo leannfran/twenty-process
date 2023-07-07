@@ -11,7 +11,7 @@ import { BsDownload, BsEye } from "react-icons/bs";
 
 export default function CardCatalogue({ openCatalogue}) {
   return (
-    <Card className="flex-row w-[310px] h-[310px] md:w-[97%]  md:h-[250px] shadow shadow-gray-600 m-auto ">
+    <Card className="flex-row w-[310px] h-[310px] md:w-[99%]  md:h-[250px] shadow shadow-gray-600 m-auto ">
       <CardHeader
         shadow={false}
         floated={false}
@@ -37,7 +37,7 @@ export default function CardCatalogue({ openCatalogue}) {
         <Button className="md:hidden bg-transparent border-2 px-2 py-0 ">
             <BsDownload size={20} />
           </Button>
-        <div className=" hidden md:flex  md:max-w-[200px]   flex-col justify-evenly items-center">
+        <div className=" hidden md:flex md:max-w-[200px]   flex-col justify-evenly items-center">
           <Button className="flex items-center gap-3 bg-white text-[#235F5B] font-extrabold h-12 w-40 shadow-md shadow-[#235F5B]" >
             <BsDownload size={34} /> Descargar
           </Button>
