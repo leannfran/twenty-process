@@ -50,6 +50,7 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
 .aptitudes{
   background-image: url(../../public/assets/ImagenAptitudes.png);
   background-size: cover;

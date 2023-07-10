@@ -32,7 +32,7 @@ export default function CarouselHero() {
       <h1 className="absolute bottom-10 left-5 font-bold text-[#09433E] text-xl md:text-4xl">
         Merchandising personalizado para potenciar tu marca
       </h1>
-      <div className="absolute right-5 bottom-5">
+      <div className="absolute right-5 bottom-5 md:hidden">
       <SpeedDial/>
 
       </div>
