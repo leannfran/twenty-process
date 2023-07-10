@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import Productos from "../components/Productos";
 import Categories from "../components/Categories";
 import ContactForm from "../components/ContactForm";
+import SpeedDial from "../components/SpeedDial";
 
 export default function Home() {
   const [showCatalogue, setShowCatalogue] = React.useState(false);
@@ -20,10 +21,16 @@ export default function Home() {
 
   return (
     <div className="bg-white">
+      
       <Head>
         <title>Twenty | Página de inicio</title>
         <link rel="icon" href="./public/logo.jpeg" />
       </Head>
+
+      <div className="hidden md:block fixed right-9 bottom-9 z-10">
+      <SpeedDial/>
+
+      </div>
 
       <header>
         <NavBar />
