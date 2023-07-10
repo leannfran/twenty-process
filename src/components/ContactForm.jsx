@@ -1,15 +1,15 @@
 import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
-import {FiSend} from 'react-icons/fi';
+import { FiSend } from 'react-icons/fi';
 
 const ContactForm = () => {
     return (
         <>
 
-            <div className='flex flex-col md:flex-row  justify-start items-center gap-12'>
+            <div className='flex flex-col md:flex-row justify-center items-center gap-12'>
 
-                <div className='bg-primary p-44 flex flex-col justify-center items-center relative h-full'>
+                <div className='bg-primary p-44 w-2/4 flex flex-col justify-center items-center relative h-full'>
 
                     <div className='absolute top-0 left-0 w-full h-full backdrop-blur bg-[url(../../public/assets/message-illustration.png)] bg-center bg-contain bg-no-repeat' style={{ opacity: 0.2 }}></div>
                     <div className='flex justify-start items-start flex-col relative'>
@@ -28,7 +28,7 @@ const ContactForm = () => {
 
                 </div>
 
-                <div className='flex flex-col'>
+                <div className='flex flex-col items-center md:items-start'>
 
                     <div>
 
@@ -39,7 +39,7 @@ const ContactForm = () => {
 
                     <div>
 
-                        <h3 className='mt-5 text-black'>A través del whatsapp o email</h3>
+                        <h3 className='mt-5 text-black'>A través del whatsapp o email:</h3>
 
                     </div>
 
@@ -59,46 +59,52 @@ const ContactForm = () => {
 
                     </div>
 
-                    <div className='flex mr-16 justify-start items-center'>
 
-                        <form className='flex mt-5 flex-col gap-8'>
 
-                            <h3 className='text-black'>A través de nuestro formulario</h3>
+                    <form className='flex mt-5 flex-col gap-8 items-center md:items-start'>
+
+                        <h3 className='text-black'>A través de nuestro formulario:</h3>
+
+                        <div className='flex flex-col gap-5'>
 
                             <div className='flex flex-col'>
                                 <label className='text-black font-bold mb-2'>
                                     Nombre
                                 </label>
 
-                                <input placeholder='Escribe tu nombre...' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black' type='name'></input>
+                                <input placeholder='Escribe tu nombre...' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black md:w-72' type='name'></input>
                             </div>
 
                             <div className='flex flex-col'>
                                 <label className='text-black font-bold mb-2'>
-                                    Email
+                                    Email <span className='text-red-700'>*</span>
                                 </label>
 
-                                <input placeholder='Escribe tu email...' type='email' autoComplete='username' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md w-80 caret-black text-black'></input>
+                                <input placeholder='Escribe tu email...' type='email' autoComplete='username' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black md:w-72'></input>
                             </div>
 
 
                             <div className='flex flex-col'>
 
-                                <label className='text-black font-bold mb-2'>Mensaje</label>
-                                <textarea className='text-black resize-none borde placeholder-secondary bg-[#D9D9D9] p-2 rounded-md h-28' placeholder='Escribí tu mensaje...'></textarea>
+                                <label className='text-black font-bold mb-2'>
+                                    Mensaje <span className='text-red-700'>*</span>
+                                </label>
+                                <textarea className='text-black resize-none borde placeholder-secondary bg-[#D9D9D9] p-2 rounded-md h-28 md:w-72' placeholder='Escribí tu mensaje...'></textarea>
 
                             </div>
 
-                            <button type='submit' className='text-white border-none p-2 bg-primary flex items-center justify-center gap-2 font-bold'> 
-                            <FiSend color='white' size='18'/> 
-                            Enviar
+                            <button type='submit' className='text-white border-none p-2 bg-primary flex items-center justify-center gap-2 font-bold md:w-full sm:w-full'>
+                                <FiSend color='white' size='18' />
+                                Enviar
                             </button>
+                            
+                        </div>
 
-                        </form>
-
-                    </div>
+                    </form>
 
                 </div>
+
+
 
             </div>
 
