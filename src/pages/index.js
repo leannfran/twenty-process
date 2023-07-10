@@ -29,13 +29,13 @@ export default function Home() {
         <NavBar />
         <CarouselHero />
       </header>
-      <main className="max-w-[1000px] m-auto py-20">
+      <main className=" m-auto py-20">
         <Productos />
         <Categories />
 
-     {/*    <Nosotros />
-        <Aptitudes /> */}
-        <section className="w-full my-10  relative">
+      <Nosotros />
+        <Aptitudes />
+        <section className="md:w-[80%] md:m-auto  my-10  relative">
           <h2 className="text-black text-lg py-3 pl-4 lg:pl-0">
             DESCARGÁ NUESTROS CATÁLOGOS
           </h2>
@@ -76,7 +76,7 @@ export default function Home() {
           <CardSwiper autoplay={true} swiperClass="logos" length={4} />
         </section>
 
-       {/*  <ContactForm /> */}
+        <ContactForm /> 
       </main>
 
       <Footer />
