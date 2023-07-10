@@ -7,7 +7,7 @@ const ContactForm = () => {
     return (
         <>
 
-            <div className='flex justify-start items-center gap-12'>
+            <div className='flex flex-col md:flex-row  justify-start items-center gap-12'>
 
                 <div className='bg-primary p-44 flex flex-col justify-center items-center relative h-full'>
 
@@ -59,7 +59,7 @@ const ContactForm = () => {
 
                     </div>
 
-                    <div className='flex justify-start items-center'>
+                    <div className='flex mr-16 justify-start items-center'>
 
                         <form className='flex mt-5 flex-col gap-8'>
 
