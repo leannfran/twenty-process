@@ -8,13 +8,13 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-const Productos = () => {
+const Productos = ({name,image}) => {
   return (
     <>
       <Card className="w-80 h-80 md:w-96 m-auto">
         <CardHeader color="blue-gray" className="relative h-56 m-0 rounded-b-none shadow-none">
           <Image
-            src={productImg}
+            src={image}
             width={500}
             height={500}
             alt="Producto Imagen"
@@ -23,7 +23,7 @@ const Productos = () => {
         </CardHeader>
         <CardBody className="p-3 ">
           <Typography variant="h5" color="blue-gray" className=" text-left">
-            Nombre del producto
+            {name}
           </Typography>
           {/* <Typography className="text-left">
             The place is close to Barceloneta Beach and bus stop just 2 min by
