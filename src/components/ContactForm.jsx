@@ -1,9 +1,86 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { FaWhatsapp } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
+import { BsSendFill } from 'react-icons/bs';
 import { FiSend } from 'react-icons/fi';
+import { Toaster, toast } from 'sonner';
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { useForm } from "react-hook-form";
+import { Popover, PopoverContent, PopoverHandler } from '@material-tailwind/react';
+import Link from 'next/link';
+
+
+const schema = yup.object({
+
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    message: yup.string().required()
+
+})
 
 const ContactForm = () => {
+
+    const [openPopoverName, setOpenPopoverName] = useState(false)
+    const [openPopoverEmail, setOpenPopoverEmail] = useState(false)
+    const [openPopoverMessage, setOpenPopoverMessage] = useState(false)
+    const [isSending, setIsSending] = useState(false)
+
+
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
+
+        resolver: yupResolver(schema)
+        
+    });
+
+    const sendEmail = (formData) => {
+
+        setIsSending(true)
+        emailjs.send('service_2700hvt', 'template_orc6f4w', formData, 'JKaEpvNGBleWS_JA8')
+        .then((result) => {
+
+            toast.success('Mensaje enviado con éxito!')
+            setIsSending(false)
+
+        }, (error) => {
+
+            toast.error('Error al enviar el formulario')
+            setIsSending(false)
+
+        });
+
+        reset();
+
+    };
+
+
+
+    const triggers = {
+
+        name: {
+
+            onMouseEnter: () => setOpenPopoverName(true),
+            onMouseLeave: () => setOpenPopoverName(false)
+
+        },
+
+        email: {
+
+            onMouseEnter: () => setOpenPopoverEmail(true),
+            onMouseLeave: () => setOpenPopoverEmail(false)
+
+        },
+
+        message: {
+
+            onMouseEnter: () => setOpenPopoverMessage(true),
+            onMouseLeave: () => setOpenPopoverMessage(false)
+
+        }
+
+    }
+
     return (
         <>
 
@@ -47,21 +124,23 @@ const ContactForm = () => {
 
                         <div className='rounded-full bg-primary p-2'>
 
-                            <FaWhatsapp size={32} color='white' />
+                            <Link href='https://api.whatsapp.com/send?phone=5491178311503' target='_blank'>
+                                <FaWhatsapp size={32} color='white' />
+                            </Link>
 
                         </div>
 
                         <div className='rounded-full bg-primary p-2'>
 
-                            <AiOutlineMail size={32} color='white' />
+                            <Link href='mailto: ventas@twenty.com.ar'>
+                                <AiOutlineMail size={32} color='white' />
+                            </Link>
 
                         </div>
 
                     </div>
 
-
-
-                    <form className='flex mt-5 flex-col gap-8 items-center md:items-start'>
+                    <form className='flex mt-5 flex-col gap-8 items-center md:items-start' onSubmit={handleSubmit(sendEmail)}>
 
                         <h3 className='text-black'>A través de nuestro formulario:</h3>
 
@@ -69,33 +148,87 @@ const ContactForm = () => {
 
                             <div className='flex flex-col'>
                                 <label className='text-black font-bold mb-2'>
-                                    Nombre
+                                    Nombre Completo
+                                    <Popover placement="right-end" open={openPopoverName} handler={setOpenPopoverName}>
+                                        <PopoverHandler {...triggers.name}>
+                                            <span className='text-red-700'> *</span>
+                                        </PopoverHandler>
+                                        <PopoverContent {...triggers.name}>
+                                            <span>Este campo es obligatorio.</span>
+                                        </PopoverContent>
+                                    </Popover>
+                                    
                                 </label>
 
-                                <input placeholder='Escribe tu nombre...' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black md:w-72' type='name'></input>
+                                <input placeholder='Escribe tu nombre...' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black md:w-72 focus:border-primary focus:outline-none focus:ring-primary focus:ring-2 transition duration-300' type='name' name='name' {...register("name")}/>
+
+                                {errors.name && <p role='alert' className='text-red-500 text-center mt-1'>* El campo nombre es requerido</p>}
+
                             </div>
 
                             <div className='flex flex-col'>
                                 <label className='text-black font-bold mb-2'>
-                                    Email <span className='text-red-700'>*</span>
+                                    Email
+                                    <Popover placement="right-end" open={openPopoverEmail} handler={setOpenPopoverEmail}>
+                                        <PopoverHandler {...triggers.email}>
+                                            <span className='text-red-700'> *</span>
+                                        </PopoverHandler>
+                                        <PopoverContent {...triggers.email}>
+                                            <span>Este campo es obligatorio.</span>
+                                        </PopoverContent>
+                                    </Popover>
                                 </label>
 
-                                <input placeholder='Escribe tu email...' type='email' autoComplete='username' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black md:w-72'></input>
+                                <input placeholder='Escribe tu email...' name='email' type='email' autoComplete='username' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black md:w-72 focus:border-primary focus:outline-none focus:ring-primary focus:ring-2 transition duration-300'{...register('email')}/>
+                                {errors.email && <p role='alert' className='text-red-500 mt-1 text-center'>* El campo email es requerido</p>}
+
                             </div>
 
 
                             <div className='flex flex-col'>
 
                                 <label className='text-black font-bold mb-2'>
-                                    Mensaje <span className='text-red-700'>*</span>
+                                    Mensaje 
+                                    <Popover placement="right-end" open={openPopoverMessage} handler={setOpenPopoverMessage}>
+                                        <PopoverHandler {...triggers.message}>
+                                            <span className='text-red-700'> *</span>
+                                        </PopoverHandler>
+                                        <PopoverContent {...triggers.message}>
+                                            <span>Este campo es obligatorio.</span>
+                                        </PopoverContent>
+                                    </Popover>
                                 </label>
-                                <textarea className='text-black resize-none borde placeholder-secondary bg-[#D9D9D9] p-2 rounded-md h-28 md:w-72' placeholder='Escribí tu mensaje...'></textarea>
+
+                                <textarea className='text-black resize-none borde placeholder-secondary bg-[#D9D9D9] p-2 rounded-md h-28 md:w-72 focus:border-primary focus:outline-none focus:ring-primary focus:ring-2 transition duration-300' placeholder='Escribí tu mensaje...' name='message' {...register('message')}></textarea>
+                                {errors.message && <p role='alert' className='text-red-500 mt-1 text-center'>* El campo mensaje es requerido</p>}
 
                             </div>
 
-                            <button type='submit' className='text-white border-none p-2 bg-primary flex items-center justify-center gap-2 font-bold md:w-full sm:w-full'>
-                                <FiSend color='white' size='18' />
-                                Enviar
+                            <Toaster theme='system' position='top-right' richColors/>
+                            <button type='submit' value='Enviar' className='text-white border-none p-2 bg-primary flex items-center justify-center gap-2 font-bold md:w-full sm:w-full'>
+                                
+                                {isSending ? (
+
+                                    <div className='flex items-center gap-2'>
+
+                                        <span>
+                                            <BsSendFill color='white' size='18' fill='white'/>
+                                        </span>
+                                        <span>Enviando...</span>
+
+                                    </div>
+
+                                ) : (
+
+                                        <div className='flex items-center gap-2'>
+
+                                            <FiSend color='white' size='18' />
+                                            <span>Enviar</span>
+
+                                        </div>
+
+                                )}
+
                             </button>
                             
                         </div>
