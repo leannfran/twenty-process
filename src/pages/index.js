@@ -17,7 +17,7 @@ export default function Home() {
   function handleOpenCatalogue(open) {
     open ? setShowCatalogue(true) : setShowCatalogue(false);
   }
-
+  
   return (
     <div className="bg-white">
       <Head>
@@ -76,7 +76,7 @@ export default function Home() {
           <CardSwiper autoplay={true} swiperClass="logos" length={4} />
         </section>
 
-       {/*  <ContactForm /> */}
+        <ContactForm />
       </main>
 
       <Footer />
