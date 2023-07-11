@@ -24,25 +24,30 @@ export default function CardSwiper({
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
-
   const cataloguesTest = 7;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const productRequest = axios.get("https://api.zecatdifapro.com/generic_product?page=1&limit=10");
-        const categoryRequest = axios.get("https://api.zecatdifapro.com/family");
-        const [productResponse, categoryResponse] = await axios.all([productRequest, categoryRequest]);
+        const productRequest = axios.get(
+          "https://api.zecatdifapro.com/generic_product?page=15&limit=6"
+        );
+        const categoryRequest = axios.get(
+          "https://api.zecatdifapro.com/family"
+        );
+        const [productResponse, categoryResponse] = await axios.all([
+          productRequest,
+          categoryRequest,
+        ]);
         setProducts(productResponse.data.generic_products);
         setCategories(categoryResponse.data.families);
       } catch (error) {
         console.error(error);
       }
     };
-  
+
     fetchData();
   }, []);
-
 
   return (
     <Swiper
@@ -52,10 +57,10 @@ export default function CardSwiper({
           : swiperClass === "products"
           ? "h-[330px]"
           : "h-[230px]"
-      }`}
+      } py-2`}
       direction={vertical ? "vertical" : "horizontal"}
       pagination={{ clickable: true }}
-    /*   loop={true} */
+      /*   loop={true} */
       mousewheel={true}
       autoplay={autoplay ? { delay: 3000 } : false}
       modules={[Autoplay, Navigation]}
@@ -129,17 +134,23 @@ export default function CardSwiper({
             </SwiperSlide>
           ))
         : swiperClass === "products"
-        ? products.map(( product,i) => (
+        ? products.map((product, i) => (
             <SwiperSlide key={i}>
-              <CardProduct name={product.name} image={product.images[0].image_url}/>
+              <CardProduct
+                name={product.name}
+                image={product.images[0].image_url}
+                category={product.families.map(family => family.description).join(', ')}
+              />
             </SwiperSlide>
           ))
         : swiperClass === "categories"
-        ? categories.map(( category,i) => (
+        ? categories.map((category, i) => (
             <SwiperSlide key={i}>
               <div className="m-auto">
-
-              <CategoriesProduct title={category.title} icon={category.icon_url}/>
+                <CategoriesProduct
+                  title={category.title}
+                  icon={category.icon_url}
+                />
               </div>
             </SwiperSlide>
           ))
