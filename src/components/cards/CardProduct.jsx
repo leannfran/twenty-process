@@ -1,5 +1,6 @@
 import React from "react";
 import productImg from "../../../public/assets/Head.png";
+import { BsCashCoin } from "react-icons/bs";
 import Image from "next/image";
 import {
   Card,
@@ -9,28 +10,34 @@ import {
 } from "@material-tailwind/react";
 import Link from "next/link";
 
-const Productos = ({name,image,category}) => {
-
+const Productos = ({ name, image, category }) => {
   return (
     <>
       <Card className="w-80 h-80 md:w-96 m-auto border">
-        <CardHeader color="blue-gray" className="relative h-56 m-0 rounded-b-none shadow-none">
+        <CardHeader
+          color="blue-gray"
+          className="relative h-56 m-0 rounded-b-none shadow-none"
+        >
           <Image
             src={image}
             width={500}
             height={500}
             alt="Producto Imagen"
-            className="object-cover rounded-b-none"
+            className="object-cover  rounded-b-none"
           />
         </CardHeader>
         <CardBody className="p-3 text-left">
           <Typography variant="h5" color="blue-gray">
             {name}
           </Typography>
-            <span className="text-gray-600 text-sm block">{category} </span>
-            <Link href={`https://wa.me/+5491132693101?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${name}%20${image}`} target="_blank" className="text-secondary text-sm underline">Consultar precio </Link>
-          
-           
+          <span className="text-gray-600 text-sm block">{category} </span>
+          <Link
+            href={`https://wa.me/+5491132693101?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${name}%20${image}`}
+            target="_blank"
+            className="text-secondary text-sm underline"
+          >
+            Consultar precio{" "}
+          </Link>
         </CardBody>
       </Card>
     </>
