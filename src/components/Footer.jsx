@@ -5,28 +5,10 @@ const Footer = () => {
     <footer className="bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 w-full p-8">
       <div className="grid grid-rows-1 gap-8 md:grid-cols-12 xl:gap-8">
         <div className="md:col-span-12 xl:col-span-4 flex flex-col gap-5">
-          <h1 className=" font-bold pl-2">Contacto</h1>
-          <p className=" font-light pl-2 ">+54 9 11 7831-1503</p>
-          <p className="font-light pl-2">ventas@twenty.com.ar</p>
-          <div className="flex gap-3">
-          <a
-              href="https://www.instagram.com/twenty.arg/"
-              className="flex items-center gap-2 hover:bg-primary p-2 rounded-lg transition-colors"
-              target="_blank"
-            >
-              <InstagramLogo/></a>
-              
-              <a
-              href="https://www.instagram.com/twenty.arg/"
-              className="flex items-center gap-2 hover:bg-primary  p-2 rounded-lg transition-colors"
-              target="_blank"
-            ><FacebookLogo/></a>
-            <a
-              href="https://www.instagram.com/twenty.arg/"
-              className="flex items-center gap-2 hover:bg-primary  p-2 rounded-lg transition-colors"
-              target="_blank"
-            ><LinkedinLogo /></a>  
-          </div>
+        <h1 className="text-3xl font-bold ">twenty</h1>
+      <p className=" text-justify">
+      Somos especialistas en productos de merchandising. Ofrecemos atención exclusiva y personalizada a la medida de tu marca, para que te identifiques con nuestros productos y el mensaje que queres brindar a tus clientes.
+      </p>
         </div>
         <div className="md:col-span-4 xl:col-span-2">
           <h2 className="font-bold mb-6 uppercase">Menu</h2>
@@ -38,24 +20,35 @@ const Footer = () => {
               Nosotros
             </a>
             <a href="#" className="hover:underline">
-              Servicios
+              productos
             </a>
-            <a href="#" className="hover:underline">
-              Contacto
-            </a>
+
           </nav>
         </div>
         <div className="md:col-span-4 xl:col-span-3">
-          <h2 className="font-bold mb-6 uppercase">Redes sociales</h2>
-          <nav>
-           <p>lorem</p>
-           <p>lorem</p>
-           <p>lorem</p>
-           <p>lorem</p>
-          </nav>
+        <div className="flex flex-col gap-3">
+          <a
+              href="https://www.instagram.com/twenty.arg/"
+              className="flex items-center gap-2 hover:bg-primary p-2 rounded-lg transition-colors"
+              target="_blank"
+            >
+              <InstagramLogo/> twenty.arg</a>
+              
+              <a
+              href="https://www.instagram.com/twenty.arg/"
+              className="flex items-center gap-2 hover:bg-primary  p-2 rounded-lg transition-colors"
+              target="_blank"
+            ><FacebookLogo/>twenty.arg</a>
+            <a
+              href="https://www.instagram.com/twenty.arg/"
+              className="flex items-center gap-2 hover:bg-primary  p-2 rounded-lg transition-colors"
+              target="_blank"
+            ><LinkedinLogo /> Twenty Argentina</a>  
+          </div>
+       
         </div>
         <div className="md:col-span-4 xl:col-span-3">
-          <h2 className="font-bold mb-6 uppercase">Contacto</h2>
+          <h4 className="font-bold mb-6 uppercase">Contacto</h4>
           <div className="flex flex-col gap-4">
             <p className="flex items-center gap-2">
               <svg
@@ -94,8 +87,7 @@ const Footer = () => {
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              ventas@twenty.com.ar
-            </p>
+              info@twenty.com.ar         </p>
             <p className="flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -113,6 +105,8 @@ const Footer = () => {
               </svg>
             +54 9 11 7831-1503
             </p>
+           
+         
           </div>
         </div>
       </div>

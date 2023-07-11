@@ -2,8 +2,7 @@ import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Twenty', description: 'Productos de merchandising para empresas Comunidad 💻 Venta Online 🇦🇷 Envíos a todo el país 📍 Buenos Aires, San Isidro ',
+export const Metadata = { title: 'Twenty',description: 'Productos de merchandising para empresas Comunidad 💻 Venta Online 🇦🇷 Envíos a todo el país 📍 Buenos Aires, San Isidro ',
 }
 
 export default function RootLayout({ children }) {
