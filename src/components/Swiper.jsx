@@ -1,5 +1,5 @@
 // import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -13,6 +13,7 @@ import CardProduct from "./cards/CardProduct";
 import CategoriesProduct from "./CategoriesProduct";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Card } from "@material-tailwind/react";
 
 export default function CardSwiper({
   openCatalogue,
@@ -23,6 +24,7 @@ export default function CardSwiper({
 }) {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const cataloguesTest = 7;
 
@@ -41,6 +43,7 @@ export default function CardSwiper({
         ]);
         setProducts(productResponse.data.generic_products);
         setCategories(categoryResponse.data.families);
+        setIsLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -119,7 +122,31 @@ export default function CardSwiper({
         },
       }}
     >
-      {swiperClass === "catalogues"
+      {isLoading
+        ? // Muestra el esqueleto de carga mientras los datos se están cargando
+          Array(7)
+            .fill()
+            .map((_, index) => (
+              <SwiperSlide key={index}>
+                {swiperClass === "products" ? (
+                  <Card className="w-80 h-80 md:w-96 m-auto border">
+                    <div className="bg-white animate-pulse rounded p-4 h-full flex flex-col gap-3">
+                      <div className="h-52 w-full bg-gray-300 rounded mb-2"></div>
+                      <div className="h-4 w-60 bg-gray-300 rounded"></div>
+                      <div className="h-4 w-24 bg-gray-300 rounded"></div>
+                    </div>
+                  </Card>
+                ) : swiperClass === "categories" ? (
+                  <div className=" flex flex-col items-center justify-center animate-pulse gap-2">
+                    <div className="w-32 h-32 bg-gradient-to-t from-teal-500 to-teal-200 rounded-full">
+                      
+                    </div>
+                    <div className="h-4 w-24 bg-gray-300 rounded"></div>
+                  </div>
+                ) : null}
+              </SwiperSlide>
+            ))
+        : swiperClass === "catalogues"
         ? [...Array(cataloguesTest)].map((e, i) => (
             <SwiperSlide key={i}>
               <CardCatalogue openCatalogue={openCatalogue} />
@@ -139,7 +166,9 @@ export default function CardSwiper({
               <CardProduct
                 name={product.name}
                 image={product.images[0].image_url}
-                category={product.families.map(family => family.description).join(', ')}
+                category={product.families
+                  .map((family) => family.description)
+                  .join(", ")}
               />
             </SwiperSlide>
           ))
