@@ -32,7 +32,7 @@ const Productos = ({ name, image, category }) => {
           </Typography>
           <span className="text-gray-600 text-sm block">{category} </span>
           <Link
-            href={`https://wa.me/+5491132693101?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${name}%20${image}`}
+            href={`https://wa.me/+5491178311503?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${name}%20${image}`}
             target="_blank"
             className="text-secondary text-sm underline"
           >

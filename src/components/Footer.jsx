@@ -20,7 +20,7 @@ const Footer = () => {
               Nosotros
             </a>
             <a href="#" className="hover:underline">
-              productos
+              Productos
             </a>
 
           </nav>
