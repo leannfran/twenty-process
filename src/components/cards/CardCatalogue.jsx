@@ -9,7 +9,7 @@ import catalogueImg from "../../../public/assets/catalogue-img.png";
 import Image from "next/image";
 import { BsDownload, BsEye } from "react-icons/bs";
 
-export default function CardCatalogue({ openCatalogue}) {
+export default function CardCatalogue({ openCatalogue }) {
   return (
     <Card className="flex-row w-[310px] h-[310px] md:w-[99%]  md:h-[250px] shadow shadow-gray-600 m-auto ">
       <CardHeader

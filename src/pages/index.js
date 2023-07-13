@@ -1,16 +1,14 @@
 import React from "react";
-import Head from "next/head";
 import CarouselHero from "../components/Carousel";
-import NavBar from "../components/navbar/NavBar";
 import CardSwiper from "../components/Swiper";
 import CardOpenCatalogue from "../components/cards/CardOpenCatalogue";
 import Aptitudes from "../components/Aptitudes";
 import Nosotros from "../components/Nosotros";
-import Footer from "../components/Footer";
 import Productos from "../components/Productos";
 import Categories from "../components/Categories";
 import ContactForm from "../components/ContactForm";
 import SpeedDial from "../components/SpeedDial";
+import { Layout } from "@/components/layout/Layout";
 
 export default function Home() {
   const [showCatalogue, setShowCatalogue] = React.useState(false);
@@ -20,23 +18,15 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-white">
-      <Head>
-        <title>Twenty | Página de inicio</title>
-        <link rel="icon" href="./public/logo.jpeg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-       { <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-        </style>}
-      </Head>
+    <Layout> 
+      
 
       <div className="hidden md:block fixed right-9 bottom-9 z-10">
         <SpeedDial />
       </div>
 
       <header>
-        <NavBar />
+        
         <CarouselHero />
       </header>
       <main className=" m-auto py-20">
@@ -88,8 +78,7 @@ export default function Home() {
 
         <ContactForm />
       </main>
-
-      <Footer />
-    </div>
+      
+    </Layout>
   );
 }
