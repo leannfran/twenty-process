@@ -20,6 +20,9 @@ module.exports = withMT({
     dimensions: {
       xxl: "1440px",
     },
+    screens: {
+      "1440px": "1440px",
+    }
   },
   plugins: [
     require('tailwindcss-animated')

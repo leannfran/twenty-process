@@ -139,8 +139,7 @@ export default function CardSwiper({
                   </Card>
                 ) : swiperClass === "categories" ? (
                   <div className=" flex flex-col items-center justify-center animate-pulse gap-2">
-                    <div className="w-32 h-32 bg-gradient-to-t from-teal-500 to-teal-200 rounded-full">
-                      
+                    <div className="w-32 h-32 bg-gradient-to-t from-teal-500 to-teal-200 rounded-full">                     
                     </div>
                     <div className="h-4 w-24 bg-gray-300 rounded"></div>
                   </div>
@@ -176,6 +175,7 @@ export default function CardSwiper({
                 category={product.families
                   .map((family) => family.description)
                   .join(", ")}
+                  loading={isLoading}
               />
             </SwiperSlide>
           ))

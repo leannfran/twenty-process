@@ -10,13 +10,12 @@ import {
 } from "@material-tailwind/react";
 import Link from "next/link";
 
-const Productos = ({ name, image, category }) => {
+const Productos = ({ name, image, category , loading }) => {
   return (
     <>
-      <Card className="w-80 h-80 md:w-96 m-auto border">
+      <Card className="w-60 h-60 md:w-80 md:h-80 2xl:w-96 m-auto border">
         <CardHeader
-          color="blue-gray"
-          className="relative h-56 m-0 rounded-b-none shadow-none"
+          className={`relative h-56 m-0 rounded-b-none shadow-none bg-gray-600  ${loading && "blur-lg animate-pulse"} `}
         >
           <Image
             src={image}
