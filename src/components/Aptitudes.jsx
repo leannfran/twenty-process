@@ -106,9 +106,9 @@ const Aptitudes = () => {
       <div className="lg:hidden mt-10 flex flex-col w-full ">
         <div className="flex flex-col w-full ">
           <div
-            className={`relative transition-all aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 4
-                ? "transition-max-height transition-all ease-in-out duration-300"
+                ? " "
                 : "h-1/3"
             }`}
             style={{ maxHeight: `${maxHeights[3]}px` }}
@@ -130,9 +130,9 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative transition-all aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 1
-                ? "transition-max-height transition-all ease-in-out duration-300"
+                ? " "
                 : "h-1/3"
             }`}
             style={{ maxHeight: `${maxHeights[0]}px` }}
@@ -154,9 +154,9 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative transition-all aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 2
-                ? "transition-max-height ease-in duration-300"
+                ? ""
                 : "h-1/3"
             }`}
             style={{ maxHeight: `${maxHeights[1]}px` }}
@@ -179,9 +179,9 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative transition-all aptitudes flex flex-col items-start pt-9 text-xl bg-opacity-75 text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl bg-opacity-75 text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 3
-                ? "transition-max-height ease-in duration-300"
+                ? "0"
                 : "h-1/3"
             }`}
             style={{ maxHeight: `${maxHeights[2]}px` }}

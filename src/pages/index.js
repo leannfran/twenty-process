@@ -39,10 +39,13 @@ export default function Home() {
         <NavBar />
 
         <CarouselHero />
-        <div className=" bottom-0 pt-30  min-h-20 z-100 bg-gradient-to-t from-primary to-transparent">
-        </div>
+        
       </header>
-      <main className=" m-auto py-20">
+      <main className=" m-auto py-2">
+      <h1 className=" animate-fade
+ font-black text-[#09433E] p-4 md:p-10 text-3xl md:text-5xl">
+        MERCHANDISING PERSONALIZADO PARA POTENCIAR TU MARCA
+        </h1>
         <Productos />
         <Categories />
 
