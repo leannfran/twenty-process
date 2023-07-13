@@ -1,15 +1,15 @@
 import { Carousel } from "@material-tailwind/react";
-import carouselImg from "../../public/assets/carousel-img.png";
-import carouselFirst from "../../public/assets/carouselFirst.png";
-import carouselSecond from "../../public/assets/carouselSecond.png";
+import carouselImg from "../../public/assets/3.png";
+import carouselFirst from "../../public/assets/1.png";
+import carouselSecond from "../../public/assets/2.png";
 
 import Image from "next/image";
 import SpeedDial from "./SpeedDial";
 
 export default function CarouselHero() {
   return (
-    <div className="relative">
-      <Carousel transition={{ duration: 1 }} className="h-56 md:h-96">
+    <div className="relative ">
+      <Carousel transition={{ duration: 1 }} className="h-56 bg-gradient-to-t from-primary md:h-96">
         <Image
           src={carouselFirst}
           alt="image 1"

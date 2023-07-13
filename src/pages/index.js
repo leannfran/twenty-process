@@ -35,9 +35,12 @@ export default function Home() {
         <SpeedDial />
       </div>
 
-      <header>
+      <header className="relative">
         <NavBar />
+
         <CarouselHero />
+        <div className=" bottom-0 pt-30  min-h-20 z-100 bg-gradient-to-t from-primary to-transparent">
+        </div>
       </header>
       <main className=" m-auto py-20">
         <Productos />
