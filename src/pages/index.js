@@ -28,8 +28,13 @@ export default function Home() {
       <header>
         
         <CarouselHero />
+        
       </header>
-      <main className=" m-auto py-20">
+      <main className=" m-auto py-2">
+      <h1 className=" animate-fade
+ font-black text-[#09433E] p-4 md:p-10 text-3xl md:text-5xl">
+        MERCHANDISING PERSONALIZADO PARA POTENCIAR TU MARCA
+        </h1>
         <Productos />
         <Categories />
 

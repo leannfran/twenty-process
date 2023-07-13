@@ -21,8 +21,8 @@ const Productos = ({ name, image, category , loading }) => {
             src={image}
             width={500}
             height={500}
-            alt="Producto Imagen"
-            className="object-cover  rounded-b-none "
+            alt={name}
+            className="object-cover  rounded-b-none"
           />
         </CardHeader>
         <CardBody className="p-3 text-left">
