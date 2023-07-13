@@ -11,6 +11,7 @@ import {
   PlusIcon,
 } from "@heroicons/react/24/outline";
 import { BsWhatsapp } from "react-icons/bs";
+import Link from "next/link";
  
 export default function ContactFloatButton() {
   return (
@@ -25,10 +26,14 @@ export default function ContactFloatButton() {
           </SpeedDialHandler>
           <SpeedDialContent>
             <SpeedDialAction>
+            <Link href="https://api.whatsapp.com/send?phone=5491178311503" target="_blank">
               <BsWhatsapp className="h-5 w-5 text-[#235F5B]" />
+            </Link>
             </SpeedDialAction>
             <SpeedDialAction>
+            <Link href="mailto: ventas@twenty.com.ar">
               <EnvelopeIcon className="h-5 w-5 text-[#235F5B]" />
+            </Link>
             </SpeedDialAction>
           </SpeedDialContent>
         </SpeedDial>
