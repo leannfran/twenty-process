@@ -14,9 +14,10 @@ import Link from 'next/link';
 
 const schema = yup.object({
 
-    name: yup.string().required(),
-    email: yup.string().email().required(),
-    message: yup.string().required()
+    name: yup.string().required('El campo nombre es requerido'),
+    email: yup.string().required('El campo email es requerido').matches(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/i,
+      'Ingrese un correo electrónico válido'),
+    message: yup.string().required('El campo mensaje es requerido')
 
 })
 
@@ -86,7 +87,7 @@ const ContactForm = () => {
 
             <div className='flex flex-col md:flex-row justify-center items-center gap-12'>
 
-                <div className='bg-primary p-44 w-2/4 flex flex-col justify-center items-center relative h-full'>
+                <div className='bg-primary p-44 w-2/4 flex flex-col justify-center items-center relative h-96 sm:h-96 md:h-full'>
 
                     <div className='absolute top-0 left-0 w-full h-full backdrop-blur bg-[url(../../public/assets/message-illustration.png)] bg-center bg-contain bg-no-repeat' style={{ opacity: 0.2 }}></div>
                     <div className='flex justify-start items-start flex-col relative'>
@@ -162,7 +163,7 @@ const ContactForm = () => {
 
                                 <input placeholder='Escribe tu nombre...' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black md:w-72 focus:border-primary focus:outline-none focus:ring-primary focus:ring-2 transition duration-300' type='name' name='name' {...register("name")}/>
 
-                                {errors.name && <p role='alert' className='text-red-500 text-center mt-1'>* El campo nombre es requerido</p>}
+                                {errors.name && <p role='alert' className='text-red-500 text-center mt-1'>* {errors.name.message}</p>}
 
                             </div>
 
@@ -180,7 +181,8 @@ const ContactForm = () => {
                                 </label>
 
                                 <input placeholder='Escribe tu email...' name='email' type='email' autoComplete='username' className='border-none bg-[#D9D9D9] p-2 placeholder-secondary rounded-md caret-black text-black md:w-72 focus:border-primary focus:outline-none focus:ring-primary focus:ring-2 transition duration-300'{...register('email')}/>
-                                {errors.email && <p role='alert' className='text-red-500 mt-1 text-center'>* El campo email es requerido</p>}
+                                {errors.email && <p role='alert' className='text-red-500 mt-1 text-center'>* {errors.email.message}</p>}
+                                
 
                             </div>
 
