@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Cup from "../../public/assets/Cup.png";
 
 const CategoriesProduct = ({ title, icon }) => {
   return (
@@ -11,8 +10,8 @@ const CategoriesProduct = ({ title, icon }) => {
             src={icon}
             width={300}
             height={300}
-            alt="Vaso Imagen"
-            title="Vaso Imagen"
+            alt={title}
+            title={title}
             className="p-10"
           />
         </div>

@@ -10,6 +10,7 @@ const nextConfig = {
         port: '',
       },
     ],
+    domains: ['res.cloudinary.com']
   },
 }
 
