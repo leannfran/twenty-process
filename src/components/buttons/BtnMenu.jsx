@@ -22,7 +22,7 @@ export default function BtnMenu() {
         <IconMenuSvg />
       </Button>
 
-      <MenuList className="bg-gradient-to-b from-[#328782f4] via-teal-400 to-teal-200 text-white border-none w-full mt-[95px]">
+      <MenuList className="bg-gradient-to-b from-[#328782f4] via-teal-400 to-teal-200 text-white border-none w-full mt-[70px]">
         <input
           className="w-full h-12 rounded-xl p-4 text-black"
           placeholder="Buscar..."

@@ -11,18 +11,29 @@ import {
 import Link from "next/link";
 
 const Productos = ({ name, image, category , loading }) => {
+
+  const [isImageLoading, setIsImageLoading] = React.useState(true);
+
   return (
     <>
       <Card className="w-60 h-60 md:w-80 md:h-80 2xl:w-96 m-auto border">
         <CardHeader
-          className={`relative h-56 m-0 rounded-b-none shadow-none bg-gray-600  ${loading && "blur-lg animate-pulse"} `}
+          className={`relative h-56 m-0 rounded-b-none shadow-none `}
         >
           <Image
             src={image}
             width={500}
             height={500}
             alt={name}
-            className="object-cover  rounded-b-none"
+            className={`object-cover  rounded-b-none
+            ${
+              isImageLoading
+                ? 'grayscale blur-xl scale-105'
+                : 'grayscale-0 blur-0 scale-100'
+            }
+            `}
+            loading="lazy"
+            onLoadingComplete={() => setIsImageLoading(false)}
           />
         </CardHeader>
         <CardBody className="p-3 text-left">
