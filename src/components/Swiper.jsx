@@ -14,6 +14,7 @@ import CategoriesProduct from "./CategoriesProduct";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "@material-tailwind/react";
+import jsonCatalogues from '../data/catalogues.json'
 
 export default function CardSwiper({
   openCatalogue,
@@ -147,10 +148,16 @@ export default function CardSwiper({
               </SwiperSlide>
             ))
         : swiperClass === "catalogues"
-        ? [...Array(cataloguesTest)].map((e, i) => (
-            <SwiperSlide key={i}>
-              <CardCatalogue openCatalogue={openCatalogue} />
-            </SwiperSlide>
+          ? [...Array(cataloguesTest)].map((e, i) => (
+            jsonCatalogues.map((items) => (
+              <SwiperSlide key={i}>
+
+
+                <CardCatalogue openCatalogue={openCatalogue} items={items} />
+
+
+              </SwiperSlide>
+            ))
           ))
         : swiperClass === "logos"
         ? [...Array(cataloguesTest)].map((e, i) => (
