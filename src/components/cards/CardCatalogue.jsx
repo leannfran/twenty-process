@@ -43,7 +43,7 @@ export default function CardCatalogue({ openCatalogue,items}) {
   };
 
   return (
-    <Card className="flex-row w-[310px] h-[310px] md:w-[99%]  md:h-[250px] shadow shadow-gray-600 m-auto ">
+    <Card className="flex-row w-[310px] h-[310px] md:w-[99%]  md:h-[250px] shadow shadow-gray-600 m-auto bg-gradient-to-t" id="catalogos">
       <CardHeader
         shadow={false}
         floated={false}
@@ -55,7 +55,7 @@ export default function CardCatalogue({ openCatalogue,items}) {
           height={500}
           alt="image"
           className="w-full h-full object-cover"
-          onClick={()=>openCatalogue(true)}
+          // onClick={()=>openCatalogue(true)}
           quality={100}
           loading="lazy"
         />
@@ -70,21 +70,28 @@ export default function CardCatalogue({ openCatalogue,items}) {
           </p>
           <span className="text-gray-500 text-sm">Publicado: 26/06/23</span>
         </div>
-        <Button className="md:hidden bg-transparent border-2 px-2 py-0">
+
+        <Button className={`md:hidden bg-transparent border-2 px-2 py-0 ${items.id > 8 ? 'disabled-link' : ''}`} onClick={onHandlerClickCatalogue}>
+        <a href={items.url} className="flex" target="_blank" onClick={(e) => items.id > 8 && e.preventDefault()}>
+              <BsEye size={20} />
+            </a>
+        </Button>
+
+        <Button className="md:hidden bg-transparent border-2 px-2 py-0 ml-2" onClick={onButtonClick}>
             <BsDownload size={20} />
-          </Button>
+        </Button>
+
         <div className=" hidden md:flex md:max-w-[200px]   flex-col justify-evenly items-center">
+
           <Button className="flex items-center gap-3 bg-white text-[#235F5B] font-extrabold h-12 w-40 shadow-md shadow-[#235F5B]" onClick={onButtonClick}>
             <BsDownload size={34} /> Descargar
           </Button>
-
 
           <Button className={`flex items-center gap-3 bg-white text-[#235F5B] font-extrabold h-12 w-40 shadow-md shadow-[#235F5B] ${items.id > 8 ? 'disabled-link' : ''}`} onClick={onHandlerClickCatalogue}>
             <a href={items.url} className="flex" target="_blank" onClick={(e) => items.id > 8 && e.preventDefault()}>
               <BsEye size={34} /> Ver catálogo
             </a>
           </Button>
-
 
         <Toaster theme="light" position='top-right' duration={9000} closeButton richColors/>
         </div>
