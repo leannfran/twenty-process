@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="grid grid-rows-1 gap-8 md:grid-cols-12 xl:gap-8">
         <div className="md:col-span-12 xl:col-span-4 flex flex-col gap-5">
         <h1 className="text-3xl font-bold ">twenty</h1>
-      <p className=" text-justify">
+      <p className=" text-left">
       Somos especialistas en productos de merchandising. Ofrecemos atención exclusiva y personalizada a la medida de tu marca, para que te identifiques con nuestros productos y el mensaje que queres brindar a tus clientes.
       </p>
         </div>

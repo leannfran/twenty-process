@@ -12,7 +12,7 @@ const Nosotros = () => {
           height={100}
         />
       </div>
-      <div className=" md:w-1/2 mt-10">
+      <div className=" md:w-1/2 mt-10" id="nosotros">
         <h4 className="text-3xl font-semibold tracking-widest pb-2 mb-4 border-b inline-block border-primary ">
           NOSOTROS
         </h4>

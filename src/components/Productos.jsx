@@ -7,8 +7,8 @@ const Productos = () => {
   return (
     <>
      
-        <div className="flex justify-between items-center">
-          <div className="md:ml">
+        <div className="flex justify-between items-center" id="productos">
+          <div className="md:ml-24">
             <h2 className="text-black text-lg py-3 pl-4 lg:pl-0">
               PRODUCTOS DESTACADOS{" "}
             </h2>

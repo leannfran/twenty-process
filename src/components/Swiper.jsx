@@ -153,7 +153,7 @@ export default function CardSwiper({
             ))
         : swiperClass === "catalogues"
           ? [...Array(cataloguesTest)].map((e, i) => (
-            jsonCatalogues.map((items) => (
+            jsonCatalogues.map((items,i) => (
               <SwiperSlide key={i}>
 
 
