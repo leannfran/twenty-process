@@ -44,7 +44,7 @@ const Aptitudes = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary   opacity-75 rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">VALORES</h5>
           {isHovered1 ? (
-            <p className="animate-fade animate-once animate-delay-500 text-lg font-light p-5 md:pl-10 md:pr-36">
+            <p className="animate-fade animate-once animate-delay-500 text-base font-light p-5 md:pl-10 md:pr-36">
               En Twenty, nos regimos por un conjunto de valores fundamentales
               que guían nuestro trabajo diario. Estos valores incluyen la
               calidad, la innovación, la honestidad y el compromiso con la
@@ -65,7 +65,7 @@ const Aptitudes = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary opacity-75  rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">COMPROMISO</h5>
           {isHovered2 ? (
-            <p className="animate-fade animate-once animate-delay-500 text-lg font-light md:pr-36 p-5 md:pl-10">
+            <p className="animate-fade animate-once animate-delay-500 text-base font-light md:pr-36 p-5 md:pl-10">
               Estamos comprometidos con ofrecer a nuestros clientes productos de
               alta calidad y servicios excepcionales. Nos esforzamos por superar
               las expectativas y establecer relaciones duraderas basadas en la
@@ -87,7 +87,7 @@ const Aptitudes = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-secondary2 to-secondary2 opacity-80   rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">OBJETIVO</h5>
           {isHovered3 ? (
-            <p className="animate-fade animate-once animate-delay-500 text-lg font-light md:pr-20 md:p-5 p-10 md:pl-10">
+            <p className="animate-fade animate-once animate-delay-500 text-base font-light md:pr-20 md:p-5 p-10 md:pl-10">
               Nuestro objetivo principal es ayudar a nuestros clientes a
               destacarse en su industria a través de estrategias de
               merchandising efectivas. Nos esforzamos por ofrecer soluciones
