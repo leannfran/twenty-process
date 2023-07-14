@@ -55,7 +55,7 @@ export default function CardSwiper({
 
   return (
     <Swiper
-      className={`my-10 ${
+      className={`my-10   ${
         swiperClass === "catalogues"
           ? "h-[350px] md:h-[800px]"
           : swiperClass === "products"
@@ -119,7 +119,12 @@ export default function CardSwiper({
               : length,
         },
         918: {
-          slidesPerView: length,
+          slidesPerView: 
+          swiperClass === "products"
+              ? 3.8
+              : swiperClass === "categories"
+              ? 4.2
+              : length,
         },
       }}
     >
@@ -161,7 +166,7 @@ export default function CardSwiper({
         : swiperClass === "logos"
         ? [...Array(cataloguesTest)].map((e, i) => (
             <SwiperSlide key={i}>
-              <div className="px-12 w-30 md:w-60 ">
+              <div className="px-2 w-30 md:w-60 ">
                 <Image src={brandLogo} alt="logo" />
               </div>
             </SwiperSlide>

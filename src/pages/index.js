@@ -35,6 +35,8 @@ export default function Home() {
  font-black text-[#09433E] p-4 md:p-10 text-3xl md:text-5xl">
         MERCHANDISING PERSONALIZADO PARA POTENCIAR TU MARCA
         </h1>
+          
+      
         <Productos />
         <Categories />
 
@@ -63,7 +65,7 @@ export default function Home() {
             />
           </div>
           <div
-            style={{ boxShadow: "1px -65px 48px -31px rgba(0,0,0,0.75) inset" }}
+            style={{ boxShadow: "1px -65px 48px -31px rgba(255,255,255,0.75) inset" }}
             className="w-full h-28 absolute bottom-0 z-10 hidden md:block"
           ></div>
           {showCatalogue && (
