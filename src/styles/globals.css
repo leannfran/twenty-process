@@ -62,3 +62,27 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+.aptitudes1{
+  background-image: url(../../public/assets/first.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.aptitudes2{
+  background-image: url(../../public/assets/second.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.aptitudes3{
+  background-image: url(../../public/assets/third.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.aptitudes4{
+  background-image: url(../../public/assets/fouth.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

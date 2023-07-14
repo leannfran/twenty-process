@@ -75,7 +75,7 @@ export default function CardSwiper({
             swiperClass === "catalogues"
               ? 1.1
               : swiperClass === "products"
-              ? 1.1
+              ? 1.5
               : swiperClass === "categories"
               ? 2
               : 2,
@@ -85,7 +85,7 @@ export default function CardSwiper({
             swiperClass === "catalogues"
               ? 1.2
               : swiperClass === "products"
-              ? 1.2
+              ? 1.5
               : swiperClass === "categories"
               ? 2.5
               : 2,
@@ -95,7 +95,7 @@ export default function CardSwiper({
             swiperClass === "catalogues"
               ? 1.4
               : swiperClass === "products"
-              ? 1.4
+              ? 1.5
               : swiperClass === "categories"
               ? 3.3
               : 2,
@@ -105,7 +105,7 @@ export default function CardSwiper({
             swiperClass === "catalogues"
               ? 1.8
               : swiperClass === "products"
-              ? 1.8
+              ? 2.0
               : swiperClass === "categories"
               ? 4.2
               : 2,
@@ -113,7 +113,7 @@ export default function CardSwiper({
         720: {
           slidesPerView:
             swiperClass === "products"
-              ? 1.8
+              ? 2.2
               : swiperClass === "categories"
               ? 4.2
               : length,

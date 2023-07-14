@@ -1,5 +1,5 @@
 import Image from "next/image";
-import NosotrosImg from "../..//public/assets/NosotrosImg.jpeg";
+import NosotrosImg from "../../public/assets/nosotrosIMG.png";
 const Nosotros = () => {
   return (
     <div className="flex  bg-gradient-to-t pb-20 from-[#B9D8D6] text-black mt-0">
@@ -8,8 +8,8 @@ const Nosotros = () => {
           className=" hidden md:flex rounded-full overflow-hidden w-96 h-96 object-cover border-8 border-primary"
           src={NosotrosImg}
           alt={"IMAGEN DE UN EMPRESARIO"}
-          width={100}
-          height={100}
+          width={1000}
+          height={1000}
         />
       </div>
       <div className=" md:w-1/2 mt-10" id="nosotros">
