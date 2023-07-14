@@ -43,7 +43,7 @@ const ContactForm = () => {
         setIsSending(true);
         emailjs
             .send(
-                "service_2700hvt",
+                "service_jhe7wr6",
                 "template_orc6f4w",
                 formData,
                 "JKaEpvNGBleWS_JA8"
@@ -81,7 +81,7 @@ const ContactForm = () => {
 
     return (
         <>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-12">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-12" id='contacto'>
                 <div className="bg-primary p-44 w-2/4 flex flex-col justify-center items-center relative h-full">
                     <div
                         className="absolute top-0 left-0 w-full h-full backdrop-blur bg-[url(../../public/assets/message-illustration.png)] bg-center bg-contain bg-no-repeat"
