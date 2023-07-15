@@ -65,7 +65,7 @@ export default function CardCatalogue({ openCatalogue,items}) {
       <CardBody className="flex md:gap-5 max-w-[700px] w-full  md:py-12 text-start md:justify-between absolute bottom-0 md:static ">
         <div className="w-full md:w-[210px] lg:w-[440px]  flex flex-col justify-between items-start overflow-hidden ">
           <h3 className=" w-full text-sm md:text-lg font-extrabold text-white md:text-black">{items.name}</h3>
-          <p className=" hidden md:block font-normal text-base text-white md:text-black whitespace-nowrap overflow-hidden text-overflow-ellipsis">
+          <p className=" hidden  font-normal text-base text-white md:text-black whitespace-nowrap overflow-hidden text-overflow-ellipsis">
             Lorem ipsum dolor sit amet consectetur adipiscing elit dis.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
           </p>
           <span className="text-gray-500 text-sm">Publicado: 26/06/23</span>

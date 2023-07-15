@@ -41,7 +41,7 @@ const Aptitudes = () => {
           onMouseLeave={() => setIsHovered1(false)}
           style={{ zIndex: isHovered1 ? 2 : 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary   opacity-75 rounded-lg md:rounded-l-lg"></div>
+          <div className="absolute shadow-lg  inset-0 bg-gradient-to-r from-primary to-primary   opacity-75 rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">VALORES</h5>
           {isHovered1 ? (
             <p className="animate-fade animate-once animate-delay-500 text-base font-light p-5 md:pl-10 md:pr-36">
@@ -62,7 +62,7 @@ const Aptitudes = () => {
           onMouseLeave={() => setIsHovered2(false)}
           style={{ zIndex: isHovered2 ? 2 : 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary opacity-75  rounded-lg md:rounded-l-lg"></div>
+          <div className="absolute inset-0 shadow-lg  bg-gradient-to-r from-secondary to-secondary opacity-75  rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">COMPROMISO</h5>
           {isHovered2 ? (
             <p className="animate-fade animate-once animate-delay-500 text-base font-light md:pr-36 p-5 md:pl-10">
@@ -77,14 +77,14 @@ const Aptitudes = () => {
         </div>
 
         <div
-          className={`relative aptitudes3 transition-all w-1/3 flex flex-col items-start pt-9 text-xl bg-opacity-75  text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96 ${
+          className={`relative aptitudes3 transition-all w-1/3 flex flex-col items-start pt-9  text-xl bg-opacity-75  text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96 ${
             isHovered3 ? "w-full" : ""
           }`}
           onMouseEnter={() => setIsHovered3(true)}
           onMouseLeave={() => setIsHovered3(false)}
           style={{ zIndex: isHovered3 ? 2 : 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary2 to-secondary2 opacity-80   rounded-lg md:rounded-l-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary2 to-secondary2 opacity-80 shadow-lg  rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">OBJETIVO</h5>
           {isHovered3 ? (
             <p className="animate-fade animate-once animate-delay-500 text-base font-light md:pr-20 md:p-5 p-10 md:pl-10">
