@@ -36,7 +36,7 @@ export default function Home() {
         MERCHANDISING PERSONALIZADO PARA POTENCIAR TU MARCA
         </h1>
         <Productos />
-        <Categories />
+        {/* <Categories /> */}
 
         <Nosotros />
         <Aptitudes />
