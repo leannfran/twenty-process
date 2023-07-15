@@ -103,7 +103,7 @@ const Aptitudes = () => {
 
       {/* MOBILE */}
 
-      <div className="lg:hidden mt-10 flex flex-col w-full ">
+      <div className="lg:hidden mt-10 flex flex-col w-full">
         <div className="flex flex-col w-full ">
           <div
             className={`relative  aptitudes4 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
