@@ -22,8 +22,8 @@ const Productos = ({ name, image, category , loading }) => {
         >
           <Image
             src={image}
-            width={500}
-            height={500}
+            width={700}
+            height={700}
             alt={name}
             className={`object-cover  rounded-b-none h-full w-full
             ${
@@ -32,7 +32,7 @@ const Productos = ({ name, image, category , loading }) => {
                 : 'grayscale-0 blur-0 scale-100'
             }
             `}
-            loading="lazy"
+            
             onLoadingComplete={() => setIsImageLoading(false)}
           />
         </CardHeader>

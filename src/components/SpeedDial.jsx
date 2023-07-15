@@ -31,7 +31,7 @@ export default function ContactFloatButton() {
             </Link>
             </SpeedDialAction>
             <SpeedDialAction>
-            <Link href="mailto: ventas@twenty.com.ar">
+            <Link href="mailto: info@twenty.com.ar">
               <EnvelopeIcon className="h-5 w-5 text-[#235F5B]" />
             </Link>
             </SpeedDialAction>

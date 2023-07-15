@@ -40,7 +40,7 @@ const Footer = () => {
               target="_blank"
             ><FacebookLogo/>twenty.arg</a>
             <a
-              href="https://www.instagram.com/twenty.arg/"
+              href="https://www.linkedin.com/company/twentyarg/"
               className="flex items-center gap-2 hover:bg-primary  p-2 rounded-lg transition-colors"
               target="_blank"
             ><LinkedinLogo /> Twenty Argentina</a>  
