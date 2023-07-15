@@ -6,13 +6,16 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <Head>
-        <title>Twenty | Página de inicio</title>
-        <link rel="icon" href="./public/logo.jpeg" />
+      <title>Twenty | Página de inicio</title>
+        <link rel="icon" href="./public/twentyLOGO.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-       { <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-        </style>}
+
+        {/* Metaetiquetas */}
+        <meta name="description" content="TWENTY es una empresa de merchandising B2B especializada en productos promocionales personalizados. Contáctanos para solicitar presupuestos, conocer más sobre nosotros y descargar nuestros catálogos de productos." />
+        <meta name="keywords" content="merchandising, productos promocionales, personalizados, B2B, empresa, TWENTY" />
+        <meta name="author" content="TWENTY" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      
       </Head>
       <Component {...pageProps} />
     </ThemeProvider>
