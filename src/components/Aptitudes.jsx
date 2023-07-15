@@ -19,11 +19,11 @@ const Aptitudes = () => {
 
   return (
     <div className="flex flex-col md:flex-row text-black bg-gradient-to-b md:py-20 from-[#B9D8D6]">
-      <div className=" flex-col md:pl-4 hidden lg:flex px-2 mt-10 md:w-1/4">
-        <h4 className="text-2xl text-center font-semibold tracking-widest pb-6 inline-block">
+      <div className=" flex-col md:pl-4 hidden lg:flex px-2 mt-10 md:w-1/4 text-left">
+        <h4 className="text-2xl font-semibold tracking-widest pb-6 inline-block">
           Nuestras Aptitudes
         </h4>
-        <p className="px-5 text-justify text-lg text-light">
+        <p className="px-0 text-left text-base text-light">
           En Twenty, nos destacamos por ofrecer soluciones creativas y
           personalizadas en el ámbito del merchandising B2B. Trabajamos
           estrechamente con nuestros clientes para desarrollar estrategias

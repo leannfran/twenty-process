@@ -19,7 +19,7 @@ export default function CardCatalogue({ openCatalogue,items}) {
 
       e.preventDefault();
       toast('¡Opps! Catálogo en mantenimiento', {
-        description: 'Disculpa las molestias, nuestro catálogo no está disponible en este momento."',
+        description: 'Disculpa las molestias, nuestro catálogo solo se encuentra en versión descargable."',
         icon: <BiHappyAlt />,
       });
 

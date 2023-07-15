@@ -81,7 +81,7 @@ const ContactForm = () => {
 
     return (
         <>
-            <div className="flex flex-col mt-20 md:flex-row justify-center items-center gap-12" id='contacto'>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-12 mb-10" id='contacto'>
                 <div className="bg-primary p-44 w-2/4 flex flex-col justify-center items-center relative h-full">
                     <div
                         className="absolute top-0 left-0 w-full h-full backdrop-blur bg-[url(../../public/assets/message-illustration.png)] bg-center bg-contain bg-no-repeat"
