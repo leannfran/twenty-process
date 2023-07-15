@@ -124,7 +124,7 @@ const ContactForm = () => {
                         <div className='rounded-full bg-primary p-2'>
 
                             <Link href='https://api.whatsapp.com/send?phone=5491178311503&text=¡Hola!, Me interesa 
-                            conocer más sobre los servicios que ofrece Twenty, ¿Podrían proporcionarme más información y precios? ¡Gracias! 😀' target='_blank'>
+                            conocer más sobre los servicios que ofrece Twenty, ¿Podrían proporcionarme más información y precios? ¡Gracias! 😀' target='_full'>
                                 <FaWhatsapp size={32} color='white' />
                             </Link>
 
@@ -132,7 +132,7 @@ const ContactForm = () => {
 
                         <div className='rounded-full bg-primary p-2'>
 
-                            <Link href='mailto: ventas@twenty.com.ar'>
+                            <Link href='mailto: ventas@twenty.com.ar?subject=Consulta de servicios'>
                                 <AiOutlineMail size={32} color='white' />
                             </Link>
 
