@@ -16,14 +16,14 @@ const Productos = ({ name, image, category , loading }) => {
 
   return (
     <>
-      <Card className="w-60 h-60 md:w-80 md:h-80 2xl:w-96 m-auto border">
+      <Card className="w-60 h-full md:w-80 md:h-80 2xl:w-96 m-auto border">
         <CardHeader
           className={`relative h-56 m-0 rounded-b-none shadow-none `}
         >
           <Image
             src={image}
-            width={700}
-            height={700}
+            width={500}
+            height={500}
             alt={name}
             className={`object-contain  rounded-b-none h-full w-full
             ${
