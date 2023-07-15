@@ -123,7 +123,8 @@ const ContactForm = () => {
 
                         <div className='rounded-full bg-primary p-2'>
 
-                            <Link href='https://api.whatsapp.com/send?phone=5491178311503' target='_blank'>
+                            <Link href='https://api.whatsapp.com/send?phone=5491178311503&text=¡Hola!, Me interesa 
+                            conocer más sobre los servicios que ofrece Twenty, ¿Podrían proporcionarme más información y precios? ¡Gracias! 😀' target='_blank'>
                                 <FaWhatsapp size={32} color='white' />
                             </Link>
 
