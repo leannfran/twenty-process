@@ -34,7 +34,7 @@ const Aptitudes = () => {
 
       <div className="hidden lg:flex flex-col md:flex-row w-full md:w-3/4">
         <div
-          className={`relative w-1/3 transition-all aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg  md:h-96 ${
+          className={`relative w-1/3 transition-all aptitudes1 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg  md:h-96 ${
             isHovered1 ? "w-full" : ""
           }`}
           onMouseEnter={() => setIsHovered1(true)}
@@ -55,7 +55,7 @@ const Aptitudes = () => {
         </div>
 
         <div
-          className={`relative aptitudes transition-all w-1/3 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96  ${
+          className={`relative aptitudes2 transition-all w-1/3 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96  ${
             isHovered2 ? "w-full" : ""
           }`}
           onMouseEnter={() => setIsHovered2(true)}
@@ -77,7 +77,7 @@ const Aptitudes = () => {
         </div>
 
         <div
-          className={`relative aptitudes transition-all w-1/3 flex flex-col items-start pt-9 text-xl bg-opacity-75  text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96 ${
+          className={`relative aptitudes3 transition-all w-1/3 flex flex-col items-start pt-9 text-xl bg-opacity-75  text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96 ${
             isHovered3 ? "w-full" : ""
           }`}
           onMouseEnter={() => setIsHovered3(true)}
@@ -106,7 +106,7 @@ const Aptitudes = () => {
       <div className="lg:hidden mt-10 flex flex-col w-full ">
         <div className="flex flex-col w-full ">
           <div
-            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes4 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 4
                 ? " "
                 : "h-1/3"
@@ -130,7 +130,7 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes1 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 1
                 ? " "
                 : "h-1/3"
@@ -154,7 +154,7 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative aptitudes2 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 2
                 ? ""
                 : "h-1/3"
@@ -179,7 +179,7 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl bg-opacity-75 text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes3 flex flex-col items-start pt-9 text-xl bg-opacity-75 text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 3
                 ? "0"
                 : "h-1/3"
