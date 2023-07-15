@@ -17,7 +17,7 @@ const Nosotros = () => {
           NOSOTROS
         </h4>
 
-        <p className="md:pr-28 tracking-wide pl-3 pr-3 leading-8 ">
+        <p className="md:pr-28 tracking-wide pr-3 leading-8 ">
           Somos <b>especialistas</b> en productos de merchandising. Ofrecemos atención
           exclusiva y personalizada a la medida de tu marca, para que te
           identifiques con nuestros productos y el mensaje que queres brindar a
