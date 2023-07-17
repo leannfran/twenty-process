@@ -26,12 +26,13 @@ export default function ContactFloatButton() {
           </SpeedDialHandler>
           <SpeedDialContent>
             <SpeedDialAction>
-            <Link href="https://api.whatsapp.com/send?phone=5491178311503" target="_blank">
+            <Link href="https://api.whatsapp.com/send?phone=5491178311503&text=¡Hola!, Me interesa 
+                            conocer más sobre los servicios que ofrece Twenty, ¿Podrían proporcionarme más información y precios? ¡Gracias! 😀" target="_blank">
               <BsWhatsapp className="h-5 w-5 text-[#235F5B]" />
             </Link>
             </SpeedDialAction>
             <SpeedDialAction>
-            <Link href="mailto: ventas@twenty.com.ar">
+            <Link href="mailto: info@twenty.com.ar">
               <EnvelopeIcon className="h-5 w-5 text-[#235F5B]" />
             </Link>
             </SpeedDialAction>

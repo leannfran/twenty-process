@@ -16,7 +16,7 @@ const Productos = ({ name, image, category , loading }) => {
 
   return (
     <>
-      <Card className="w-60 h-60 md:w-80 md:h-80 2xl:w-96 m-auto border">
+      <Card className="w-60 h-full md:w-80 md:h-80 2xl:w-96 m-auto border">
         <CardHeader
           className={`relative h-56 m-0 rounded-b-none shadow-none `}
         >
@@ -25,14 +25,14 @@ const Productos = ({ name, image, category , loading }) => {
             width={500}
             height={500}
             alt={name}
-            className={`object-cover  rounded-b-none
+            className={`object-contain  rounded-b-none h-full w-full
             ${
               isImageLoading
                 ? 'grayscale blur-xl scale-105'
                 : 'grayscale-0 blur-0 scale-100'
             }
             `}
-            loading="lazy"
+            
             onLoadingComplete={() => setIsImageLoading(false)}
           />
         </CardHeader>

@@ -19,11 +19,11 @@ const Aptitudes = () => {
 
   return (
     <div className="flex flex-col md:flex-row text-black bg-gradient-to-b md:py-20 from-[#B9D8D6]">
-      <div className=" flex-col md:pl-4 hidden lg:flex px-2 mt-10 md:w-1/4">
-        <h4 className="text-2xl text-center font-semibold tracking-widest pb-6 inline-block">
+      <div className=" flex-col md:pl-4 hidden lg:flex px-2 mt-10 md:w-1/4 text-left">
+        <h4 className="text-2xl font-semibold tracking-widest pb-6 inline-block">
           Nuestras Aptitudes
         </h4>
-        <p className="px-5 text-justify text-lg text-light">
+        <p className="px-0 text-left text-base text-light">
           En Twenty, nos destacamos por ofrecer soluciones creativas y
           personalizadas en el ámbito del merchandising B2B. Trabajamos
           estrechamente con nuestros clientes para desarrollar estrategias
@@ -34,14 +34,14 @@ const Aptitudes = () => {
 
       <div className="hidden lg:flex flex-col md:flex-row w-full md:w-3/4">
         <div
-          className={`relative w-1/3 transition-all aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg  md:h-96 ${
+          className={`relative w-1/3 transition-all aptitudes1 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg  md:h-96 ${
             isHovered1 ? "w-full" : ""
           }`}
           onMouseEnter={() => setIsHovered1(true)}
           onMouseLeave={() => setIsHovered1(false)}
           style={{ zIndex: isHovered1 ? 2 : 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary   opacity-75 rounded-lg md:rounded-l-lg"></div>
+          <div className="absolute shadow-lg  inset-0 bg-gradient-to-r from-primary to-primary   opacity-75 rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">VALORES</h5>
           {isHovered1 ? (
             <p className="animate-fade animate-once animate-delay-500 text-base font-light p-5 md:pl-10 md:pr-36">
@@ -55,14 +55,14 @@ const Aptitudes = () => {
         </div>
 
         <div
-          className={`relative aptitudes transition-all w-1/3 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96  ${
+          className={`relative aptitudes2 transition-all w-1/3 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96  ${
             isHovered2 ? "w-full" : ""
           }`}
           onMouseEnter={() => setIsHovered2(true)}
           onMouseLeave={() => setIsHovered2(false)}
           style={{ zIndex: isHovered2 ? 2 : 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary to-secondary opacity-75  rounded-lg md:rounded-l-lg"></div>
+          <div className="absolute inset-0 shadow-lg  bg-gradient-to-r from-secondary to-secondary opacity-75  rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">COMPROMISO</h5>
           {isHovered2 ? (
             <p className="animate-fade animate-once animate-delay-500 text-base font-light md:pr-36 p-5 md:pl-10">
@@ -77,14 +77,14 @@ const Aptitudes = () => {
         </div>
 
         <div
-          className={`relative aptitudes transition-all w-1/3 flex flex-col items-start pt-9 text-xl bg-opacity-75  text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96 ${
+          className={`relative aptitudes3 transition-all w-1/3 flex flex-col items-start pt-9  text-xl bg-opacity-75  text-white font-bold shadow-md rounded-lg md:rounded-l-lg md:h-96 ${
             isHovered3 ? "w-full" : ""
           }`}
           onMouseEnter={() => setIsHovered3(true)}
           onMouseLeave={() => setIsHovered3(false)}
           style={{ zIndex: isHovered3 ? 2 : 1 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary2 to-secondary2 opacity-80   rounded-lg md:rounded-l-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary2 to-secondary2 opacity-80 shadow-lg  rounded-lg md:rounded-l-lg"></div>
           <h5 className="md:px-10 m-auto md:m-0 z-20">OBJETIVO</h5>
           {isHovered3 ? (
             <p className="animate-fade animate-once animate-delay-500 text-base font-light md:pr-20 md:p-5 p-10 md:pl-10">
@@ -103,10 +103,10 @@ const Aptitudes = () => {
 
       {/* MOBILE */}
 
-      <div className="lg:hidden mt-10 flex flex-col w-full ">
+      <div className="lg:hidden mt-10 flex flex-col w-full">
         <div className="flex flex-col w-full ">
           <div
-            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes4 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 4
                 ? " "
                 : "h-1/3"
@@ -130,7 +130,7 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes1 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 1
                 ? " "
                 : "h-1/3"
@@ -154,7 +154,7 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative aptitudes flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative aptitudes2 flex flex-col items-start pt-9 text-xl text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 2
                 ? ""
                 : "h-1/3"
@@ -179,7 +179,7 @@ const Aptitudes = () => {
           </div>
 
           <div
-            className={`relative  aptitudes flex flex-col items-start pt-9 text-xl bg-opacity-75 text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
+            className={`relative  aptitudes3 flex flex-col items-start pt-9 text-xl bg-opacity-75 text-white font-bold shadow-md rounded-lg md:rounded-l-lg ${
               activeIndex === 3
                 ? "0"
                 : "h-1/3"

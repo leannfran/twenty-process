@@ -55,7 +55,7 @@ export default function CardSwiper({
 
   return (
     <Swiper
-      className={`my-10 ${
+      className={`my-10   ${
         swiperClass === "catalogues"
           ? "h-[350px] md:h-[800px]"
           : swiperClass === "products"
@@ -75,7 +75,7 @@ export default function CardSwiper({
             swiperClass === "catalogues"
               ? 1.1
               : swiperClass === "products"
-              ? 1.1
+              ? 1.5
               : swiperClass === "categories"
               ? 2
               : 2,
@@ -85,7 +85,7 @@ export default function CardSwiper({
             swiperClass === "catalogues"
               ? 1.2
               : swiperClass === "products"
-              ? 1.2
+              ? 1.5
               : swiperClass === "categories"
               ? 2.5
               : 2,
@@ -95,7 +95,7 @@ export default function CardSwiper({
             swiperClass === "catalogues"
               ? 1.4
               : swiperClass === "products"
-              ? 1.4
+              ? 1.5
               : swiperClass === "categories"
               ? 3.3
               : 2,
@@ -105,7 +105,7 @@ export default function CardSwiper({
             swiperClass === "catalogues"
               ? 1.8
               : swiperClass === "products"
-              ? 1.8
+              ? 2.0
               : swiperClass === "categories"
               ? 4.2
               : 2,
@@ -113,13 +113,18 @@ export default function CardSwiper({
         720: {
           slidesPerView:
             swiperClass === "products"
-              ? 1.8
+              ? 2.2
               : swiperClass === "categories"
               ? 4.2
               : length,
         },
         918: {
-          slidesPerView: length,
+          slidesPerView: 
+          swiperClass === "products"
+              ? 3.8
+              : swiperClass === "categories"
+              ? 4.2
+              : length,
         },
       }}
     >
@@ -161,7 +166,7 @@ export default function CardSwiper({
         : swiperClass === "logos"
         ? [...Array(cataloguesTest)].map((e, i) => (
             <SwiperSlide key={i}>
-              <div className="px-12 w-30 md:w-60 ">
+              <div className="px-2 w-30 md:w-60 ">
                 <Image src={brandLogo} alt="logo" />
               </div>
             </SwiperSlide>
