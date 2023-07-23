@@ -10,7 +10,7 @@ import {
 } from "@material-tailwind/react";
 import Link from "next/link";
 
-const Productos = ({ name, image, category , loading }) => {
+const Productos = ({ name, image, category  }) => {
 
   const [isImageLoading, setIsImageLoading] = React.useState(true);
 
@@ -34,6 +34,7 @@ const Productos = ({ name, image, category , loading }) => {
             `}
             
             onLoadingComplete={() => setIsImageLoading(false)}
+            priority={true}
           />
         </CardHeader>
         <CardBody className="p-3 text-left">
