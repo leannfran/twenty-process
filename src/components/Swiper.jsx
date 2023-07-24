@@ -189,7 +189,7 @@ export default function CardSwiper({
         : swiperClass === "categories"
         ? categories.map((category, i) => (
             <SwiperSlide key={i}>
-              <div className="m-auto">
+              <div className="pl-10 m-auto">
                 <CategoriesProduct
                   id={category.id}
                   title={category.title}
