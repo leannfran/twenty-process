@@ -3,7 +3,6 @@ import { FaArrowRight } from "react-icons/fa";
 import CardSwiper from "./Swiper";
 
 const Categories = () => {
-  const categories = 8;
 
   return (
     <>
@@ -19,7 +18,7 @@ const Categories = () => {
         </div>
       </div>
 
-      <CardSwiper vertical={false} swiperClass="categories" length={4.6} />
+      <CardSwiper vertical={false} swiperClass="categories" length={4.6} link/>
       <h2 className="md:hidden text-right text-black text-lg font-bold flex items-center justify-end gap-5 mr-2">
         Ver todo en Categorías <FaArrowRight />
       </h2>

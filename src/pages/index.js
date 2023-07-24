@@ -35,6 +35,7 @@ export default function Home() {
         </h1>
 
         <Productos />
+        <Categories />
         <section
           className="md:w-[80%] md:m-auto  my-10  relative"
           id="catalogues"
@@ -72,7 +73,7 @@ export default function Home() {
             </div>
           )}
         </section>
-        {/*<Categories />*/}
+
         <Nosotros />
         <Aptitudes />
 
