@@ -22,6 +22,8 @@ export default function CardSwiper({
   autoplay,
   swiperClass,
   length,
+  setter,
+  link
 }) {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -178,19 +180,22 @@ export default function CardSwiper({
                 name={product.name}
                 image={product.images[0].image_url}
                 category={product.families
-                  .map((family) => family.description)
+                  .map((family) => family.title)
                   .join(", ")}
-                  loading={isLoading}
+                  
               />
             </SwiperSlide>
           ))
         : swiperClass === "categories"
         ? categories.map((category, i) => (
             <SwiperSlide key={i}>
-              <div className="m-auto">
+              <div className="pl-10 m-auto">
                 <CategoriesProduct
+                  id={category.id}
                   title={category.title}
                   icon={category.icon_url}
+                  setter={setter}
+                  link={link}
                 />
               </div>
             </SwiperSlide>

@@ -19,26 +19,27 @@ export default function Home() {
 
   return (
     <Layout>
-
-
       <div className="hidden md:block fixed right-9 bottom-9 z-10">
         <SpeedDial />
       </div>
 
       <header>
-
         <CarouselHero />
-
       </header>
       <main className=" m-auto py-2">
-        <h1 className=" animate-fade
- font-black text-[#09433E] p-4 md:p-10 text-3xl md:text-5xl">
+        <h1
+          className=" animate-fade
+ font-black text-[#09433E] p-4 md:p-10 text-3xl md:text-5xl"
+        >
           MERCHANDISING PERSONALIZADO PARA POTENCIAR TU MARCA
         </h1>
 
-
         <Productos />
-        <section className="md:w-[80%] md:m-auto  my-10  relative">
+        <Categories />
+        <section
+          className="md:w-[80%] md:m-auto mt-28 my-10  relative"
+          id="catalogues"
+        >
           <h2 className="text-black text-lg py-3 pl-4 lg:pl-0">
             DESCARGÁ NUESTROS CATÁLOGOS
           </h2>
@@ -61,7 +62,9 @@ export default function Home() {
             />
           </div>
           <div
-            style={{ boxShadow: "1px -65px 48px -31px rgba(255,255,255,0.75) inset" }}
+            style={{
+              boxShadow: "1px -65px 48px -31px rgba(255,255,255,0.75) inset",
+            }}
             className="w-full h-28 absolute bottom-0 z-10 hidden md:block"
           ></div>
           {showCatalogue && (
@@ -70,11 +73,11 @@ export default function Home() {
             </div>
           )}
         </section>
-        {/*<Categories />*/}
-        <Nosotros />
-          <Aptitudes />
 
-       { /*<section className=" max-w-[1000px]  m-auto">
+        <Nosotros />
+        <Aptitudes />
+
+        {/*<section className=" max-w-[1000px]  m-auto">
           <h2 className="text-black text-lg py-3 pl-4 lg:pl-0">
             ALIANZAS DE ÉXITO CON MARCAS LÍDERES
           </h2>
@@ -84,7 +87,6 @@ export default function Home() {
 
         <ContactForm />
       </main>
-
     </Layout>
   );
 }

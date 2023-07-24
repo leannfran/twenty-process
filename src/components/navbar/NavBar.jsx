@@ -3,10 +3,15 @@ import Image from "next/image";
 import { BsBag, BsSearch } from "react-icons/bs";
 import twentyLogo from "../../../public/assets/logo-twenty-lyrics.svg";
 import BtnMenu from "../buttons/BtnMenu";
-import { Link as Scroll} from 'react-scroll'
 import Link from 'next/link'
+import redirectWithScroll from "../../utils/redirectWithScroll";
+import { useRouter } from "next/router";
+
 
 const NavBar = () => {
+
+  const router = useRouter()
+
   return (
     <nav className="w-full h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
       
@@ -18,10 +23,10 @@ const NavBar = () => {
 
       <div className="hidden md:flex items-center w-full justify-end px-4 lg:px-9 ">
         <ul className="flex gap-4 lg:gap-7 font-bold text-sm lg:text-lg cursor-pointer">
-          <li><Link className="hover:bg-secondary transition-colors rounded p-0.5" href='/store'>Productos</Link></li>
-          <li><Scroll className="hover:bg-secondary transition-colors rounded p-0.5" to="catalogos" spy={true} smooth={true} offset={50} duration={500}>Catálogos</Scroll></li>
-          <li><Scroll className="hover:bg-secondary transition-colors rounded p-0.5" to="nosotros" spy={true} smooth={true} offset={50} duration={500}>Nosotros</Scroll></li>
-          <li><Scroll className="hover:bg-secondary transition-colors rounded p-0.5" to="contacto" spy={true} smooth={true} offset={50} duration={500}>Contacto</Scroll></li>
+          <li><Link href="/store">Productos</Link></li>
+          <li><button onClick={redirectWithScroll(router,"/","#catalogues")}>Catálogos</button></li>
+          <li><button onClick={redirectWithScroll(router,"/","#nosotros")}>Nosotros</button></li>
+          <li><button onClick={redirectWithScroll(router,"/","#contacto")}>Contacto</button></li>
         </ul>
         <div className="hidden max-w-72 relative">
           <BsSearch className=" text-black absolute top-3 right-3 bg-white" />

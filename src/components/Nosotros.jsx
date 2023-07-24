@@ -2,7 +2,7 @@ import Image from "next/image";
 import NosotrosImg from "../../public/assets/nosotrosIMG.png";
 const Nosotros = () => {
   return (
-    <div className="flex  bg-gradient-to-t pb-20 from-[#B9D8D6] text-black mt-0">
+    <div className="flex  bg-gradient-to-t pb-20 from-[#B9D8D6] text-black pt-24" id="nosotros">
       <div className="w-1/2 flex justify-center">
         <Image
           className=" hidden md:flex rounded-full overflow-hidden w-96 h-96 object-cover border-8 border-primary"
@@ -12,7 +12,7 @@ const Nosotros = () => {
           height={1000}
         />
       </div>
-      <div className=" md:w-1/2 mt-10" id="nosotros">
+      <div className=" md:w-1/2 md:mt-10" id="nosotros">
         <h4 className="text-3xl font-semibold tracking-widest pb-2 mb-4 border-b inline-block border-primary ">
           NOSOTROS
         </h4>

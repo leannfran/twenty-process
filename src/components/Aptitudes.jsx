@@ -18,7 +18,7 @@ const Aptitudes = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row text-black bg-gradient-to-b md:py-20 from-[#B9D8D6]">
+    <div className="flex flex-col md:flex-row text-black bg-gradient-to-b md:py-24 mb-10 from-[#B9D8D6]">
       <div className=" flex-col md:pl-4 hidden lg:flex px-2 mt-10 md:w-1/4 text-left">
         <h4 className="text-2xl font-semibold tracking-widest pb-6 inline-block">
           Nuestras Aptitudes
