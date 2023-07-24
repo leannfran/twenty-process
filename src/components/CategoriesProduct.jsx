@@ -21,7 +21,7 @@ const CategoriesProduct = ({id, title, icon , link, setter}) => {
             )
           }
         }}>
-        <div className="w-32 h-32 bg-gradient-to-t from-teal-500 to-teal-200 rounded-full">
+        <div className="w-32 h-32 bg-white border-4 hover:shadow-2xl transition-shadow shadow-xl border-primary rounded-full">
           <Image
             src={icon}
             width={300}

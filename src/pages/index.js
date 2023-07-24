@@ -37,7 +37,7 @@ export default function Home() {
         <Productos />
         <Categories />
         <section
-          className="md:w-[80%] md:m-auto  my-10  relative"
+          className="md:w-[80%] md:m-auto mt-28 my-10  relative"
           id="catalogues"
         >
           <h2 className="text-black text-lg py-3 pl-4 lg:pl-0">

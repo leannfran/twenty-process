@@ -85,7 +85,7 @@ const ContactForm = () => {
   return (
     <>
       <div
-        className="flex flex-col md:flex-row justify-center items-center gap-12 mt-20 md:mt-0 mb-10"
+        className="flex flex-col md:flex-row justify-center items-center gap-12 mt-24 md:mt-0 mb-10"
         id="contacto"
       >
         <div className="bg-primary p-44 w-2/4 h-96 flex flex-col justify-center items-center relative md:mt-5 md:w-2/4 md:h-full">
