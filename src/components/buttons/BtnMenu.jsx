@@ -39,6 +39,11 @@ export default function BtnMenu() {
           <button onClick={redirectWithScroll(router, "/", "#contacto")}>
             <MenuItem>Contacto</MenuItem>
           </button>
+          <Input type="text" placeholder="Buscar..." className="!border !border-blue-gray-50 bg-white text-blue-gray-500 shadow-lg shadow-blue-gray-900/5 ring-4 ring-transparent placeholder:text-blue-gray-200 w-56"
+            labelProps={{
+              className: "hidden",
+            }}
+            />
         </div>
       </MenuList>
     </Menu>
