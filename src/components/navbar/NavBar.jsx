@@ -13,7 +13,7 @@ const NavBar = () => {
   const router = useRouter()
 
   return (
-    <nav className="w-full h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
+    <nav className="w-full text-white h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
       
       <Link href='/'>
 
