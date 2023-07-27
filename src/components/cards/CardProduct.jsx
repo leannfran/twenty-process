@@ -10,12 +10,12 @@ import {
 } from "@material-tailwind/react";
 import Link from "next/link";
 
-const Productos = ({ name, image, category  }) => {
+const Productos = ({id, name, image, category}) => {
 
   const [isImageLoading, setIsImageLoading] = React.useState(true);
 
   return (
-    <>
+    <Link href={`/store/${id}`} >
       <Card className="w-60 h-full md:w-80 md:h-80 2xl:w-96 m-auto border">
         <CardHeader
           className={`relative h-56 m-0 rounded-b-none shadow-none `}
@@ -42,16 +42,21 @@ const Productos = ({ name, image, category  }) => {
             {name}
           </Typography>
           <span className="text-gray-600 text-sm block">{category} </span>
-          <Link
+          <p
+            className="text-secondary text-sm underline"
+          >
+            Ver mas{" "}
+          </p> 
+          {/* <Link
             href={`https://wa.me/+5491178311503?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${name}%20${image}`}
             target="_blank"
             className="text-secondary text-sm underline"
           >
             Consultar precio{" "}
-          </Link>
+          </Link> */}
         </CardBody>
       </Card>
-    </>
+    </Link>
   );
 };
 

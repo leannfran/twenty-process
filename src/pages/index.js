@@ -9,7 +9,7 @@ import Categories from "../components/Categories";
 import ContactForm from "../components/ContactForm";
 import SpeedDial from "../components/SpeedDial";
 import { Layout } from "@/components/layout/Layout";
-
+import {MdOutlineSwipeVertical} from "react-icons/md"
 export default function Home() {
   const [showCatalogue, setShowCatalogue] = React.useState(false);
 
@@ -40,8 +40,8 @@ export default function Home() {
           className="md:w-[80%] md:m-auto mt-28 my-10  relative"
           id="catalogues"
         >
-          <h2 className="text-black text-lg py-3 pl-4 lg:pl-0">
-            DESCARGÁ NUESTROS CATÁLOGOS
+          <h2 className="text-black flex gap-4 text-lg py-3 pl-4 lg:pl-0">
+            DESCARGÁ NUESTROS CATÁLOGOS <MdOutlineSwipeVertical className=" animate-wiggle-more animate-infinite"/>
           </h2>
           <hr className="w-28 border border-primary ml-4 lg:ml-0" />
           <div className="hidden md:block">

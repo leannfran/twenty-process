@@ -2,7 +2,7 @@ import React from "react";
 import {InstagramLogo, FacebookLogo, LinkedinLogo} from '../components/Svgs'
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 w-full p-8">
+    <footer className="bg-gradient-to-t from-[#30807a] via-teal-400 text-white to-teal-200 w-full p-8">
       <div className="grid grid-rows-1 gap-8 md:grid-cols-12 xl:gap-8">
         <div className="md:col-span-12 xl:col-span-4 flex flex-col gap-5">
         <h1 className="text-3xl font-bold ">twenty</h1>
@@ -34,11 +34,7 @@ const Footer = () => {
             >
               <InstagramLogo/> twenty.arg</a>
               
-              <a
-              href="https://www.instagram.com/twenty.arg/"
-              className="flex items-center gap-2 hover:bg-primary  p-2 rounded-lg transition-colors"
-              target="_blank"
-            ><FacebookLogo/>twenty.arg</a>
+              
             <a
               href="https://www.linkedin.com/company/twentyarg/"
               className="flex items-center gap-2 hover:bg-primary  p-2 rounded-lg transition-colors"

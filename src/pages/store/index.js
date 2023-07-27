@@ -3,9 +3,12 @@ import React from "react";
 import CardProduct from "@/components/cards/CardProduct";
 import axios from "axios";
 import Pagination from "@/components/Pagination";
-import { Card } from "@material-tailwind/react";
+import { Breadcrumbs, Card } from "@material-tailwind/react";
 import CardSwiper from "@/components/Swiper";
 import { useRouter } from "next/router";
+import { BreadcrumbsWithIcon } from "@/components/atoms/BreadCrumbs";
+import SpeedDial from "../../components/SpeedDial";
+
 
 const store = () => {
   const router = useRouter();
@@ -99,7 +102,11 @@ const store = () => {
 
   return (
     <Layout>
+      <div className="hidden md:block fixed right-9 bottom-9 z-10">
+        <SpeedDial />
+      </div>
       <main className="min-h-screen text-center">
+      <BreadcrumbsWithIcon first="store" />
         <section className="flex flex-col 1440px:flex-row w-full">
           <div className=" min-h-screen w-full max-w-[1400px] m-auto">
             <h1 className="text-black text-xl md:text-3xl shadow- py-10">
@@ -143,9 +150,10 @@ const store = () => {
                   <h2 className="text-primary text-center font-extrabold text-3xl col-span-3">Nada por aquí! Pronto actualizaremos los productos de esta categoría.</h2>
                 
               ) : (
-                products.map((product) => (
+                products.map((product,i) => (
                   <CardProduct
-                    key={product.id}
+                    key={i}
+                    id={product.id}
                     name={product.name}
                     image={product.images[0].image_url}
                     category={product.families
