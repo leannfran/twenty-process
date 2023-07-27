@@ -15,37 +15,40 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "@material-tailwind/react";
 import jsonCatalogues from '../data/catalogues.json'
+import featuredProducts from '../../featuredProducts.json'
 
-export default function CardSwiper({
+const CardSwiper = ({
   openCatalogue,
   vertical,
   autoplay,
   swiperClass,
   length,
   setter,
-  link
-}) {
-  const [products, setProducts] = useState([]);
+  link,
+  actualProductName
+}) => {
   const [categories, setCategories] = useState([]);
+  const [relatedProducts, setRelatedProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const [keyword] = actualProductName ? actualProductName.split(" ") : "";
   const cataloguesTest = 7;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const productRequest = axios.get(
-          "https://api.zecatdifapro.com/generic_product?page=15&limit=6"
-        );
         const categoryRequest = axios.get(
           "https://api.zecatdifapro.com/family"
         );
-        const [productResponse, categoryResponse] = await axios.all([
-          productRequest,
+        const relatedProductsRequest = axios.get(
+          `https://api.zecatdifapro.com/generic_product?name=${keyword}`
+        );
+        const [ categoryResponse , relatedProductsResponse ] = await axios.all([
           categoryRequest,
+          relatedProductsRequest
         ]);
-        setProducts(productResponse.data.generic_products);
-        setCategories(categoryResponse.data.families);
+        setCategories(categoryResponse.data.families.filter((family)=> family.title !== "Próximos Arribos"));
+        setRelatedProducts(relatedProductsResponse.data.generic_products);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -60,7 +63,7 @@ export default function CardSwiper({
       className={`my-10   ${
         swiperClass === "catalogues"
           ? "h-[350px] md:h-[800px]"
-          : swiperClass === "products"
+          : swiperClass === "products" || swiperClass === "relatedProducts"
           ? "h-[330px]"
           : "h-[230px]"
       } py-2`}
@@ -76,7 +79,7 @@ export default function CardSwiper({
           slidesPerView:
             swiperClass === "catalogues"
               ? 1.1
-              : swiperClass === "products"
+              : swiperClass === "products" || swiperClass === "relatedProducts"
               ? 1.5
               : swiperClass === "categories"
               ? 2
@@ -86,7 +89,7 @@ export default function CardSwiper({
           slidesPerView:
             swiperClass === "catalogues"
               ? 1.2
-              : swiperClass === "products"
+              : swiperClass === "products" || swiperClass === "relatedProducts"
               ? 1.5
               : swiperClass === "categories"
               ? 2.5
@@ -96,7 +99,7 @@ export default function CardSwiper({
           slidesPerView:
             swiperClass === "catalogues"
               ? 1.4
-              : swiperClass === "products"
+              : swiperClass === "products" || swiperClass === "relatedProducts"
               ? 1.5
               : swiperClass === "categories"
               ? 3.3
@@ -106,7 +109,7 @@ export default function CardSwiper({
           slidesPerView:
             swiperClass === "catalogues"
               ? 1.8
-              : swiperClass === "products"
+              : swiperClass === "products" || swiperClass === "relatedProducts"
               ? 2.0
               : swiperClass === "categories"
               ? 4.2
@@ -114,7 +117,7 @@ export default function CardSwiper({
         },
         720: {
           slidesPerView:
-            swiperClass === "products"
+            swiperClass === "products" || swiperClass === "relatedProducts"
               ? 2.2
               : swiperClass === "categories"
               ? 4.2
@@ -122,7 +125,7 @@ export default function CardSwiper({
         },
         918: {
           slidesPerView: 
-          swiperClass === "products"
+          swiperClass === "products" || swiperClass === "relatedProducts"
               ? 3.8
               : swiperClass === "categories"
               ? 4.2
@@ -136,7 +139,7 @@ export default function CardSwiper({
             .fill()
             .map((_, index) => (
               <SwiperSlide key={index}>
-                {swiperClass === "products" ? (
+                {swiperClass === "products" || swiperClass === "relatedProducts" ? (
                   <Card className="w-80 h-80 md:w-96 m-auto border">
                     <div className="bg-white animate-pulse rounded p-4 h-full flex flex-col gap-3">
                       <div className="h-52 w-full bg-gray-300 rounded mb-2"></div>
@@ -174,19 +177,33 @@ export default function CardSwiper({
             </SwiperSlide>
           ))
         : swiperClass === "products"
-        ? products.map((product, i) => (
+        ? featuredProducts.map((product, i) => (
             <SwiperSlide key={i}>
               <CardProduct
                 id={product.id}
                 name={product.name}
-                image={product.images[0].image_url}
-                category={product.families
+                image={product.image}
+                /* category={product.families
                   .map((family) => family.title)
-                  .join(", ")}
+                  .join(", ")} */
                   
               />
             </SwiperSlide>
           ))
+        : swiperClass === "relatedProducts"
+        ? relatedProducts.map((product, i) => (
+          <SwiperSlide key={i}>
+          <CardProduct
+            id={product.id}
+            name={product.name}
+            image={product.images[0].image_url}
+            category={product.families
+              .map((family) => family.title)
+              .join(", ")}
+              
+          />
+        </SwiperSlide>
+      ))
         : swiperClass === "categories"
         ? categories.map((category, i) => (
             <SwiperSlide key={i}>
@@ -205,3 +222,5 @@ export default function CardSwiper({
     </Swiper>
   );
 }
+
+export default CardSwiper;
