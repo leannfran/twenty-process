@@ -6,14 +6,16 @@ import React from "react";
 import { Carousel } from "@material-tailwind/react";
 import SpeedDial from "../../components/SpeedDial";
 import Link from "next/link";
+import CardSwiper from "../../components/Swiper";
 
 const ProductDetail = ({ product }) => {
+
   return (
     <Layout>
       <div className="hidden md:block fixed right-9 bottom-9 z-10">
         <SpeedDial />
       </div>
-      <main className="bg-white min-h-screen flex flex-col items-center">
+      <main className="bg-white flex flex-col items-center">
         <BreadcrumbsWithIcon first="store" second={product.name} />
         <section className="  flex flex-col xl:flex-row max-w-[1300px]">
           <Carousel
@@ -33,11 +35,12 @@ const ProductDetail = ({ product }) => {
               />
             ))}
           </Carousel>
-          <div className="text-secondary  px-3 flex flex-col justify-between py-5 ">
+          <div className="  px-3 flex flex-col justify-between py-5 ">
             <div>
-
-            <h1 className="font-extrabold text-3xl ">{product.name}</h1>
-            <p className="py-10">{product.description}</p>
+              <h1 className="font-extrabold text-3xl text-[#0F201E]">
+                {product.name}
+              </h1>
+              <p className="py-10 text-secondary">{product.description}</p>
             </div>
             <div className=" h-32 xl:h-12 flex flex-col xl:flex-row justify-between gap-4 max-w-[676px]">
               <input type="number" className="md:w-60 h-full rounded-md p-2 border-2 border-gray-500" placeholder="Ingrese Cant. de productos"/>
@@ -45,8 +48,18 @@ const ProductDetail = ({ product }) => {
             </div>
           </div>
         </section>
-        <section>
-          <h2>Productos relacionados</h2>
+        <section className="text-[#0F201E] my-12">
+          <div className="m-auto text-center mt-12"> 
+
+          <h2 className="font-extrabold text-2xl inline">Productos </h2>{" "}
+          <span className="border-b pb-1 border-primary font-extrabold text-2xl">
+            {" "}
+            relacionados
+          </span>
+          </div>
+          <div className="w-screen">
+            <CardSwiper vertical={false} swiperClass="relatedProducts" length={2.3} actualProductName={product.name}/>
+          </div>
         </section>
       </main>
     </Layout>
