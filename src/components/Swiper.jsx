@@ -45,7 +45,7 @@ export default function CardSwiper({
           categoryRequest,
         ]);
         setProducts(productResponse.data.generic_products);
-        setCategories(categoryResponse.data.families);
+        setCategories(categoryResponse.data.families.filter((family) => family.title !== "Próximos Arribos"));
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -123,9 +123,17 @@ export default function CardSwiper({
         918: {
           slidesPerView: 
           swiperClass === "products"
-              ? 3.8
+              ? 2.7
               : swiperClass === "categories"
-              ? 4.2
+              ? 8
+              : length,
+        },
+        918: {
+          slidesPerView: 
+          swiperClass === "products"
+              ? 3.5
+              : swiperClass === "categories"
+              ? 7
               : length,
         },
       }}

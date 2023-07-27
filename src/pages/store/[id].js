@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 import { Carousel } from "@material-tailwind/react";
 import SpeedDial from "../../components/SpeedDial";
+import Link from "next/link";
 
 const ProductDetail = ({ product }) => {
   return (
@@ -40,7 +41,7 @@ const ProductDetail = ({ product }) => {
             </div>
             <div className=" h-32 xl:h-12 flex flex-col xl:flex-row justify-between gap-4 max-w-[676px]">
               <input type="number" className="md:w-60 h-full rounded-md p-2 border-2 border-gray-500" placeholder="Ingrese Cant. de productos"/>
-              <button className="bg-primary md:w-60 h-full rounded-md text-white font-bold">Solicitar cotización</button>
+              <Link target={"_blank"} href={`https://wa.me/+5491178311503?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${product.name}%20`} className="bg-primary md:w-60 h-full rounded-md text-center flex justify-center items-center text-white font-bold">Solicitar cotización</Link>
             </div>
           </div>
         </section>
