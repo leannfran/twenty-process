@@ -126,9 +126,17 @@ const CardSwiper = ({
         918: {
           slidesPerView: 
           swiperClass === "products" || swiperClass === "relatedProducts"
-              ? 3.8
+              ? 2.7
               : swiperClass === "categories"
-              ? 4.2
+              ? 8
+              : length,
+        },
+        918: {
+          slidesPerView: 
+          swiperClass === "products"
+              ? 3.5
+              : swiperClass === "categories"
+              ? 7
               : length,
         },
       }}
