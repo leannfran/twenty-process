@@ -101,7 +101,7 @@ const ProductDetail = ({ product }) => {
           <div className="m-auto text-center mt-12"> 
 
           <h2 className="font-extrabold text-2xl inline">Productos </h2>{" "}
-          <span className="border-b pb-1 border-primary font-extrabold text-2xl">
+          <span className="border-b pb-1 border-primary font-bold text-2xl">
             {" "}
             relacionados
           </span>
