@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { BsBag, BsSearch } from "react-icons/bs";
-import twentyLogo from "../../../public/assets/logo-twenty-lyrics.svg";
+import twentyLogo from "../../../public/assets/twentyLOGO.png";
 import BtnMenu from "../buttons/BtnMenu";
 import Link from 'next/link'
 import redirectWithScroll from "../../utils/redirectWithScroll";
@@ -17,7 +17,7 @@ const NavBar = () => {
       
       <Link href='/'>
 
-        <Image src={twentyLogo} alt="Twenty Logo" width={500} height={500} className="w-40"/>
+        <Image src={twentyLogo} alt="Twenty Logo" width={500} height={500} className=" rounded-full ml-3 p-2 md:p-4 w-20"/>
 
       </Link>
 
