@@ -17,7 +17,7 @@ const NavBar = () => {
       
       <Link href='/'>
 
-        <Image src={twentyLogo} alt="Twenty Logo" className="h-20 w-44"/>
+        <Image src={twentyLogo} alt="Twenty Logo" width={500} height={500} className="w-40"/>
 
       </Link>
 
