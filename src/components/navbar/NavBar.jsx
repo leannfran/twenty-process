@@ -66,20 +66,6 @@ const NavBar = () => {
 
   }
 
-  const handlePressKey = (event) => {
-
-    if (event.key === 'Enter' && autocompleteResults > 0) {
-
-      const firstResult = autocompleteResults[0]
-
-      router.push(`/store/${firstResult.id}`)
-
-    }
-
-    console.log(event.key)
-
-  }
-
   return (
     <nav className="w-full h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
 
@@ -102,12 +88,11 @@ const NavBar = () => {
                 }}
                 value={searchInput}
                 onChange={handleChange}
-                onKeyDown={handlePressKey}
           />
 
           {searchInput && (
 
-            <div className="scrollbar absolute bg-white z-10 max-h-36 overflow-y-auto rounded-sm md:w-[15rem] lg:w-[20rem]  border border-blue-gray-200 shadow-md md:top-[3.2rem] md:right-4 lg:top-[3.3rem] lg:right-9" ref={searchContainerRef}>
+            <div className="scrollbar absolute bg-white z-10 max-h-36 overflow-y-auto rounded-sm md:w-[15rem] lg:w-[20rem]  border border-blue-gray-200 shadow-md md:top-[3.3rem] md:right-4 lg:top-[3.3rem] lg:right-9" ref={searchContainerRef}>
 
               <List>
                 {isLoading ? (
