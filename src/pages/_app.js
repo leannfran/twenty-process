@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider>
       <Head>
       <title>Twenty | Página de inicio</title>
-        <link rel="icon" href="./public/twentyLOGO.png" />
+        <link rel="icon" href="/icon/twentyLOGO.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 
         {/* Metaetiquetas */}
