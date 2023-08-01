@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CarouselHero from "../components/Carousel";
 import CardSwiper from "../components/Swiper";
 import CardOpenCatalogue from "../components/cards/CardOpenCatalogue";
@@ -10,8 +10,17 @@ import ContactForm from "../components/ContactForm";
 import SpeedDial from "../components/SpeedDial";
 import { Layout } from "@/components/layout/Layout";
 import {MdOutlineSwipeVertical} from "react-icons/md"
+import { Popover, PopoverContent, PopoverHandler } from "@material-tailwind/react";
 export default function Home() {
   const [showCatalogue, setShowCatalogue] = React.useState(false);
+  const [openPopover, setOpenPopover] = useState(false)
+
+  const triggers = {
+
+    onMouseEnter: () => setOpenPopover(true),
+    onMouseLeave: () => setOpenPopover(false),
+
+  };
 
   function handleOpenCatalogue(open) {
     open ? setShowCatalogue(true) : setShowCatalogue(false);
@@ -41,7 +50,21 @@ export default function Home() {
           id="catalogues"
         >
           <h2 className="text-black flex gap-4 text-lg py-3 pl-4 lg:pl-0">
-            DESCARGÁ NUESTROS CATÁLOGOS <MdOutlineSwipeVertical className=" animate-wiggle-more animate-infinite"/>
+            DESCARGÁ NUESTROS CATÁLOGOS 
+            <Popover
+              placement="right-end"
+              open={openPopover}
+              handler={setOpenPopover}
+            >
+              <PopoverHandler {...triggers}>
+                <span>
+                <MdOutlineSwipeVertical className=" animate-wiggle-more animate-infinite cursor-help"/>
+                </span>
+              </PopoverHandler>
+              <PopoverContent {...triggers}>
+                <span>Desliza de arriba hacia abajo.</span>
+              </PopoverContent>
+            </Popover>
           </h2>
           <hr className="w-28 border border-primary ml-4 lg:ml-0" />
           <div className="hidden md:block">
