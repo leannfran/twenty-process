@@ -3,22 +3,74 @@ import { Layout } from "@/components/layout/Layout";
 import axios from "axios";
 import Image from "next/image";
 import React from "react";
-import { Carousel } from "@material-tailwind/react";
+import { Carousel,IconButton } from "@material-tailwind/react";
 import SpeedDial from "../../components/SpeedDial";
+import Link from "next/link";
+import CardSwiper from "../../components/Swiper";
 
 const ProductDetail = ({ product }) => {
+
   return (
     <Layout>
       <div className="hidden md:block fixed right-9 bottom-9 z-10">
         <SpeedDial />
       </div>
-      <main className="bg-white min-h-screen flex flex-col items-center">
+      <main className="bg-white flex flex-col items-center">
         <BreadcrumbsWithIcon first="store" second={product.name} />
-        <section className="  flex flex-col xl:flex-row max-w-[1300px]">
+        <section className=" md:pr-44 md:pl-36  flex flex-col xl:flex-row max-w-[1300px]">
           <Carousel
             transition={{ duration: 1 }}
             loop={true}
-            className="h-96 bg-gradient-to-t from-primary sm:h-[500px] md:min-w-[600px] md:h-[600px]"
+            className="h-96  bg-gradient-to-t from-primary sm:h-[500px] md:min-w-[500px] md:h-[500px]"
+            prevArrow={({ handlePrev }) => (
+              <IconButton
+                variant="text"
+                color="gray"
+                size="lg"
+                onClick={handlePrev}
+                className="!absolute top-2/4 left-4 -translate-y-2/4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="h-6 w-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                  />
+                </svg>
+              </IconButton>
+            )}
+            nextArrow={({ handleNext }) => (
+              <IconButton
+                variant="text"
+                color="gray"
+                size="lg"
+                onClick={handleNext}
+                className="!absolute top-2/4 !right-4 -translate-y-2/4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="h-6 w-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </IconButton>
+            )}
+          
           >
             {product.images.map((image) => (
               <Image
@@ -32,20 +84,31 @@ const ProductDetail = ({ product }) => {
               />
             ))}
           </Carousel>
-          <div className="text-secondary  px-3 flex flex-col justify-between py-5 ">
+          <div className="  px-3 flex flex-col justify-between py-5 ">
             <div>
-
-            <h1 className="font-extrabold text-3xl ">{product.name}</h1>
-            <p className="py-10">{product.description}</p>
+              <h1 className="font-extrabold text-3xl text-[#0F201E]">
+                {product.name}
+              </h1>
+              <p className="py-10 text-secondary">{product.description}</p>
             </div>
             <div className=" h-32 xl:h-12 flex flex-col xl:flex-row justify-between gap-4 max-w-[676px]">
               <input type="number" className="md:w-60 h-full rounded-md p-2 border-2 border-gray-500" placeholder="Ingrese Cant. de productos"/>
-              <button className="bg-primary md:w-60 h-full rounded-md text-white font-bold">Solicitar cotización</button>
+              <Link target={"_blank"} href={`https://wa.me/+5491178311503?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${product.name}%20`} className="bg-primary hover:bg-secondary transition-colors md:w-60 h-full rounded-md text-center flex justify-center items-center text-white font-bold">Solicitar cotización</Link>
             </div>
           </div>
         </section>
-        <section>
-          <h2>Productos relacionados</h2>
+        <section className="text-[#0F201E] my-12">
+          <div className="m-auto text-center mt-12"> 
+
+          <h2 className="font-extrabold text-2xl inline">Productos </h2>{" "}
+          <span className="border-b pb-1 border-primary font-bold text-2xl">
+            {" "}
+            relacionados
+          </span>
+          </div>
+          <div className="w-screen">
+            <CardSwiper vertical={false} swiperClass="relatedProducts" length={2.3} actualProductName={product.name}/>
+          </div>
         </section>
       </main>
     </Layout>
