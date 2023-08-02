@@ -67,11 +67,11 @@ const NavBar = () => {
   }
 
   return (
-    <nav className="w-full h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
+    <nav className="w-full h-20 md:h-[13vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
 
       <Link href='/'>
 
-        <Image src={twentyLogo} alt="Twenty Logo" width={500} height={500} className=" rounded-full ml-3 p-2 md:p-4 w-20"/>
+        <Image src={twentyLogo} alt="Twenty Logo" width={500} height={500} className=" rounded-full ml-3 p-2 md:p-4 w-20 py-1 md:w-28"/>
 
       </Link>
 
