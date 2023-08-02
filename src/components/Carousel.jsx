@@ -1,5 +1,5 @@
 import { Carousel } from "@material-tailwind/react";
-import carouselImg from "../../public/assets/6.png";
+import carouselImg from "../../public/assets/9.png";
 import carouselFirst from "../../public/assets/7.png";
 import carouselSecond from "../../public/assets/8.png";
 
