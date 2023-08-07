@@ -1,28 +1,28 @@
 [{
     "id": 1,
-    "name": "Catálogo Wagner",
+    "name": "Catálogo Mochilas",
     "description": "Catálogo Wagner",
     "url": "https://flipbookpdf.net/web/site/d9c605f021d05d26b0758f0f5fcb8adb083a15cd202307.pdf.html",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/2022_-_Wagner_-_Mochilas_Edit-1677520999.pptx_c6deqj.jpg",
     "pdf": "2022-Wagner-Mochilas.pdf"
 }, {
     "id": 2,
-    "name": "Catálogo Slazenger",
-    "description": "Catálogo Slazenger",
+    "name": "Catálogo Indumentaria deportiva",
+    "description": "Indumentaria Deportiva",
     "url": "https://flipbookpdf.net/web/site/9ec78eab69b3534b15a554de5a261bd94fc8d1ee202307.pdf.html",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Catalogo_-_Slazenger_2022-1664981333_2.pptx_xzjjpq.jpg",
     "pdf": "Catalogo-Slazenger-2022.pdf"
 }, {
     "id": 3,
-    "name": "Catálogo cocina",
+    "name": "Catálogo Cocina",
     "description": "Catálogo cocina",
     "url": "https://flipbookpdf.net/web/site/c347d969d26bd7e10588927b5ee6d6c3ef804361202307.pdf.html",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Cat%C3%A1logo_cocina-1663598312.pptx_hu7wqk.jpg",
     "pdf": "Catálogo-cocina.pdf"
 }, {
     "id": 4,
-    "name": "Catálogo Apparel",
-    "description": "Catálogo Apparel",
+    "name": "Catálogo Indumentaria",
+    "description": "Catálogo Indumentaria",
     "url": "https://flipbookpdf.net/web/site/a8f65b4ac97c59f479ba2146e52482db7121bdd3202307.pdf.html",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Catalogo_de_productos_Apparel_2022-1653683851.pptx_rxkvsc.jpg",
     "pdf": "Catalogo-Apparel-2022.pdf"
@@ -35,7 +35,7 @@
     "pdf": "Catálogo-Dia-del-padre.pdf"
 }, {
     "id": 6,
-    "name": "Catálogo drinkwater",
+    "name": "Catálogo Drinkwater",
     "description": "Catálogo drinkwater",
     "url": "https://flipbookpdf.net/web/site/d9fd9a4c71275bc7483fd3116c30c20815d23820202307.pdf.html",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Cat%C3%A1logo_drinkware-1663599115.pptx_bsl2lb.jpg",
@@ -44,33 +44,33 @@
     "id": 7,
     "name": "Catálogo pampa spirit",
     "description": "Catálogo pampa spirit",
-    "url": "https://flipbookpdf.net/web/site/d9fd9a4c71275bc7483fd3116c30c20815d23820202307.pdf.html",
+    "url": "",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689266105/Cat%C3%A1logo_Pampa_Spirit-1663783890.pptx_wtek3j.jpg",
-    "pdf": "Catálogo Pampa Spirit-1663783890"
+    "pdf": "Catálogo-Pampa-Spirit.pdf"
 }, {
     "id": 8,
     "name": "Catálogo pampero",
     "description": "Catálogo pampero",
-    "url": "https://flipbookpdf.net/web/site/d9fd9a4c71275bc7483fd3116c30c20815d23820202307.pdf.html",
+    "url": "",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689266134/Cat%C3%A1logo_Pampero-oct2022-1666967788.pptx_cl0u0g.jpg",
-    "pdf": "../../pdf/Catálogo-Pampero-oct2022.pdf"
+    "pdf": "Catálogo-Pampero-oct2022.pdf"
 }, {
     "id": 9,
-    "name": "Catálogo suns tools",
+    "name": "Catálogo Herramientas",
     "description": "Catálogo suns tools",
     "url": "",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689265320/Cat%C3%A1logo_SUNS_TOOLS_2022-1659018140_2.pptx_kv6tux.jpg",
     "pdf": "../../pdf/Catálogo-SUNS-TOOLS-2022.pdf"
 }, {
     "id": 10,
-    "name": "Catálogo tecnología",
+    "name": "Catálogo Tecnología",
     "description": "Catálogo tecnología",
     "url": "",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689265324/Cat%C3%A1logo_tecnolog%C3%ADa-1663599354.pptx_ufh8wb.jpg",
     "pdf": "../../pdf/Catálogo-tecnología.pdf"
 },{
     "id": 11,
-    "name": "Catálogo verbano",
+    "name": "Catálogo Tazas",
     "description": "Catálogo verbano",
     "url": "",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689265325/Cat%C3%A1logo_Verbano-1631042141.pptx_dai57c.jpg",
@@ -91,14 +91,14 @@
     "pdf": "../../pdf/Reingresos-2023-Catalogo.pdf"
 }, {
     "id": 14,
-    "name": "Reuseme catalogo",
-    "description": "Reuseme catalogo",
+    "name": "Catalogo Ecológico",
+    "description": "Catalogo Ecológico",
     "url": "",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689268048/REUSEME_-_CATALOGO_COMPLETO_V1-1651586029.pptx_dscvl6.jpg",
     "pdf": "../../pdf/REUSEME-CATALOGO.pdf"
 }, {
     "id": 15,
-    "name": "Laguiole catalogo",
+    "name": "Catalogo Cubiertos",
     "description": "Laguiole catalogo",
     "url": "",
     "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689269251/2022_-_Laguiole-1659018155.pptx_r8gddv.jpg",
