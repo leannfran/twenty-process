@@ -109,27 +109,18 @@ const store = () => {
       <BreadcrumbsWithIcon first="store" />
         <section className="flex flex-col 1440px:flex-row w-full">
           <div className=" min-h-screen w-full max-w-[1400px] m-auto">
-            <h1 className="text-black text-xl md:text-3xl shadow- py-10">
+            <h2 className="text-black text-xl md:text-3xl shadow- py-10">
               Conoce todos nuestros{" "}
               <span className="border-b pb-1 border-primary"> productos</span>!
-            </h1>
+            </h2>
             <CardSwiper
               vertical={false}
               swiperClass="categories"
               length={4.6}
               setter={setter}
             />
-            <div className="w-full flex items-center justify-center ">
-              <Pagination
-                active={page}
-                setActive={setPage}
-                getItemProps={getItemProps}
-                prev={prev}
-                next={next}
-                totalPages={totalPages}
-              />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-7 py-10 my-10 ">
+          
+            <div className="  bg-gradient-to-t from-primary md:px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-5 py-10 -10 ">
               {isLoading ? (
                 Array(20)
                   .fill()
@@ -166,7 +157,7 @@ const store = () => {
             </div>
           </div>
         </section>
-        <div className="w-full flex items-center justify-center py-12">
+        <div className=" w-full flex items-center justify-center py-12">
           <Pagination
             active={page}
             setActive={setPage}
