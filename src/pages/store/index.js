@@ -109,24 +109,25 @@ const store = () => {
       <BreadcrumbsWithIcon first="store" />
         <section className="flex flex-col 1440px:flex-row w-full">
           <div className=" min-h-screen w-full max-w-[1400px] m-auto">
-            <h2 className="text-black text-xl md:text-3xl shadow- py-10">
+            <h2 className="text-black text-xl md:text-3xl shadow- py-5">
               Conoce todos nuestros{" "}
               <span className="border-b pb-1 border-primary"> productos</span>!
             </h2>
             <CardSwiper
               vertical={false}
               swiperClass="categories"
-              length={4.6}
+              length={3.6}
               setter={setter}
+              autoplay
             />
           
-            <div className="  bg-gradient-to-t from-primary md:px-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-5 py-10 -10 ">
+            <div className="  bg-gradient-to-t from-primary md: grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-10 gap-y-5  ">
               {isLoading ? (
                 Array(20)
                   .fill()
                   .map((_, index) => (
                     <Card
-                      className="w-60 h-60 md:w-80 md:h-80 2xl:w-96 m-auto border"
+                      className="w-60 h-60 md:w-72 md:h-72 2xl:w-96 m-auto border"
                       key={index}
                     >
                       <div className="bg-white animate-pulse rounded p-4 h-full flex flex-col gap-3">
