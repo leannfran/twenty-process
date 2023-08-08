@@ -126,7 +126,7 @@ const store = () => {
                   .fill()
                   .map((_, index) => (
                     <Card
-                      className="w-60 h-60 md:w-80 md:h-80 2xl:w-96 m-auto border"
+                      className="w-60 h-60 md:w-72 md:h-72 2xl:w-96 m-auto border"
                       key={index}
                     >
                       <div className="bg-white animate-pulse rounded p-4 h-full flex flex-col gap-3">
