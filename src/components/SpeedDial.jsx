@@ -15,7 +15,7 @@ import Link from "next/link";
  
 export default function ContactFloatButton() {
   return (
-    <div className="relative w-full h-80">
+    <div className="relative w-full h-80 ">
       <div className="absolute bottom-0 right-0">
         <SpeedDial>
           <SpeedDialHandler>
