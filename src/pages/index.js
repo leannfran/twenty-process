@@ -57,7 +57,7 @@ export default function Home() {
             style={{
               boxShadow: "1px -65px 48px -31px rgba(255,255,255,0.75) inset",
             }}
-            className="w-full h-28 absolute bottom-0 z-10  md:block"
+            className="h-28 absolute bottom-0 z-10  md:block"
           ></div>
           {showCatalogue && (
             <div className="absolute w-full h-full flex items-center justify-center top-0 z-10">
