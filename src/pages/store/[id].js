@@ -5,10 +5,34 @@ import Image from "next/image";
 import React from "react";
 import { Carousel,IconButton } from "@material-tailwind/react";
 import SpeedDial from "../../components/SpeedDial";
-import Link from "next/link";
 import CardSwiper from "../../components/Swiper";
+import { useCart } from "@/context/cartContext";
+
+
 
 const ProductDetail = ({ product }) => {
+  const [quantityValue, setQuantityValue] = React.useState(1);
+  const { setCartLength } = useCart();
+ 
+
+  const addToCartLocalStorage = async  (products) => {
+    if (quantityValue <= 0) {
+      alert('Ingrese cantidad de productos')
+      return;
+    }
+    if (quantityValue > 1000) {
+      alert('La cantidad de productos no puede ser mayor a 1000')
+      return;
+    }
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({...products, quantity: quantityValue});
+    localStorage.setItem('cart', JSON.stringify(cart));
+    setCartLength(cart.length);
+    alert('Producto agregado al carrito')
+  };
+
+  
+
 
   return (
     <Layout>
@@ -17,7 +41,7 @@ const ProductDetail = ({ product }) => {
       </div>
       <main className="bg-white flex flex-col items-center">
         <BreadcrumbsWithIcon first="store" second={product.name} />
-        <section className=" md:pr-44 md:pl-36  flex flex-col xl:flex-row max-w-[1300px]">
+        <section className=" md:px-82  flex flex-col xl:flex-row max-w-[1300px]">
           <Carousel
             transition={{ duration: 1 }}
             loop={true}
@@ -92,8 +116,12 @@ const ProductDetail = ({ product }) => {
               <p className="py-10 text-secondary">{product.description}</p>
             </div>
             <div className=" h-32 xl:h-12 flex flex-col xl:flex-row justify-between gap-4 max-w-[676px]">
-              <input type="number" className="md:w-60 h-full rounded-md p-2 border-2 border-gray-500" placeholder="Ingrese Cant. de productos"/>
-              <Link target={"_blank"} href={`https://wa.me/+5491178311503?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${product.name}%20`} className="bg-primary hover:bg-secondary transition-colors md:w-60 h-full rounded-md text-center flex justify-center items-center text-white font-bold">Solicitar cotización</Link>
+              <input type="number" value={quantityValue} className="md:w-60 h-full rounded-md p-2 border-2 border-gray-500 text-black" placeholder="Ingrese Cant. de productos" onChange={(e)=> setQuantityValue(e.target.value)}/>
+              <button className="bg-primary hover:bg-secondary transition-colors md:w-60 h-full rounded-md text-center flex justify-center items-center text-white font-bold" onClick={()=> addToCartLocalStorage(product)}>Agregar al carrito cotizador
+
+              </button>
+              {/* <Link target={"_blank"} href={`https://wa.me/+5491178311503?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${product.name}%20`} className="bg-primary hover:bg-secondary transition-colors md:w-60 h-full rounded-md text-center flex justify-center items-center text-white font-bold">Solicitar cotización</Link> */}
+
             </div>
           </div>
         </section>

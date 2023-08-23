@@ -28,13 +28,15 @@ const Nosotros = () => {
           través de un presente, generando así un vínculo positivo y
           fidelizándolo de la mejor manera.{" "}
         </p>
+        <div className='flex justify-center items-center'>
         <Image
-          className="  md:hidden rounded-full my-5 overflow-hidden w-80 h-80 object-cover border-4 border-primary"
+          className="  md:hidden rounded-full my-5 overflow-hidden w-80 h-auto object-cover border-4 border-primary"
           src={NosotrosImg}
           alt={"IMAGEN DE UN EMPRESARIO"}
           width={500}
           height={500}
           />
+        </div>
       </div>
     </div>
   );

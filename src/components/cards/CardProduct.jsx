@@ -16,7 +16,7 @@ const Productos = ({id, name, image, category}) => {
 
   return (
     <Link href={`/store/${id}`} >
-      <Card className="w-60 h-full md:w-80 md:h-80 2xl:w-96 m-auto border">
+      <Card className="w-60 h-full md:w-72 md:h-72 2xl:w-96 m-auto border-primary border">
         <CardHeader
           className={`relative h-56 m-0 rounded-b-none shadow-none `}
         >
@@ -25,7 +25,7 @@ const Productos = ({id, name, image, category}) => {
             width={500}
             height={500}
             alt={name}
-            className={`object-contain  rounded-b-none h-full w-full
+            className={`object-contain  rounded-b-none h-auto w-auto
             ${
               isImageLoading
                 ? 'grayscale blur-xl scale-105'
@@ -37,13 +37,13 @@ const Productos = ({id, name, image, category}) => {
             priority={true}
           />
         </CardHeader>
-        <CardBody className="p-3 text-left">
+        <CardBody className="p-3 border-primary border-t text-left">
           <Typography variant="h5" color="blue-gray">
             {name}
           </Typography>
           <span className="text-gray-600 text-sm block">{category} </span>
           <p
-            className="text-secondary text-sm underline"
+            className="bg-white border text-primary hover:bg-primary transition-colors font-light border-primary  inline-block hover:text-white text-sm rounded-lg p-1 mt-2 shadow-primary shadow-md"
           >
             Ver mas{" "}
           </p> 

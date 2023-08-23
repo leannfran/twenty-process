@@ -25,6 +25,8 @@ const CardSwiper = ({
   length,
   setter,
   link,
+  navigation,
+  
   actualProductName
 }) => {
   const [categories, setCategories] = useState([]);
@@ -62,13 +64,14 @@ const CardSwiper = ({
     <Swiper
       className={`my-10   ${
         swiperClass === "catalogues"
-          ? "h-[350px] md:h-[800px]"
+          ? "h-[350px] "
           : swiperClass === "products" || swiperClass === "relatedProducts"
           ? "h-[330px]"
           : "h-[230px]"
       } py-2`}
       direction={vertical ? "vertical" : "horizontal"}
       pagination={{ clickable: true }}
+      navigation={navigation?true:false }
       /*   loop={true} */
       mousewheel={true}
       autoplay={autoplay ? { delay: 3000 } : false}
