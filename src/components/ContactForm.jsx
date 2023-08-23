@@ -130,7 +130,7 @@ const ContactForm = () => {
             </div>
 
             <div className="rounded-full bg-primary p-2">
-              <Link href="mailto: ventas@twenty.com.ar?subject=Consulta de servicios">
+              <Link href="mailto: info@twenty.com.ar?subject=Consulta de servicios">
                 <AiOutlineMail size={32} color="white" />
               </Link>
             </div>

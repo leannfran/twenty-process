@@ -11,6 +11,8 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>Twenty | Página de inicio</title>
         <link rel="icon" href="./public/twentyLOGO.png" />
+      <title>Twenty | Página de inicio</title>
+        <link rel="icon" href="/icon/twentyLOGO.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 
         {/* Metaetiquetas */}

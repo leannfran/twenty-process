@@ -29,9 +29,9 @@ export default function Home() {
       <main className=" m-auto py-2">
         <h1
           className=" animate-fade
- font-black text-[#09433E] p-4 md:p-10 text-3xl md:text-5xl"
+ font-light text-gray-900 text-center p-4 md:p-10 text-xl md:text-4xl"
         >
-          MERCHANDISING PERSONALIZADO PARA POTENCIAR TU MARCA
+        <span className="font-semibold text-primary">MERCHANDISING </span> PERSONALIZADO PARA <span className="font-semibold text-primary">POTENCIAR </span> TU MARCA
         </h1>
 
         <Productos />
@@ -41,22 +41,14 @@ export default function Home() {
           id="catalogues"
         >
           <h2 className="text-black flex gap-4 text-lg py-3 pl-4 lg:pl-0">
-            DESCARGÁ NUESTROS CATÁLOGOS <MdOutlineSwipeVertical className=" animate-wiggle-more animate-infinite"/>
-          </h2>
+            DESCARGÁ NUESTROS CATÁLOGOS           </h2>
           <hr className="w-28 border border-primary ml-4 lg:ml-0" />
-          <div className="hidden md:block">
-            <CardSwiper
-              openCatalogue={handleOpenCatalogue}
-              vertical={true}
-              swiperClass="catalogues"
-              length={2.7}
-              height="800px"
-            />
-          </div>
-          <div className="md:hidden">
+          
+                    <div className="">
             <CardSwiper
               openCatalogue={handleOpenCatalogue}
               vertical={false}
+              navigation
               swiperClass="catalogues"
               length={2}
             />
@@ -65,7 +57,7 @@ export default function Home() {
             style={{
               boxShadow: "1px -65px 48px -31px rgba(255,255,255,0.75) inset",
             }}
-            className="w-full h-28 absolute bottom-0 z-10 hidden md:block"
+            className="h-28 absolute bottom-0 z-10  md:block"
           ></div>
           {showCatalogue && (
             <div className="absolute w-full h-full flex items-center justify-center top-0 z-10">

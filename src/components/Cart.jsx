@@ -100,6 +100,7 @@ const Cart = ({ isOpen, closeCart }) => {
           onClick={()=> {
             localStorage.removeItem("cart");
             setCartLength(0);
+            setCart([]);
             alert("Carrito vaciado");
           }}>
             Vaciar carrito

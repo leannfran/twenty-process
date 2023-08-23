@@ -1,35 +1,79 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { BsBag, BsSearch } from "react-icons/bs";
-import twentyLogo from "../../../public/assets/logo-twenty-lyrics.svg";
+import twentyLogo from "../../../public/assets/twentyLOGO.png";
 import BtnMenu from "../buttons/BtnMenu";
 import Link from "next/link";
 import redirectWithScroll from "../../utils/redirectWithScroll";
 import { useRouter } from "next/router";
 import Cart from "../Cart";
 import { useCart } from "@/context/cartContext";
+import { Input, List, ListItem, Spinner } from "@material-tailwind/react";
 
 const NavBar = () => {
   const router = useRouter();
   const [isCartOpen, setIsCartOpen] = React.useState(false);
   const { cartLength } = useCart();
 
-  React.useEffect(() => {
-    
-  }, [cartLength]);
-  
-  
+  React.useEffect(() => {}, [cartLength]);
 
+  const [searchInput, setSearchInput] = useState("");
+  const [autocompleteResults, setAutocompleteResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const searchContainerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(e.target)
+      ) {
+        setSearchInput("");
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const handleChange = async (event) => {
+    const { value } = event.target;
+    setSearchInput(value);
+
+    try {
+      setIsLoading(true);
+      const response = await fetch(
+        `https://api.zecatdifapro.com/generic_product/autocomplete?name=${value}`
+      );
+      const data = await response.json();
+      setAutocompleteResults(data.generic_products);
+      console.log(data.generic_products);
+    } catch (error) {
+      console.error("Error de autocompletado", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
       <nav className="relative w-full text-white h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
         <Link href="/">
-          <Image src={twentyLogo} alt="Twenty Logo" className="h-20 w-44" />
+          <Image
+            src={twentyLogo}
+            alt="Twenty Logo"
+            width={500}
+            height={500}
+            className=" rounded-full ml-3 p-2 md:p-4 w-20 py-1 md:w-28"
+          />
         </Link>
 
-        <div className="relative hidden md:flex items-center w-full justify-end px-4 lg:px-9 ">
-          <ul className="flex gap-4 lg:gap-7 font-bold text-sm lg:text-lg cursor-pointer">
+        <div className="hidden md:flex items-center w-full justify-end px-4 lg:px-9 ">
+          <ul className="flex gap-4 lg:gap-7 font-bold text-sm lg:text-lg cursor-pointer items-center">
             <li>
               <Link href="/store">Productos</Link>
             </li>
@@ -48,31 +92,71 @@ const NavBar = () => {
                 Contacto
               </button>
             </li>
+
+            <Input
+              type="text"
+              placeholder="Buscar..."
+              className="!border !border-blue-gray-50 bg-white text-blue-gray-500 shadow-lg shadow-blue-gray-900/5 ring-4 ring-transparent placeholder:text-blue-gray-200 rounded-sm md:w-[15rem] lg:w-[20rem]"
+              labelProps={{
+                className: "hidden",
+              }}
+              value={searchInput}
+              onChange={handleChange}
+            />
             <li>
               <button onClick={() => setIsCartOpen(!isCartOpen)}>
                 <BsBag className="text-2xl" />
               </button>
-              {cartLength > 0 &&
-              <span className="bg-red-600 w-6 h-6 rounded-full text-xs p-1 text-center absolute right-1 lg:right-4 -top-3">{cartLength}</span>
-}
+              {cartLength > 0 && (
+                <span className="bg-red-600 w-6 h-6 rounded-full text-xs p-1 text-center absolute right-1 lg:right-4 top-3">
+                  {cartLength}
+                </span>
+              )}
             </li>
+
+            {searchInput && (
+              <div
+                className="scrollbar absolute bg-white z-10 max-h-36 overflow-y-auto rounded-sm md:w-[15rem] lg:w-[20rem]  border border-blue-gray-200 shadow-md md:top-[3.8rem] md:right-14 lg:top-[3.9rem] lg:right-[88px]"
+                ref={searchContainerRef}
+              >
+                <List>
+                  {isLoading ? (
+                    <div className="flex items-center justify-center">
+                      <Spinner className="h-8 w-8" color="teal" />
+                    </div>
+                  ) : (
+                    <div>
+                      {autocompleteResults.length > 0 ? (
+                        <div>
+                          {autocompleteResults.map((result, i) => (
+                            <Link key={i} href={`/store/${result.id}`}>
+                              <ListItem className="cursor-pointer">
+                                {result.name}
+                              </ListItem>
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <p>No hay resultados disponibles....</p>
+                      )}
+                    </div>
+                  )}
+                </List>
+              </div>
+            )}
           </ul>
-          <div className="hidden max-w-72 relative">
-            <BsSearch className=" text-black absolute top-3 right-3 bg-white" />
-            <input
-              type="text"
-              placeholder="Buscar..."
-              className="w-full h-10 rounded-full border-2 border-gray-300 px-4 focus:outline-none focus:border-primary text-black"
-            />
-          </div>
         </div>
 
         <div className="relative md:hidden flex items-center gap-3">
           <button onClick={() => setIsCartOpen(!isCartOpen)}>
             <BsBag className="text-2xl md:hidden w-12 " />
           </button>
-          {cartLength > 0 && <span className="bg-red-600 w-6 h-6 rounded-full text-xs p-1 text-center absolute left-7 top-0">{cartLength}</span> }
-          
+          {cartLength > 0 && (
+            <span className="bg-red-600 w-6 h-6 rounded-full text-xs p-1 text-center absolute left-7 top-0">
+              {cartLength}
+            </span>
+          )}
+
           <BtnMenu />
         </div>
       </nav>
