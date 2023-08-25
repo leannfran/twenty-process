@@ -72,8 +72,8 @@ const Cart = ({ isOpen, closeCart }) => {
         >
           {cart.length === 0 && (
             <p className="text-gray-600">
-              El carrito esta vacío , agrega productos para visualizarlos aquí y
-              realizar la compra.
+              El carrito está vacío , agrega productos para visualizarlos aquí y
+              realizar la cotización.
             </p>
           )}
 
