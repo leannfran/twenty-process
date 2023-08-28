@@ -91,18 +91,26 @@ const Cart = ({ isOpen, closeCart }) => {
         </div>
 
         <div className="flex justify-between pt-4 border-t-4 gap-2 h-16  ">
-          <Link className="bg-primary p-2 rounded-md text-white shadow-lg text-lg w-full text-center" 
-          href={whatsappLink}
-          target="_blank"
+          <button className="bg-primary p-2 rounded-md text-white shadow-lg text-lg w-full text-center" 
+          onClick={()=> {
+            if(cart.length === 0) {
+              alert("El carrito está vacío , por favor agrega productos para poder cotizarlos");
+            } else {
+              window.open(whatsappLink, "_blank");
+            }
+          }}
             
-          > Cotizar productos</Link>
+          > Cotizar productos</button>
           <button className="bg-white p-2 rounded-md text-black shadow-lg text-lg w-full text-center border"
           onClick={()=> {
+           
             localStorage.removeItem("cart");
             setCartLength(0);
             setCart([]);
             alert("Carrito vaciado");
-          }}>
+            
+          }}
+          disabled={cart.length === 0}>
             Vaciar carrito
           </button>
 
