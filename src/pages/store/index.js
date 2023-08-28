@@ -121,7 +121,7 @@ const store = () => {
               autoplay
             />
           
-            <div className="  bg-gradient-to-t from-primary md: grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pb-10 gap-y-5  ">
+            <div className="  bg-gradient-to-t from-primary md: grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 pb-10 gap-y-5  ">
               {isLoading ? (
                 Array(20)
                   .fill()
