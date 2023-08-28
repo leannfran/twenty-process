@@ -25,7 +25,7 @@ const Productos = ({id, name, image, category}) => {
             width={500}
             height={500}
             alt={name}
-            className={`object-contain  rounded-b-none h-full w-full
+            className={`object-contain  rounded-b-none h-auto w-auto
             ${
               isImageLoading
                 ? 'grayscale blur-xl scale-105'
