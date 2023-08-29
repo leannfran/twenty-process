@@ -3,104 +3,97 @@
     "name": "Catálogo Mochilas",
     "description": "Catálogo Wagner",
     "url": "https://flipbookpdf.net/web/site/d9c605f021d05d26b0758f0f5fcb8adb083a15cd202307.pdf.html",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/2022_-_Wagner_-_Mochilas_Edit-1677520999.pptx_c6deqj.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/1.png?alt=media&token=2bfae9ca-6caf-461e-8cce-7bcc00286ea8",
     "pdf": "2022-Wagner-Mochilas.pdf"
 }, {
     "id": 2,
-    "name": "Catálogo Indumentaria deportiva",
+    "name": "Catálogo Deportes",
     "description": "Indumentaria Deportiva",
     "url": "https://flipbookpdf.net/web/site/9ec78eab69b3534b15a554de5a261bd94fc8d1ee202307.pdf.html",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Catalogo_-_Slazenger_2022-1664981333_2.pptx_xzjjpq.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/2.png?alt=media&token=dc19f7c3-e37b-438e-ae9f-c47578e9acf9",
     "pdf": "Catalogo-Slazenger-2022.pdf"
 }, {
     "id": 3,
     "name": "Catálogo Cocina",
     "description": "Catálogo cocina",
     "url": "https://flipbookpdf.net/web/site/c347d969d26bd7e10588927b5ee6d6c3ef804361202307.pdf.html",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Cat%C3%A1logo_cocina-1663598312.pptx_hu7wqk.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/3.png?alt=media&token=b26f9415-fb73-4e36-b40c-f848be2eab04",
     "pdf": "Catálogo-cocina.pdf"
 }, {
     "id": 4,
     "name": "Catálogo Indumentaria",
     "description": "Catálogo Indumentaria",
     "url": "https://flipbookpdf.net/web/site/a8f65b4ac97c59f479ba2146e52482db7121bdd3202307.pdf.html",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Catalogo_de_productos_Apparel_2022-1653683851.pptx_rxkvsc.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/4.png?alt=media&token=f3a4b9be-6e74-4199-9162-0ae8f3e82a03  ",
     "pdf": "Catalogo-Apparel-2022.pdf"
 }, {
     "id": 5,
     "name": "Catálogo día del padre",
     "description": "Catálogo día del padre",
     "url": "https://flipbookpdf.net/web/site/1feb6180abe9163ff8cf297d5f3565100cc3f809202307.pdf.html",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Cat%C3%A1logo_Dia_del_padre_-_Art_Edit-1681999668.pptx_rwm2kn.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/5.png?alt=media&token=8a745732-c8e2-40f1-af17-8e905e1ff90e",
     "pdf": "Catálogo-Dia-del-padre.pdf"
 }, {
     "id": 6,
     "name": "Catálogo Drinkwater",
     "description": "Catálogo drinkwater",
     "url": "https://flipbookpdf.net/web/site/d9fd9a4c71275bc7483fd3116c30c20815d23820202307.pdf.html",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689261096/Cat%C3%A1logo_drinkware-1663599115.pptx_bsl2lb.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/6.png?alt=media&token=2f790cab-d429-495d-987f-83509fdba9f8",
     "pdf": "Catálogo-drinkware.pdf"
 }, {
     "id": 7,
-    "name": "Catálogo pampa spirit",
+    "name": "Catálogo Exterior",
     "description": "Catálogo pampa spirit",
     "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689266105/Cat%C3%A1logo_Pampa_Spirit-1663783890.pptx_wtek3j.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/7.png?alt=media&token=2d81a6af-2242-4421-a757-517a82f32689",
     "pdf": "Catálogo-Pampa-Spirit.pdf"
-}, {
-    "id": 8,
-    "name": "Catálogo pampero",
-    "description": "Catálogo pampero",
-    "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689266134/Cat%C3%A1logo_Pampero-oct2022-1666967788.pptx_cl0u0g.jpg",
-    "pdf": "Catálogo-Pampero-oct2022.pdf"
-}, {
+},  {
     "id": 9,
     "name": "Catálogo Herramientas",
     "description": "Catálogo suns tools",
     "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689265320/Cat%C3%A1logo_SUNS_TOOLS_2022-1659018140_2.pptx_kv6tux.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/8.png?alt=media&token=b77ca306-93b7-4a7e-9348-8a0c10e847c2",
     "pdf": "../../pdf/Catálogo-SUNS-TOOLS-2022.pdf"
 }, {
     "id": 10,
     "name": "Catálogo Tecnología",
     "description": "Catálogo tecnología",
     "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689265324/Cat%C3%A1logo_tecnolog%C3%ADa-1663599354.pptx_ufh8wb.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/9.png?alt=media&token=ef9768c2-139e-4c32-8c32-ac6e26d42731",
     "pdf": "../../pdf/Catálogo-tecnología.pdf"
 },{
     "id": 11,
     "name": "Catálogo Tazas",
     "description": "Catálogo verbano",
     "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689265325/Cat%C3%A1logo_Verbano-1631042141.pptx_dai57c.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/10.png?alt=media&token=407ee17c-2692-48ae-8b68-3d9e1855e5b2",
     "pdf": "../../pdf/Catálogo-Verbano.pdf"
 }, {
     "id": 12,
     "name": "Novedades 2023",
     "description": "Novedades 2023",
     "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689268048/Novedades_2023_-_Catalogo_Vol06-1684436027.pptx_teqo0l.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/11.png?alt=media&token=78b2b925-9754-4adf-a325-d08a75d00d44",
     "pdf": "../../pdf/Novedades-2023.pdf"
 }, {
     "id": 13,
     "name": "Reingresos 2023",
     "description": "Reingresos 2023",
     "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689268048/Reingresos_2023_-_Catalogo_Vol04-1684501669.pptx_bedhbm.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/12.png?alt=media&token=25b37fa6-8740-4e5d-9d02-9c9f3419df31",
     "pdf": "../../pdf/Reingresos-2023-Catalogo.pdf"
 }, {
     "id": 14,
     "name": "Catalogo Ecológico",
     "description": "Catalogo Ecológico",
     "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689268048/REUSEME_-_CATALOGO_COMPLETO_V1-1651586029.pptx_dscvl6.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/13.png?alt=media&token=e9ec123d-3949-4d7b-a0ee-3cb44991c290",
     "pdf": "../../pdf/REUSEME-CATALOGO.pdf"
 }, {
     "id": 15,
     "name": "Catalogo Cubiertos",
     "description": "Laguiole catalogo",
     "url": "",
-    "image": "https://res.cloudinary.com/ddjox2gat/image/upload/v1689269251/2022_-_Laguiole-1659018155.pptx_r8gddv.jpg",
+    "image": "https://firebasestorage.googleapis.com/v0/b/twenty-ecommerce.appspot.com/o/14.png?alt=media&token=abbccfa5-ea83-4a64-a648-fb0fd0dd7546",
     "pdf": "../../pdf/2022-Laguiole.pdf"
 }]
