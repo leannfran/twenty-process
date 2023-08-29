@@ -10,7 +10,7 @@ const nextConfig = {
         port: '',
       },
     ],
-    domains: ['res.cloudinary.com']
+    domains: ['res.cloudinary.com','firebasestorage.googleapis.com']
   },
 }
 
