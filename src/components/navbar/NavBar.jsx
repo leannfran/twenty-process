@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import Cart from "../Cart";
 import { useCart } from "@/context/cartContext";
 import { Input, List, ListItem, Spinner } from "@material-tailwind/react";
+import { BiDownArrow } from "react-icons/bi";
+import axios from "axios";
 
 const NavBar = () => {
   const router = useRouter();
@@ -20,6 +22,12 @@ const NavBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [autocompleteResults, setAutocompleteResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [categories, setCategories] = useState([])
+  const [showDropdown, setShowDropdown] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState(null)
+  const [familyProducts, setFamilyProducts] = useState([]);
+  const [isHoveringDropdown, setIsHoveringDropdown] = React.useState(false);
+  const [isHoveringButton, setIsHoveringButton] = React.useState(false);
 
   const searchContainerRef = useRef(null);
 
@@ -39,6 +47,21 @@ const NavBar = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get("https://api.zecatdifapro.com/family");
+        setCategories(response.data.families);
+      } catch (error) {
+        console.error("Error al obtener las categorías", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+  
 
   const handleChange = async (event) => {
     const { value } = event.target;
@@ -61,14 +84,14 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="relative w-full !text-white h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
+      <nav className="relative z-10 w-full !text-white h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
         <Link href="/">
           <Image
             src={twentyLogo}
             alt="Twenty Logo"
             width={500}
             height={500}
-            className=" rounded-full ml-3 p-2 md:p-4 w-20 py-1 md:w-28"
+            className=" rounded-full ml-3 p-2 md:p-4 w-20 py-1 md:w-22"
           />
         </Link>
 
@@ -76,6 +99,20 @@ const NavBar = () => {
           <ul className="flex gap-4 lg:gap-7 font-bold text-sm lg:text-lg cursor-pointer items-center">
             <li>
               <Link href="/store">Productos</Link>
+            </li>
+            <li>
+              <button
+                onMouseEnter={() => setShowDropdown(true)}
+                onMouseLeave={() => {
+                  setTimeout(() => {
+                    if (!isHoveringDropdown) {
+                      setShowDropdown(false);
+                    }
+                  }, 2000);
+                }}
+              >
+                Categorías
+              </button>
             </li>
             <li>
               <button onClick={redirectWithScroll(router, "/", "#catalogues")}>
@@ -160,9 +197,47 @@ const NavBar = () => {
           <BtnMenu />
         </div>
       </nav>
-      <div className="static z-10 top-0 right-0">
-        <Cart isOpen={isCartOpen} closeCart={setIsCartOpen} />
-      </div>
+
+      {showDropdown && categories.length > 0 && (
+        <div
+          className="z-20 absolute top-16 left-0 overflow-auto w-full h-[20rem] bg-white border-solid border-[#757575] rounded shadow-md"
+          onMouseEnter={() => {
+            setShowDropdown(true);
+            setIsHoveringDropdown(true);
+          }}
+          onMouseLeave={() => {
+            setIsHoveringDropdown(false);
+            setTimeout(() => {
+              if (!isHoveringButton) {
+                setShowDropdown(false);
+              }
+            }, 2000);
+          }}
+        >
+          <ul className="py-2 px-4">
+            {categories.map((category) => (
+              <div key={category.id}>
+                <li className="py-2 hover:bg-gray-100 text-black border border-1 p-2">
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      router.push({
+                        pathname: '/store',
+                        query: { family: category.id },
+                      });
+                    }}
+                    className={`block ${selectedCategory === category ? 'font-bold' : ''}`}
+                  >
+                    {category.title}
+                  </a>
+                </li>
+              </div>
+            ))}
+          </ul>
+        </div>
+)}
+    
     </>
   );
 };
