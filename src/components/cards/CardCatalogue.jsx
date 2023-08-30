@@ -67,7 +67,7 @@ export default function CardCatalogue({ openCatalogue, items }) {
         </div>
 
         <Button
-          className={` bg-transparent border-2 px-2 py-0 ${
+          className={` z-50 bg-transparent hover:bg-primary border-2 px-2 py-0 ${
             items.id > 8 ? "disabled-link" : ""
           }`}
           onClick={onHandlerClickCatalogue}
@@ -83,22 +83,22 @@ export default function CardCatalogue({ openCatalogue, items }) {
         </Button>
 
         <Button
-          className=" bg-transparent border-2 px-2 py-0 ml-2"
+          className=" z-50 bg-transparent hover:bg-primary border-2 px-2 py-0 ml-2"
           onClick={onButtonClick}
         >
           <BsDownload size={20} />
         </Button>
 
-        <div className="hidden  md:max-w-[200px]   flex-col justify-evenly items-center">
+        <div className="    flex-col justify-evenly items-center">
           <Button
-            className="flex items-center gap-3 bg-white text-[#235F5B] font-extrabold h-12 w-40 shadow-md shadow-[#235F5B]"
+            className=" hidden items-center gap-3 bg-white text-[#235F5B] font-extrabold h-12 w-40 shadow-md shadow-[#235F5B]"
             onClick={onButtonClick}
           >
             <BsDownload size={34} /> Descargar
           </Button>
 
           <Button
-            className={`flex items-center gap-3 bg-white text-[#235F5B] font-extrabold h-12 w-40 shadow-md shadow-[#235F5B] ${
+            className={` hidden items-center gap-3 bg-white text-[#235F5B] font-extrabold h-12 w-40 shadow-md shadow-[#235F5B] ${
               items.id > 8 ? "disabled-link" : ""
             }`}
             onClick={onHandlerClickCatalogue}

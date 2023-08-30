@@ -21,19 +21,19 @@ const CategoriesProduct = ({id, title, icon , link, setter}) => {
             )
           }
         }}>
-        <div className="w-32 h-32 bg-white border-4 hover:shadow-2xl transition-shadow shadow-xl border-primary rounded-full">
+        <div className=" w-24 h-24 bg-white border-4 hover:shadow-2xl transition-shadow shadow-xl border-primary rounded-full">
           <Image
             src={icon}
             width={300}
             height={300}
             alt={title}
             title={title}
-            className="p-10"
+            className="p-4"
           />
         </div>
-        <h1 className="text-secondary2 uppercase mt-5 font-semibold">
+        <h3 className="text-secondary2 text-sm uppercase mt-5 font-semibold">
           {title}
-        </h1>
+        </h3>
       </button>
   
   );

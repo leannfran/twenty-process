@@ -58,7 +58,6 @@ export default function BtnMenu() {
       const response = await fetch(`https://api.zecatdifapro.com/generic_product/autocomplete?name=${value}`)
       const data = await response.json();
       setAutocompleteResults(data.generic_products)
-      console.log(data.generic_products)
 
     } catch (error) {
 
