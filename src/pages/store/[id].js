@@ -7,6 +7,7 @@ import { Carousel,IconButton } from "@material-tailwind/react";
 import SpeedDial from "../../components/SpeedDial";
 import CardSwiper from "../../components/Swiper";
 import { useCart } from "@/context/cartContext";
+import { showDefaultAlert } from "@/components/sweetAlert";
 
 
 
@@ -17,18 +18,18 @@ const ProductDetail = ({ product }) => {
 
   const addToCartLocalStorage = async  (products) => {
     if (quantityValue <= 0) {
-      alert('Ingrese cantidad de productos')
+      showDefaultAlert('Ingrese cantidad de productos','warning')
       return;
     }
     if (quantityValue > 1000) {
-      alert('La cantidad de productos no puede ser mayor a 1000')
+      showDefaultAlert('La cantidad de productos no puede ser mayor a 1000','warning')
       return;
     }
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push({...products, quantity: quantityValue});
     localStorage.setItem('cart', JSON.stringify(cart));
     setCartLength(cart.length);
-    alert('Producto agregado al carrito')
+    showDefaultAlert('Producto agregado al carrito', 'success' )
   };
 
   
