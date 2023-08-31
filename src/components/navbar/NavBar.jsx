@@ -237,6 +237,10 @@ const NavBar = () => {
           </ul>
         </div>
 )}
+
+<div className="static z-10 top-0 right-0">
+        <Cart isOpen={isCartOpen} closeCart={setIsCartOpen} />
+      </div>
     
     </>
   );
