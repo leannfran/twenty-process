@@ -59,7 +59,7 @@ const Cart = ({ isOpen, closeCart }) => {
 
       <div
         id="without-scroll"
-        className={`h-screen fixed z-[20] right-0 top-0 flex flex-col justify-between  bg-white shadow-xl rounded-l-lg overflow-scroll text-black duration-300 ease-in-out ${
+        className={`h-screen fixed z-[60] right-0 top-0 flex flex-col justify-between  bg-white shadow-xl rounded-l-lg overflow-scroll text-black duration-300 ease-in-out ${
           isOpen ? "w-screen md:w-[600px] p-3 md:p-6" : "w-0 p-0"
         }`}
       >
