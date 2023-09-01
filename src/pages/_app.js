@@ -9,9 +9,8 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <Head>
-        <title>Twenty | Página de inicio</title>
+        <title>Twenty - Merchandising Personalizado </title>
         <link rel="icon" href="./public/twentyLOGO.png" />
-      <title>Twenty | Página de inicio</title>
         <link rel="icon" href="/icon/twentyLOGO.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
 

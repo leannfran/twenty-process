@@ -4,9 +4,10 @@ import CardCart from "./cards/CardCart";
 import { useCart } from "@/context/cartContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { customConfirm, showDefaultAlert } from "./sweetAlert";
 
 const Cart = ({ isOpen, closeCart }) => {
-  const {push} = useRouter();
+  const { push } = useRouter();
 
   const [cart, setCart] = React.useState([]);
   const { setCartLength } = useCart();
@@ -23,26 +24,29 @@ const Cart = ({ isOpen, closeCart }) => {
     setCart(storedCart);
   }, [isOpen]);
 
-  const removeFromCartById = (id) => {
-    if (window.confirm("¿Estás seguro que deseas eliminar este producto?")) {
+  const removeFromCartById = async (id) => {
+    const shouldRemove = await customConfirm(
+      "¿Estás seguro que deseas eliminar este producto?"
+    );
+    if (shouldRemove) {
       const newCart = cart.filter((item) => item.id !== id);
       setCart(newCart);
       localStorage.setItem("cart", JSON.stringify(newCart));
       setCartLength(newCart.length);
-      alert("Producto eliminado del carrito");
+      showDefaultAlert("Producto eliminado del carrito", "success");
     }
   };
-  
 
-  const formattedProducts = cart.map(product => {
-    const productName = product.name.replace(/\s/g, '%20');
+  const formattedProducts = cart.map((product) => {
+    const productName = product.name.replace(/\s/g, "%20");
     const productQuantity = `Cantidad:%20${product.quantity}`;
     return `${productName}%20(${productQuantity})`;
   });
-  const whatsappMessage = formattedProducts.join('%0A');
-  const whatsappLink = `https://api.whatsapp.com/send?phone=+5491178311503&text=${"Hola!%20,%20quisiera%20solicitar%20una%20cotización%20de%20los%20siguientes%20productos%20:%20" + whatsappMessage}`;
-
-  
+  const whatsappMessage = formattedProducts.join("%0A");
+  const whatsappLink = `https://api.whatsapp.com/send?phone=+5491178311503&text=${
+    "Hola!%20,%20quisiera%20solicitar%20una%20cotización%20de%20los%20siguientes%20productos%20:%20" +
+    whatsappMessage
+  }`;
 
   return (
     <>
@@ -55,17 +59,53 @@ const Cart = ({ isOpen, closeCart }) => {
 
       <div
         id="without-scroll"
-        className={`h-screen fixed z-[20] right-0 top-0 flex flex-col justify-between  bg-white shadow-xl rounded-l-lg overflow-scroll text-black duration-300 ease-in-out ${
+        className={`h-screen fixed z-[60] right-0 top-0 flex flex-col justify-between  bg-white shadow-xl rounded-l-lg overflow-scroll text-black duration-300 ease-in-out ${
           isOpen ? "w-screen md:w-[600px] p-3 md:p-6" : "w-0 p-0"
         }`}
       >
-        <div className="flex items-center justify-between mb-12">
+        
+        <div className="flex items-center justify-between mb-2 md:mb-12">
           <h2 className="font-normal text-3xl">Carrito de cotización</h2>
           <div onClick={() => closeCart(false)}>
             <BsX size={34} />
           </div>
         </div>
 
+        <div className="flex justify-between py-3 gap-2 h-24  md:hidden ">
+          <button
+            className="bg-primary p-2 rounded-md text-white shadow-lg text-lg w-full text-center h-12"
+            onClick={() => {
+              if (cart.length === 0) {
+                showDefaultAlert(
+                  "El carrito está vacío , por favor agrega productos para poder cotizarlos",
+                  "warning"
+                );
+              } else {
+                window.open(whatsappLink, "_blank");
+              }
+            }}
+          >
+            {" "}
+            Cotizar productos
+          </button>
+          <button
+            className="bg-white p-2 rounded-md text-black shadow-lg text-lg w-full text-center border h-12"
+            onClick={async () => {
+              const shouldRemove = await customConfirm(
+                "¿Estás seguro que deseas vaciar el carrito?"
+              );
+              if (shouldRemove) {
+                localStorage.removeItem("cart");
+                setCartLength(0);
+                setCart([]);
+                showDefaultAlert("Carrito vaciado", "success");
+              }
+            }}
+            disabled={cart.length === 0}
+          >
+            Vaciar carrito
+          </button>
+        </div>
         <div
           id="without-scroll"
           className="h-full overflow-y-scroll gap-y-4 flex flex-col"
@@ -90,23 +130,40 @@ const Cart = ({ isOpen, closeCart }) => {
           ))}
         </div>
 
-        <div className="flex justify-between pt-4 border-t-4 gap-2 h-16  ">
-          <Link className="bg-primary p-2 rounded-md text-white shadow-lg text-lg w-full text-center" 
-          href={whatsappLink}
-          target="_blank"
-            
-          > Cotizar productos</Link>
-          <button className="bg-white p-2 rounded-md text-black shadow-lg text-lg w-full text-center border"
-          onClick={()=> {
-            localStorage.removeItem("cart");
-            setCartLength(0);
-            setCart([]);
-            alert("Carrito vaciado");
-          }}>
+        <div className=" justify-between pt-4 border-t-4 gap-2 h-16  hidden md:flex">
+          <button
+            className="bg-primary p-2 rounded-md text-white shadow-lg text-lg w-full text-center"
+            onClick={() => {
+              if (cart.length === 0) {
+                showDefaultAlert(
+                  "El carrito está vacío , por favor agrega productos para poder cotizarlos",
+                  "warning"
+                );
+              } else {
+                window.open(whatsappLink, "_blank");
+              }
+            }}
+          >
+            {" "}
+            Cotizar productos
+          </button>
+          <button
+            className="bg-white p-2 rounded-md text-black shadow-lg text-lg w-full text-center border"
+            onClick={async () => {
+              const shouldRemove = await customConfirm(
+                "¿Estás seguro que deseas vaciar el carrito?"
+              );
+              if (shouldRemove) {
+                localStorage.removeItem("cart");
+                setCartLength(0);
+                setCart([]);
+                showDefaultAlert("Carrito vaciado", "success");
+              }
+            }}
+            disabled={cart.length === 0}
+          >
             Vaciar carrito
           </button>
-
-          
         </div>
       </div>
     </>
