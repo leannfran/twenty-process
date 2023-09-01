@@ -63,13 +63,49 @@ const Cart = ({ isOpen, closeCart }) => {
           isOpen ? "w-screen md:w-[600px] p-3 md:p-6" : "w-0 p-0"
         }`}
       >
-        <div className="flex items-center justify-between mb-12">
+        
+        <div className="flex items-center justify-between mb-2 md:mb-12">
           <h2 className="font-normal text-3xl">Carrito de cotización</h2>
           <div onClick={() => closeCart(false)}>
             <BsX size={34} />
           </div>
         </div>
 
+        <div className="flex justify-between py-3 gap-2 h-24  md:hidden ">
+          <button
+            className="bg-primary p-2 rounded-md text-white shadow-lg text-lg w-full text-center h-12"
+            onClick={() => {
+              if (cart.length === 0) {
+                showDefaultAlert(
+                  "El carrito está vacío , por favor agrega productos para poder cotizarlos",
+                  "warning"
+                );
+              } else {
+                window.open(whatsappLink, "_blank");
+              }
+            }}
+          >
+            {" "}
+            Cotizar productos
+          </button>
+          <button
+            className="bg-white p-2 rounded-md text-black shadow-lg text-lg w-full text-center border h-12"
+            onClick={async () => {
+              const shouldRemove = await customConfirm(
+                "¿Estás seguro que deseas vaciar el carrito?"
+              );
+              if (shouldRemove) {
+                localStorage.removeItem("cart");
+                setCartLength(0);
+                setCart([]);
+                showDefaultAlert("Carrito vaciado", "success");
+              }
+            }}
+            disabled={cart.length === 0}
+          >
+            Vaciar carrito
+          </button>
+        </div>
         <div
           id="without-scroll"
           className="h-full overflow-y-scroll gap-y-4 flex flex-col"
@@ -94,7 +130,7 @@ const Cart = ({ isOpen, closeCart }) => {
           ))}
         </div>
 
-        <div className="flex justify-between pt-4 border-t-4 gap-2 h-16  ">
+        <div className=" justify-between pt-4 border-t-4 gap-2 h-16  hidden md:flex">
           <button
             className="bg-primary p-2 rounded-md text-white shadow-lg text-lg w-full text-center"
             onClick={() => {
