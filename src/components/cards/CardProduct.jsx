@@ -16,9 +16,9 @@ const Productos = ({id, name, image, category}) => {
 
   return (
     <Link href={`/store/${id}`} >
-      <Card className="w-60 h-full md:w-72 md:h-72 2xl:w-96 m-auto border-primary border">
+      <Card className="w-60 h-full md:w-60 md:h-auto  m-auto border-primary border">
         <CardHeader
-          className={`relative h-56 m-0 rounded-b-none shadow-none `}
+          className={`relative h-64 m-0 rounded-b-none shadow-none `}
         >
           <Image
             src={image}

@@ -66,7 +66,7 @@ const CardSwiper = ({
         swiperClass === "catalogues"
           ? "h-[350px] "
           : swiperClass === "products" || swiperClass === "relatedProducts"
-          ? "h-[330px]"
+          ? "h-auto"
           : "h-[230px]"
       } py-2`}
       direction={vertical ? "vertical" : "horizontal"}
