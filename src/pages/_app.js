@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
       {/* Título de la página */}
 
       {/* Iconos de la página */}
-      <link rel="icon" href="./public/twentyLOGO.ico"  />
+      <link rel="icon" href="/twentyLOGO.ico"  />
       <link rel="icon" href="./public/twentyLOGO.ico"  type="image/png" />
       <link rel="apple-touch-icon" href="./public/twentyLOGO.png" />
 
