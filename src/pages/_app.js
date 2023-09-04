@@ -9,22 +9,55 @@ export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider>
       <Head>
-        <title>Twenty - Merchandising Personalizado </title>
-        <link rel="icon" href="./public/twentyLOGO.png" />
-        <link rel="icon" href="/icon/twentyLOGO.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-
+       
         {/* Metaetiquetas */}
         <meta
           name="description"
           content="TWENTY es una empresa de merchandising B2B especializada en productos promocionales personalizados. Contáctanos para solicitar presupuestos, conocer más sobre nosotros y descargar nuestros catálogos de productos."
         />
-        <meta
-          name="keywords"
-          content="merchandising, productos promocionales, personalizados, B2B, empresa, TWENTY"
-        />
+       
+      
         <meta name="author" content="TWENTY" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        // components/Head.js
+
+      {/* Título de la página */}
+      <title>Merchandising Personalizado | TWENTY</title>
+
+      {/* Iconos de la página */}
+      <link rel="icon" href="./public/twentyLOGO.png" sizes="32x32" type="image/png" />
+      <link rel="icon" href="./public/twentyLOGO.png" sizes="192x192" type="image/png" />
+      <link rel="apple-touch-icon" href="./public/twentyLOGO.png" />
+
+      {/* Enlace a hoja de estilos CSS si es aplicable */}
+      <link rel="stylesheet" href="tu_estilo.css" />
+
+      {/* Preconexión a recursos externos (como fuentes) */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+     
+      <meta
+        name="keywords"
+        content="merchandising personalizado, productos promocionales, merchandising de calidad, productos promocionales para empresas, regalos corporativos, promoción de marca, artículos promocionales, merchandising B2B, Argentina"
+        />
+
+      {/* Metadatos para redes sociales (opcional, si tienes habilitada la funcionalidad) */}
+      <meta property="og:title" content="Merchandising Personalizado | TWENTY" />
+      <meta
+        property="og:description"
+        content="TWENTY es tu fuente confiable de productos promocionales personalizados. Somos una empresa B2B especializada en merchandising de calidad. ¡Contáctanos hoy mismo para solicitar presupuestos y conocer nuestros productos!"
+      />
+      <meta property="og:url" content="https://www.twenty.com.ar" />
+      <meta name="twitter:card" content="summary_large_image" />
+
+      {/* Metadatos para SEO local (si tienes una ubicación física) */}
+      <meta name="geo.region" content="AR" />
+      <meta name="geo.placename" content="Buenos Aires" />
+      <meta name="geo.position" content="-34.611778;-58.417306" />
+      <meta name="ICBM" content="-34.611778, -58.417306" />
+    
+
       </Head>
       <Provider store={store}>
         <CartProvider>
