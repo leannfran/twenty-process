@@ -32,6 +32,7 @@ const CardSwiper = ({
   const [categories, setCategories] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [loader , setLoader] = useState(false)
 
   const [keyword] = actualProductName ? actualProductName.split(" ") : "";
   const cataloguesTest = 7;
@@ -75,6 +76,7 @@ const CardSwiper = ({
       /*   loop={true} */
       mousewheel={true}
       autoplay={autoplay ? { delay: 3000 } : false}
+     /*  autoplay={false} */
       modules={[Autoplay, Navigation]}
       spaceBetween={swiperClass == "categories" ? 90 : null}
       breakpoints={{
