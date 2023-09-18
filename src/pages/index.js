@@ -11,7 +11,9 @@ import SpeedDial from "../components/SpeedDial";
 import { Layout } from "@/components/layout/Layout";
 import {MdOutlineSwipeVertical} from "react-icons/md"
 import { Popover, PopoverContent, PopoverHandler } from "@material-tailwind/react";
+import Newlester from "../components/Newlester";
 export default function Home() {
+  
   const [showCatalogue, setShowCatalogue] = React.useState(false);
   const [openPopover, setOpenPopover] = useState(false)
 
@@ -88,6 +90,13 @@ export default function Home() {
               <CardOpenCatalogue closeCatalogue={handleOpenCatalogue} />
             </div>
           )}
+        </section>
+        <section className="flex flex-col items-center py-20 gap-4">
+            <h3 className="text-primary font-black text-4xl ">¡Suscribite a Nuestro Newsletter!</h3>
+
+              <Newlester/>
+            <p className="text-primary font-light text-lg ">accede a las últimas noticias, ofertas exclusivas y contenido fascinante sobre merchandising personalizado</p>
+
         </section>
 
         <Nosotros />
