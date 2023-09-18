@@ -2,12 +2,9 @@ import React from "react";
 import { BsX } from "react-icons/bs";
 import CardCart from "./cards/CardCart";
 import { useCart } from "@/context/cartContext";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import { customConfirm, showDefaultAlert } from "./sweetAlert";
 
 const Cart = ({ isOpen, closeCart }) => {
-  const { push } = useRouter();
 
   const [cart, setCart] = React.useState([]);
   const { setCartLength } = useCart();

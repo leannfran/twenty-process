@@ -15,13 +15,11 @@ import Newlester from "../components/Newlester";
 export default function Home() {
   
   const [showCatalogue, setShowCatalogue] = React.useState(false);
-  const [openPopover, setOpenPopover] = useState(false)
+  const [openPopover, setOpenPopover] = useState(false);
 
   const triggers = {
-
     onMouseEnter: () => setOpenPopover(true),
     onMouseLeave: () => setOpenPopover(false),
-
   };
 
   function handleOpenCatalogue(open) {
@@ -42,7 +40,10 @@ export default function Home() {
           className=" animate-fade
  font-light text-gray-900 text-center p-4 md:p-10 text-xl md:text-4xl"
         >
-        <span className="font-semibold text-primary">MERCHANDISING </span> PERSONALIZADO PARA <span className="font-semibold text-primary">POTENCIAR </span> TU MARCA
+          <span className="font-semibold text-primary">MERCHANDISING </span>{" "}
+          PERSONALIZADO PARA{" "}
+          <span className="font-semibold text-primary">POTENCIAR </span> TU
+          MARCA
         </h1>
 
         <Productos />
@@ -52,7 +53,7 @@ export default function Home() {
           id="catalogues"
         >
           <h2 className="text-black flex gap-4 text-lg py-3 pl-4 lg:pl-0">
-            DESCARGÁ NUESTROS CATÁLOGOS 
+            DESCARGÁ NUESTROS CATÁLOGOS
             <Popover
               placement="right-end"
               open={openPopover}
@@ -60,7 +61,7 @@ export default function Home() {
             >
               <PopoverHandler {...triggers}>
                 <span>
-                <MdOutlineSwipeVertical className=" animate-wiggle-more animate-infinite cursor-help"/>
+                  <MdOutlineSwipeVertical className=" animate-wiggle-more animate-infinite cursor-help" />
                 </span>
               </PopoverHandler>
               <PopoverContent {...triggers}>
@@ -69,8 +70,8 @@ export default function Home() {
             </Popover>
           </h2>
           <hr className="w-28 border border-primary ml-4 lg:ml-0" />
-          
-                    <div className="">
+
+          <div className="">
             <CardSwiper
               openCatalogue={handleOpenCatalogue}
               vertical={false}

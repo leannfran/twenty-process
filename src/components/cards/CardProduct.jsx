@@ -1,21 +1,27 @@
 import React from "react";
-import productImg from "../../../public/assets/Head.png";
-import { BsCashCoin } from "react-icons/bs";
 import Image from "next/image";
 import {
   Card,
   CardHeader,
   CardBody,
   Typography,
+  Spinner,
 } from "@material-tailwind/react";
 import Link from "next/link";
 
 const Productos = ({id, name, image, category}) => {
 
   const [isImageLoading, setIsImageLoading] = React.useState(true);
+  
+
 
   return (
-    <Link href={`/store/${id}`} >
+    <Link href={`/store/${id}`} onClick={()=> {
+      setIsImageLoading(true)
+      setTimeout(()=>{
+        setIsImageLoading(false)
+      }, 5000)
+    }}>
       <Card className="w-60 h-full md:w-60 md:h-auto  m-auto border-primary border">
         <CardHeader
           className={`relative h-64 m-0 rounded-b-none shadow-none `}
@@ -36,6 +42,7 @@ const Productos = ({id, name, image, category}) => {
             onLoadingComplete={() => setIsImageLoading(false)}
             priority={true}
           />
+          {isImageLoading && (<div className="absolute w-16 h-16 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"><Spinner className="w-full h-full" color="teal" /></div>)}
         </CardHeader>
         <CardBody className="p-3 border-primary border-t text-left">
           <Typography variant="h5" color="blue-gray">
