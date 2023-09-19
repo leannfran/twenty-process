@@ -137,7 +137,7 @@ const Cart = ({ isOpen, closeCart }) => {
                   "warning"
                 );
               } else {
-                window.open(whatsappLink, "_blank");
+                gtag_report_conversion(whatsappLink)
               }
             }}
           >

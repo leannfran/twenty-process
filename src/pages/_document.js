@@ -14,7 +14,29 @@ export default function Document() {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-0L0578NFN7');
+              gtag('config', 'AW-11317549295');
             `,
+            }}
+
+          />
+          
+          {/* Event snippet for Cotizacion conversion page */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                function gtag_report_conversion(url) {
+                  var callback = function () {
+                    if (typeof(url) != 'undefined') {
+                      window.location = url;
+                    }
+                  };
+                  gtag('event', 'conversion', {
+                    'send_to': 'AW-11317549295/EKgOCODspeMYEO-x0JQq',
+                    'event_callback': callback
+                  });
+                  return false;
+                }
+              `
             }}
           />
         </Head>      
