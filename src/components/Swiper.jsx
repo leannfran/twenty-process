@@ -209,11 +209,11 @@ const CardSwiper = ({
           <CardProduct
             id={product.id}
             name={product.name}
-            image={product.images[0].image_url}
-            category={product.families
-              .map((family) => family.title)
-              .join(", ")}
-              
+            image={product.images && product.images.length > 0 ? product.images[0].image_url : ''}
+            category={product.families && Array.isArray(product.families)
+              ? product.families.map((family) => family.description).join(", ")
+              : ''}
+            loading={isLoading}
           />
         </SwiperSlide>
       ))
