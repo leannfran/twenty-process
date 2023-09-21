@@ -19,26 +19,35 @@ export default function Document() {
             }}
 
           />
-          
-          {/* Event snippet for Cotizacion conversion page */}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                function gtag_report_conversion(url) {
-                  var callback = function () {
-                    if (typeof(url) != 'undefined') {
-                      window.location = url;
-                    }
-                  };
-                  gtag('event', 'conversion', {
-                    'send_to': 'AW-11317549295/EKgOCODspeMYEO-x0JQq',
-                    'event_callback': callback
-                  });
-                  return false;
-                }
-              `
-            }}
-          />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-0L0578NFN7"></script>
+          <script>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-0L0578NFN7');
+            `}
+          </script>
+
+          {/* Fragmento de evento para la cotización del carrito */}
+          <script>
+            {`
+              function gtag_report_conversion_cotizacion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-11317549295/EKgOCODspeMYEO-x0JQq',
+                  'event_callback': callback
+                });
+                return false;
+              }
+            `}
+          </script>
+         
         </Head>      
         <body className='bg-white'>
         <Main />

@@ -79,6 +79,8 @@ const Cart = ({ isOpen, closeCart }) => {
                 );
               } else {
                 window.open(whatsappLink, "_blank");
+                gtag_report_conversion_cotizacion(whatsappLink); // Llamada al seguimiento de conversión
+
               }
             }}
           >
@@ -137,7 +139,9 @@ const Cart = ({ isOpen, closeCart }) => {
                   "warning"
                 );
               } else {
-                gtag_report_conversion(whatsappLink)
+                window.open(whatsappLink, "_blank");
+                gtag_report_conversion_cotizacion(whatsappLink); // Llamada al seguimiento de conversión
+
               }
             }}
           >

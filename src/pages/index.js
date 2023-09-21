@@ -93,10 +93,10 @@ export default function Home() {
           )}
         </section>
         <section className="flex flex-col items-center py-20 gap-4">
-            <h3 className="text-primary font-black text-4xl ">¡Suscribite a Nuestro Newsletter!</h3>
+            <h3 className="text-primary font-black text-xl text-center md:text-4xl ">¡Suscribite a Nuestro Newsletter!</h3>
 
               <Newlester/>
-            <p className="text-primary font-light text-lg ">accede a las últimas noticias, ofertas exclusivas y contenido fascinante sobre merchandising personalizado</p>
+            <p className="text-primary font-light text-center text-lg ">accede a las últimas noticias, ofertas exclusivas y contenido fascinante sobre merchandising personalizado</p>
 
         </section>
 
