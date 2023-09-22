@@ -45,6 +45,19 @@ const Cart = ({ isOpen, closeCart }) => {
     whatsappMessage
   }`;
 
+  const gtag_report_conversion_cotizacion = (url) => {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-11317549295/EKgOCODspeMYEO-x0JQq',
+      'event_callback': callback
+    });
+    return false;
+  };
+
   return (
     <>
       {isOpen && (
@@ -79,7 +92,7 @@ const Cart = ({ isOpen, closeCart }) => {
                 );
               } else {
                 window.open(whatsappLink, "_blank");
-                gtag_report_conversion_cotizacion(whatsappLink); // Llamada al seguimiento de conversión
+               gtag_report_conversion_cotizacion(whatsappLink)
 
               }
             }}
@@ -140,7 +153,7 @@ const Cart = ({ isOpen, closeCart }) => {
                 );
               } else {
                 window.open(whatsappLink, "_blank");
-                gtag_report_conversion_cotizacion(whatsappLink); // Llamada al seguimiento de conversión
+                gtag_report_conversion_cotizacion(whatsappLink)// Llamada al seguimiento de conversión
 
               }
             }}
