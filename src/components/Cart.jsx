@@ -91,8 +91,7 @@ const Cart = ({ isOpen, closeCart }) => {
                   "warning"
                 );
               } else {
-                window.open(whatsappLink, "_blank");
-               gtag_report_conversion_cotizacion(whatsappLink)
+                window.open( gtag_report_conversion_cotizacion(whatsappLink), "_blank");
 
               }
             }}
@@ -152,8 +151,7 @@ const Cart = ({ isOpen, closeCart }) => {
                   "warning"
                 );
               } else {
-                window.open(whatsappLink, "_blank");
-                gtag_report_conversion_cotizacion(whatsappLink)// Llamada al seguimiento de conversión
+                window.open( gtag_report_conversion_cotizacion(whatsappLink), "_blank");
 
               }
             }}
