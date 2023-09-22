@@ -39,7 +39,7 @@ const Footer = () => {
               href="https://www.linkedin.com/company/twentyarg/"
               className="flex items-center gap-2 hover:bg-primary  p-2 rounded-lg transition-colors"
               target="_blank"
-            ><LinkedinLogo /> Twenty Argentina</a>  
+            ><LinkedinLogo />  Twenty Argentina</a>  
           </div>
        
         </div>
@@ -110,12 +110,12 @@ const Footer = () => {
       <div className="flex flex-col xl:flex-row gap-4 items-center justify-between">
         <p className="text-center md:text-left">
           &copy; 2023
-          <span className=" font-bold">twenty</span> Todos los derechos
+          <span className=" font-bold mx-1"> Twenty</span> todos los derechos
           reservados.
         </p>
         <div className="flex flex-col md:flex-row items-center gap-2">
           <a href="#" className=" hover:text-gray-900 transition-colors">
-            Creado por
+            Desarrollo por
           </a>
           <span className="hidden md:flex">|</span>
           <a

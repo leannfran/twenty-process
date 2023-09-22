@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="hidden md:block fixed right-9 bottom-9 z-10">
+      <div className=" block fixed right-9 bottom-9 z-10">
         <SpeedDial />
       </div>
 
