@@ -23,7 +23,9 @@ const Productos = () => {
         <div className="flex justify-between items-center" id="productos">
           <div className="md:ml-24">
             <h2 className="text-black  flex gap-3 items-center text-lg py-3 pl-4 lg:pl-0">
-              PRODUCTOS DESTACADOS{" "}
+              PRODUCTOS DESTACADOS{" "} <br />
+            Estamos Actualizando Nuestros productos, Contactenos por WhatsApp tocando <a           href="https://api.whatsapp.com/send?phone=5491178311503&text=%C2%A1Hola!,%20Me%20interesa%20conocer%20m%C3%A1s%20sobre%20los%20servicios%20que%20ofrece%20Twenty,%20%C2%BFPodr%C3%ADan%20proporcionarme%20m%C3%A1s%20informaci%C3%B3n%20y%20precios?%20%C2%A1Gracias!%20%F0%9F%98%80"
+>Aca</a>
 
             <Popover
               placement="right-end"
