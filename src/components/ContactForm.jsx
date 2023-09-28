@@ -82,6 +82,13 @@ const ContactForm = () => {
     },
   };
 
+  const gtag_report_form_submission = () => {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-11317549295/-Zc1CLPxxOYYEO-x0JQq'
+    });
+    return false;
+  };
+
   return (
     <>
       <div
@@ -242,6 +249,8 @@ const ContactForm = () => {
                 type="submit"
                 value="Enviar"
                 className="text-white border-none p-2 bg-primary flex items-center justify-center gap-2 font-bold md:w-full sm:w-full"
+                onClick={() => gtag_report_form_submission()}
+
               >
                 {isSending ? (
                   <div className="flex items-center gap-2">
