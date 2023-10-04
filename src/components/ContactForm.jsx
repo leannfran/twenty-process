@@ -89,6 +89,13 @@ const ContactForm = () => {
     return false;
   };
 
+  const gtag_report_conversion_mail = () => {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-11317549295/ZZ_0CJPDwegYEO-x0JQq'
+    });
+    return false;
+  };
+
   return (
     <>
       <div
@@ -137,7 +144,7 @@ const ContactForm = () => {
             </div>
 
             <div className="rounded-full bg-primary p-2">
-              <Link href="mailto: info@twenty.com.ar?subject=Consulta de servicios">
+              <Link onClick={() => gtag_report_conversion_mail()} href="mailto: info@twenty.com.ar?subject=Consulta de servicios">
                 <AiOutlineMail size={32} color="white" />
               </Link>
             </div>
