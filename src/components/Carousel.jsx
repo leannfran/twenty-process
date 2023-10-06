@@ -2,6 +2,8 @@ import { Carousel } from "@material-tailwind/react";
 import carouselImg from "../../public/assets/9.png";
 import carouselFirst from "../../public/assets/7.png";
 import carouselSecond from "../../public/assets/8.png";
+import carouselNavidad from "../../public/assets/img_navidad.png";
+
 
 import Image from "next/image";
 import SpeedDial from "./SpeedDial";
@@ -25,7 +27,7 @@ export default function CarouselHero() {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 4500,
+          delay: 5500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -37,6 +39,12 @@ export default function CarouselHero() {
         className="mySwiper text-black"
 
       >
+         <SwiperSlide>  <Image
+          src={carouselNavidad}
+          alt="image 1"
+          className="h-full w-full object-cover"
+          priority
+        /></SwiperSlide>
         <SwiperSlide>  <Image
           src={carouselFirst}
           alt="image 1"

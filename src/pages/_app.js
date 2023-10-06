@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
      
       <meta
         name="keywords"
-        content="merchandising personalizado, productos promocionales, merchandising de calidad, productos promocionales para empresas, regalos corporativos, promoción de marca, artículos promocionales, merchandising B2B, Argentina"
+        content="merchandising personalizado, productos promocionales, merchandising de calidad, productos promocionales para empresas, regalos corporativos, promoción de marca, artículos promocionales, merchandising, Argentina"
         />
 
       {/* Metadatos para redes sociales (opcional, si tienes habilitada la funcionalidad) */}
