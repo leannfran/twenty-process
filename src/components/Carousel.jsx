@@ -2,7 +2,7 @@ import { Carousel } from "@material-tailwind/react";
 import carouselImg from "../../public/assets/9.png";
 import carouselFirst from "../../public/assets/7.png";
 import carouselSecond from "../../public/assets/8.png";
-import carouselNavidad from "../../public/assets/img_navidad.png";
+import carouselNavidad from "../../public/assets/11.png";
 
 
 import Image from "next/image";
@@ -13,10 +13,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
-
-
-
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper';
 
@@ -41,13 +37,13 @@ export default function CarouselHero() {
       >
          <SwiperSlide>  <Image
           src={carouselNavidad}
-          alt="image 1"
+          alt="imagen navidad"
           className="h-full w-full object-cover"
           priority
         /></SwiperSlide>
         <SwiperSlide>  <Image
           src={carouselFirst}
-          alt="image 1"
+          alt="image portada"
           className="h-full w-full object-cover"
           priority
         /></SwiperSlide>
