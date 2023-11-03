@@ -12,6 +12,9 @@ import { Layout } from "@/components/layout/Layout";
 import {MdOutlineSwipeVertical} from "react-icons/md"
 import { Popover, PopoverContent, PopoverHandler } from "@material-tailwind/react";
 import Newlester from "../components/Newlester";
+import { FaStar } from 'react-icons/fa';
+
+
 export default function Home() {
   
   const [showCatalogue, setShowCatalogue] = React.useState(false);
@@ -25,6 +28,9 @@ export default function Home() {
   function handleOpenCatalogue(open) {
     open ? setShowCatalogue(true) : setShowCatalogue(false);
   }
+  const stars = Array(5).fill(0).map((_, index) => (
+    <FaStar key={index} className="text-yellow-400" />
+  ));
 
   return (
     <Layout>
@@ -99,7 +105,27 @@ export default function Home() {
             <p className="text-primary font-light text-center text-lg ">accede a las últimas noticias, ofertas exclusivas y contenido fascinante sobre merchandising personalizado</p>
 
         </section>
-
+        <div className=" text-white py-12">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center md:space-x-8">
+        <div className="md:flex-1">
+          <img
+            src="../assets/clientes.png" // Asegúrate de reemplazar esto con la ruta correcta de la imagen
+            alt="Logotipo de Los Pinos Lubricantes SRL"
+            className="max-w-xs md:max-w-sm mx-auto mb-6 md:mb-0"
+          />
+        </div>
+        <div className="bg-primary p-6 rounded-lg shadow-lg md:flex-1">
+          <h3 className="text-2xl font-semibold mb-4">Judit Torrilla</h3>
+          <p className="mb-2 font-bold"><span className="font-light">Empresa:</span> Los Pinos Lubricantes SRL</p>
+          <div className="flex items-center mb-4">
+            <strong>Nivel de satisfacción: 5/5 </strong>
+            <div className="flex ml-2">{stars}</div>
+          </div>
+          <p className="mb-4"><strong>Comentarios:</strong> "Las mochilas industriales son un excelente producto, y el trabajo en logos es muy prolijo. El asesoramiento de diseño prestando atención a ciertos 'detalles' fue muy valioso."</p>
+          <p className="mb-2"><strong>Planes Futuros:</strong> "Estamos planeando promociones especiales para el día de la madre, productos para el verano, y regalos corporativos para la fiesta de fin de año."</p>
+        </div>
+      </div>
+    </div>
         <Nosotros />
         <Aptitudes />
 
