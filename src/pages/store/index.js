@@ -147,6 +147,7 @@ const store = () => {
                   key={i}
                   id={product?.id || ''}
                   name={product?.name || ''}
+                  price={product?.price || ''}
                   image={product?.images && Array.isArray(product.images) && product.images.length > 0 ? product.images[0].image_url : ''}
                   category={product?.families && Array.isArray(product.families)
                     ? product.families.map((family) => family.description).join(", ")

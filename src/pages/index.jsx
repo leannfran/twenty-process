@@ -10,6 +10,9 @@ import ContactForm from "../components/ContactForm";
 import SpeedDial from "../components/SpeedDial";
 import { Layout } from "@/components/layout/Layout";
 import { MdOutlineSwipeVertical } from "react-icons/md";
+import { RiTeamLine } from "react-icons/ri";
+import { AiOutlineMail } from "react-icons/ai";
+import Link from "next/link";
 import {
   Popover,
   PopoverContent,
@@ -149,11 +152,18 @@ export default function Home() {
 
           <p className=" text-primary text-center text-lg  px-3 md:px-20 font-ligth">
             {" "}
-            Queremos conocer tu proyecto y entender tus objetivos. <br /> Agenda una
-            llamada con nosotros y descubre cómo podemos colaborar para alcanzar
-            tus metas de merchandising de manera óptima.
+            Queremos conocer tu proyecto y entender tus objetivos. <br /> Agenda
+            una llamada con nosotros y descubre cómo podemos colaborar para
+            alcanzar tus metas de merchandising de manera óptima.
           </p>
-          <a className="py-4 px-5 rounded-2xl bg-primary text-white font-light text-xl shadow-lg " href="https://calendly.com/twenty-merch/twenty-merchandising" target="_blank" rel="noopener noreferrer">Agenda Una Meet</a>
+          <a
+            className="py-4 px-5 rounded-2xl bg-primary text-white font-light text-xl shadow-lg "
+            href="https://calendly.com/twenty-merch/twenty-merchandising"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Agenda Una Meet
+          </a>
         </div>
         <Nosotros />
         <Aptitudes />
@@ -167,6 +177,20 @@ export default function Home() {
         </section>*/}
 
         <ContactForm />
+        <div className="bg-white text-center my-20 text-black p-4 ">
+          <RiTeamLine className="text-8xl text-center m-auto text-primary" />
+          <h6 className="text-3xl font-bold text-primary">
+            Quieres ser parte del equipo Twenty?
+          </h6>
+          <p className="text-xl text-light mt-2">
+            Envíanos tu CV a nuestro mail!
+          </p>
+          <div className="rounded-full mt-2  text-center inline-block m-auto bg-primary p-2">
+              <Link  href="mailto: info@twenty.com.ar?subject=Quiero sumarme al equipo">
+                <AiOutlineMail size={32} color="white" />
+              </Link>
+            </div>
+        </div>
       </main>
     </Layout>
   );

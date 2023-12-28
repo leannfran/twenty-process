@@ -9,10 +9,14 @@ import {
 } from "@material-tailwind/react";
 import Link from "next/link";
 
-const Productos = ({id, name, image, category}) => {
+const Productos = ({id, name, price, image, category}) => {
 
   const [isImageLoading, setIsImageLoading] = React.useState(true);
-  
+    // Asumiendo que `price` es un número o una cadena convertible a número
+    const formattedPrice = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS'
+    }).format(price);
 
 
   return (
@@ -46,9 +50,16 @@ const Productos = ({id, name, image, category}) => {
         </CardHeader>
         <CardBody className="p-3 border-primary border-t text-left">
           <Typography variant="h5" color="blue-gray">
-            {name}
+            {name} 
           </Typography>
           <span className="text-gray-600 text-sm block">{category} </span>
+          <p className="text-gray-800 font-light ">{
+  price !== null ? (
+    <p>{formattedPrice}</p>
+  ) : (
+    <p></p>
+  )
+}</p>
           <p
             className="bg-white border text-primary hover:bg-primary transition-colors font-light border-primary  inline-block hover:text-white text-sm rounded-lg p-1 mt-2 shadow-primary shadow-md"
           >

@@ -21,8 +21,8 @@ const ProductDetail = ({ product }) => {
       showDefaultAlert('Ingrese cantidad de productos','warning')
       return;
     }
-    if (quantityValue > 1000) {
-      showDefaultAlert('La cantidad de productos no puede ser mayor a 1000','warning')
+    if (quantityValue > 10000) {
+      showDefaultAlert('La cantidad de productos no puede ser mayor a 10000','warning')
       return;
     }
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -32,11 +32,15 @@ const ProductDetail = ({ product }) => {
     showDefaultAlert('Producto agregado al carrito', 'success' )
   };
 
-  
+  const formattedPrice = new Intl.NumberFormat('es-AR', {
+    style: 'currency',
+    currency: 'ARS'
+  }).format(product.price_wepod);
 
 
   return (
     <Layout>
+      
       <div className="hidden md:block fixed right-9 bottom-9 z-10">
         <SpeedDial />
       </div>
@@ -114,10 +118,15 @@ const ProductDetail = ({ product }) => {
               <h1 className="font-extrabold text-3xl text-[#0F201E]">
                 {product.name}
               </h1>
-              <p className="py-10 text-secondary">{product.description}</p>
+
+              <p className="pt-10 font-light text-xl text-black"> {formattedPrice} </p>
+              <p className="pb-10 text-secondary">    Los precios pueden variar según la cantidad. Para obtener una cotización exacta, contáctenos.
+</p>
+                            <p className="py-10 text-secondary">{product.description}</p>
             </div>
             <div className=" h-32 xl:h-12 flex flex-col xl:flex-row justify-between gap-4 max-w-[676px]">
               <input type="number" value={quantityValue} className="md:w-60 h-full rounded-md p-2 border-2 border-gray-500 text-black" placeholder="Ingrese Cant. de productos" onChange={(e)=> setQuantityValue(e.target.value)}/>
+              
               <button className="bg-primary hover:bg-secondary transition-colors md:w-60 h-full rounded-md text-center flex justify-center items-center text-white font-bold" onClick={()=> addToCartLocalStorage(product)}>Agregar al carrito cotizador
 
               </button>

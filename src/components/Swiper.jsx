@@ -196,6 +196,7 @@ const CardSwiper = ({
                 id={product.id}
                 name={product.name}
                 image={product.image}
+                price={isNaN(parseFloat(product.price)) ? null : product.price}
                 /* category={product.families
                   .map((family) => family.title)
                   .join(", ")} */
@@ -209,6 +210,8 @@ const CardSwiper = ({
           <CardProduct
             id={product.id}
             name={product.name}
+            price={isNaN(parseFloat(product.price)) ? '' : product.price}
+
             image={product.images && product.images.length > 0 ? product.images[0].image_url : ''}
             category={product.families && Array.isArray(product.families)
               ? product.families.map((family) => family.description).join(", ")
