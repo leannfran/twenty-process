@@ -48,7 +48,7 @@ const Productos = () => {
           </div>
 
           <div>
-            <Link href="/store?family=113">
+            <Link href="/store?family=121">
             <h2 className="text-black text-lg font-light items-center gap-5 hidden md:flex mr-2">
               Ver más productos <FaArrowRight />
             </h2>
@@ -57,7 +57,7 @@ const Productos = () => {
         </div>
 
         <CardSwiper autoplay={true} vertical={false} swiperClass="products" length={2.3}/>
-        <Link href='/store?family=113'>
+        <Link href='/store?family=121'>
         <h2 className="md:hidden text-right text-black  text-lg font-light flex items-center justify-end gap-5 mr-2">
           Ver más productos <FaArrowRight />
         </h2>

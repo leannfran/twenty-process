@@ -35,12 +35,7 @@ export default function CarouselHero() {
         className="mySwiper text-black"
 
       >
-         <SwiperSlide>  <Image
-          src={carouselNavidad}
-          alt="imagen navidad"
-          className="h-full w-full object-cover"
-          priority
-        /></SwiperSlide>
+         
         <SwiperSlide>  <Image
           src={carouselFirst}
           alt="image portada"
