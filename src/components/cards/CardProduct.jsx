@@ -55,7 +55,7 @@ const Productos = ({id, name, price, image, category}) => {
           <span className="text-gray-600 text-sm block">{category} </span>
           <p className="text-gray-800 font-light ">{
   price !== null ? (
-    <p>{formattedPrice}</p>
+    <p>{}</p>
   ) : (
     <p></p>
   )
