@@ -54,7 +54,11 @@ export default function App({ Component, pageProps }) {
       <meta name="ICBM" content="-34.611778, -58.417306" />
     
         {/* Metaetiquetas */}
-      
+        <script
+          type="text/javascript"
+          async="async"
+          src="https://hub.fromdoppler.com/public/dhtrack.js"
+        />
 
       </Head>
       <Provider store={store}>

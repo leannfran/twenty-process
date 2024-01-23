@@ -5,6 +5,12 @@ export default function Document() {
     <Html lang="es">
       <Head>
 
+      <script
+          type="text/javascript"
+          async="async"
+          src="https://hub.fromdoppler.com/public/dhtrack.js"
+        />
+
          {/* Aquí agregamos el código de Google Analytics */}
          <script async src="https://www.googletagmanager.com/gtag/js?id=G-0L0578NFN7"></script>
           <script
