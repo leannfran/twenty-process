@@ -119,7 +119,6 @@ const ProductDetail = ({ product }) => {
                 {product.name}
               </h1>
 
-              <p className="pt-10 font-light text-xl text-black"> {formattedPrice} </p>
               <p className="pb-10 text-secondary">    Los precios pueden variar según la cantidad. Para obtener una cotización exacta, contáctenos.
 </p>
                             <p className="py-10 text-secondary">{product.description}</p>

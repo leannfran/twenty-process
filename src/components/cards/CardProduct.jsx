@@ -55,12 +55,10 @@ const Productos = ({ id, name, price, image, category }) => {
             {name}
           </Typography>
           <span className="text-gray-600 text-sm block">{category} </span>
-        {/*   <p className="text-gray-800 font-light ">
-            {price !== null ? <p>{}</p> : <p></p>}
-          </p>
+       
           <p className="bg-white border text-primary hover:bg-primary transition-colors font-light border-primary  inline-block hover:text-white text-sm rounded-lg p-1 mt-2 shadow-primary shadow-md">
             Ver mas{" "}
-          </p>*/}
+          </p>
           {/* <Link
             href={`https://wa.me/+5491178311503?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${name}%20${image}`}
             target="_blank"

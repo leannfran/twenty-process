@@ -2,7 +2,7 @@ import { Carousel } from "@material-tailwind/react";
 import carouselImg from "../../public/assets/9.png";
 import carouselFirst from "../../public/assets/7.png";
 import carouselSecond from "../../public/assets/8.png";
-import carouselNavidad from "../../public/assets/11.png";
+import cole from "../../public/assets/cole.png";
 
 
 import Image from "next/image";
@@ -35,7 +35,12 @@ export default function CarouselHero() {
         className="mySwiper text-black"
 
       >
-         
+          <SwiperSlide>  <Image
+          src={cole}
+          alt="image vueta al cole"
+          className="h-full w-full object-cover"
+          priority
+        /></SwiperSlide>
         <SwiperSlide>  <Image
           src={carouselFirst}
           alt="image portada"
