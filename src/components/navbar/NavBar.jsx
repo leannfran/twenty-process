@@ -97,27 +97,28 @@ const NavBar = () => {
 
         <div className="hidden md:flex items-center w-full justify-end px-4 lg:px-9 ">
           <ul className="flex gap-4 lg:gap-7 font-bold text-sm lg:text-lg cursor-pointer items-center">
-            <li>
-              <Link href="/store?family=121">Productos</Link>
+          <li>
+              <button className="hover:underline transition-all font-light"  onClick={redirectWithScroll(router, "/", "#contacto")}>
+                Contacto
+              </button>
+            </li> 
+             <li>
+              <a  className="hover:underline transition-all font-light" href="https://twentyproductos.tumerchandising.com/products-list?Categoria=165&PaginaActual=1&Orden=desc" target={'_blank'}>Ver Precios</a>
             </li>
             
             <li>
-              <button onClick={redirectWithScroll(router, "/", "#catalogues")}>
+              <button className="hover:underline transition-all font-light"  onClick={redirectWithScroll(router, "/", "#catalogues")}>
                 Clientes
               </button>
             </li>
             <li>
-              <button onClick={redirectWithScroll(router, "/", "#nosotros")}>
+              <button className="hover:underline transition-all font-light"  onClick={redirectWithScroll(router, "/", "#nosotros")}>
                 Nosotros
               </button>
             </li>
-            <li>
-              <button onClick={redirectWithScroll(router, "/", "#contacto")}>
-                Contacto
-              </button>
-            </li>
+            
 
-            <Input
+            {/* <Input
               type="text"
               placeholder="Buscar..."
               className="!border !border-blue-gray-50 bg-white text-blue-gray-500 shadow-lg shadow-blue-gray-900/5 ring-4 ring-transparent placeholder:text-blue-gray-200 rounded-sm md:w-[15rem] lg:w-[20rem]"
@@ -167,14 +168,16 @@ const NavBar = () => {
                   )}
                 </List>
               </div>
-            )}
+            )}*/}
           </ul>
         </div>
 
         <div className="relative md:hidden flex items-center gap-3">
-          <button onClick={() => setIsCartOpen(!isCartOpen)}>
+       {/* 
+       <button onClick={() => setIsCartOpen(!isCartOpen)}>
             <BsBag className="text-2xl md:hidden w-12 " />
-          </button>
+        </button> 
+          */}
           {cartLength > 0 && (
             <span className="bg-red-600 w-6 h-6 rounded-full text-xs p-1 text-center absolute left-7 top-0">
               {cartLength}
@@ -226,7 +229,7 @@ const NavBar = () => {
 )}
 
 <div className="static z-10 top-0 right-0">
-        <Cart isOpen={isCartOpen} closeCart={setIsCartOpen} />
+      {  /* <Cart isOpen={isCartOpen} closeCart={setIsCartOpen} /> */}
       </div>
     
     </>
