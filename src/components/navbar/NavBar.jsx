@@ -84,7 +84,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="relative z-10 w-full !text-white h-20 md:h-[10vh] bg-gradient-to-t from-[#30807a] via-teal-400 to-teal-200 flex items-center justify-between shadow-sm shadow-black">
+      <nav className="relative z-10 w-full !text-white h-20 md:h-[10vh] bg-primary flex items-center justify-between shadow-xl ">
         <Link href="/">
           <Image
             src={twentyLogo}
@@ -100,23 +100,10 @@ const NavBar = () => {
             <li>
               <Link href="/store?family=121">Productos</Link>
             </li>
-            <li>
-              <button
-                onMouseEnter={() => setShowDropdown(true)}
-                onMouseLeave={() => {
-                  setTimeout(() => {
-                    if (!isHoveringDropdown) {
-                      setShowDropdown(false);
-                    }
-                  }, 2000);
-                }}
-              >
-                Categorías
-              </button>
-            </li>
+            
             <li>
               <button onClick={redirectWithScroll(router, "/", "#catalogues")}>
-                Catálogos
+                Clientes
               </button>
             </li>
             <li>

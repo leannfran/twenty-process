@@ -9,6 +9,11 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -26,6 +31,11 @@ body {
     )
     rgb(var(--background-start-rgb));
     font-family: 'Poppins', sans-serif !important;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: var(--color-primary); /* Ajusta al color primary de tu tema */
+  /* Ajusta el margen o padding según sea necesario */
 }
 
 

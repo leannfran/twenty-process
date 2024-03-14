@@ -21,10 +21,14 @@ const Nosotros = () => {
           Somos <b>especialistas</b> en productos de merchandising. Ofrecemos atención
           exclusiva y personalizada a la medida de tu marca, para que te
           identifiques con nuestros productos y el mensaje que queres brindar a
-          tus clientes. Generamos la oportunidad de que tu marca acompañe a tu
+          tus clientes. 
+          
+          Generamos la oportunidad de que tu marca acompañe a tu
           cliente en su día a día. Que esté presente en el mate de todas las
           mañanas, en la botella con agua que lleva al gimnasio y en la mochila
-          que lleva al trabajo. De esta forma, logramos que te recuerden a
+          que lleva al trabajo. 
+          
+          De esta forma, logramos que te recuerden a
           través de un presente, generando así un vínculo positivo y
           fidelizándolo de la mejor manera.{" "}
         </p>

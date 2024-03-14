@@ -159,7 +159,7 @@ const ContactForm = () => {
             <div className="flex flex-col gap-5">
               <div className="flex flex-col">
                 <label className="text-black font-bold mb-2">
-                  Nombre Completo
+                  Nombre y Empresa
                   <Popover
                     placement="right-end"
                     open={openPopoverName}
@@ -240,7 +240,7 @@ const ContactForm = () => {
 
                 <textarea
                   className="text-black resize-none borde placeholder-secondary bg-[#D9D9D9] p-2 rounded-md h-28 md:w-72 focus:border-primary focus:outline-none focus:ring-primary focus:ring-2 transition duration-300"
-                  placeholder="Escribí tu mensaje..."
+                  placeholder="Contanos tu proyecto, Necesidades, Productos a Cotizar..."
                   name="message"
                   {...register("message")}
                 ></textarea>
