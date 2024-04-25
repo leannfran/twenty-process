@@ -102,10 +102,7 @@ const NavBar = () => {
                 Contacto
               </button>
             </li> 
-             <li>
-              <a  className="hover:underline transition-all font-light" href="https://twentyproductos.tumerchandising.com/products-list?Categoria=165&PaginaActual=1&Orden=desc" target={'_blank'}>Ver Precios</a>
-            </li>
-            
+
             <li>
               <button className="hover:underline transition-all font-light"  onClick={redirectWithScroll(router, "/", "#catalogues")}>
                 Clientes

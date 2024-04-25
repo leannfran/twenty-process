@@ -75,14 +75,7 @@ export default function Home() {
               >
                 Contáctanos
               </a>
-              <a
-                target={"_blank"}
-                href="https://twentyproductos.tumerchandising.com/products-list?Categoria=165&PaginaActual=1&Orden=desc"
-                className="bg-primary text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
-              >
-                {" "}
-                Ver Precios{" "}
-              </a>
+           
             </div>
           </div>
 
