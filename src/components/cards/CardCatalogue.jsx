@@ -45,16 +45,18 @@ export default function CardCatalogue({ openCatalogue, items }) {
         floated={false}
         className="w-full h-full  shrink-0 m-0  overflow-hidden"
       >
-        <Image
-          src={items.image}
-          width={500}
-          height={500}
-          alt="image"
-          className="w-full h-full object-cover"
-          // onClick={()=>openCatalogue(true)}
-          quality={100}
-          loading="lazy"
-        />
+        {items.image ? (
+          <Image
+            src={items.image}
+            width={500}
+            height={500}
+            alt="image"
+            className="w-full h-full object-cover"
+            // onClick={()=>openCatalogue(true)}
+            quality={100}
+            loading="lazy"
+          />
+        ) : null}
       </CardHeader>
 
       <CardBody className="flex  max-w-[700px] w-full  text-start  absolute bottom-0 rounded-b-xl  bg-gradient-to-t from-black to-transparent backdrop-filter backdrop-blur-xs ">
@@ -62,7 +64,7 @@ export default function CardCatalogue({ openCatalogue, items }) {
           <h3 className=" w-full text-sm  font-extrabold text-white ">
             {items.name}
           </h3>
-          
+
           <span className="text-gray-500 text-sm">Publicado: 26/06/23</span>
         </div>
 

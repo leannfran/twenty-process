@@ -29,21 +29,23 @@ const Productos = ({ id, name, price, image, category }) => {
     >
       <Card className="w-60 h-full md:w-60 md:h-auto  m-auto border-primary border">
         <CardHeader className={`relative h-64 m-0 rounded-b-none shadow-none `}>
-          <Image
-            src={image}
-            width={500}
-            height={500}
-            alt={name}
-            className={`object-contain  rounded-b-none h-auto w-auto
+          {image ? (
+            <Image
+              src={image}
+              width={500}
+              height={500}
+              alt={name}
+              className={`object-contain  rounded-b-none h-auto w-auto
             ${
               isImageLoading
                 ? "grayscale blur-xl scale-105"
                 : "grayscale-0 blur-0 scale-100"
             }
             `}
-            onLoadingComplete={() => setIsImageLoading(false)}
-            priority={true}
-          />
+              onLoadingComplete={() => setIsImageLoading(false)}
+              priority={true}
+            />
+          ) : null}
           {isImageLoading && (
             <div className="absolute w-16 h-16 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <Spinner className="w-full h-full" color="teal" />
@@ -55,7 +57,7 @@ const Productos = ({ id, name, price, image, category }) => {
             {name}
           </Typography>
           <span className="text-gray-600 text-sm block">{category} </span>
-       
+
           <p className="bg-white border text-primary hover:bg-primary transition-colors font-light border-primary  inline-block hover:text-white text-sm rounded-lg p-1 mt-2 shadow-primary shadow-md">
             Ver mas{" "}
           </p>
