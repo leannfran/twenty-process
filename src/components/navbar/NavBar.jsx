@@ -22,9 +22,9 @@ const NavBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [autocompleteResults, setAutocompleteResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [categories, setCategories] = useState([])
-  const [showDropdown, setShowDropdown] = useState(false)
-  const [selectedCategory, setSelectedCategory] = useState(null)
+  const [categories, setCategories] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [familyProducts, setFamilyProducts] = useState([]);
   const [isHoveringDropdown, setIsHoveringDropdown] = React.useState(false);
   const [isHoveringButton, setIsHoveringButton] = React.useState(false);
@@ -48,11 +48,15 @@ const NavBar = () => {
     };
   }, []);
 
-
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("https://api.zecatdifapro.com/family");
+        const response = await axios.get("https://api.zecat.com/v1/family", {
+          headers: {
+            Authorization:
+              "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
+          },
+        });
         setCategories(response.data.families);
       } catch (error) {
         console.error("Error al obtener las categorías", error);
@@ -61,7 +65,6 @@ const NavBar = () => {
 
     fetchCategories();
   }, []);
-  
 
   const handleChange = async (event) => {
     const { value } = event.target;
@@ -70,7 +73,13 @@ const NavBar = () => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `https://api.zecatdifapro.com/generic_product/autocomplete?name=${value}`
+        `https://api.zecat.com/v1/generic_product/autocomplete?name=${value}`,
+        {
+          headers: {
+            Authorization:
+              "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
+          },
+        }
       );
       const data = await response.json();
       setAutocompleteResults(data.generic_products);
@@ -97,23 +106,31 @@ const NavBar = () => {
 
         <div className="hidden md:flex items-center w-full justify-end px-4 lg:px-9 ">
           <ul className="flex gap-4 lg:gap-7 font-bold text-sm lg:text-lg cursor-pointer items-center">
-          <li>
-              <button className="hover:underline transition-all font-light"  onClick={redirectWithScroll(router, "/", "#contacto")}>
+            <li>
+              <button
+                className="hover:underline transition-all font-light"
+                onClick={redirectWithScroll(router, "/", "#contacto")}
+              >
                 Contacto
               </button>
-            </li> 
+            </li>
 
             <li>
-              <button className="hover:underline transition-all font-light"  onClick={redirectWithScroll(router, "/", "#catalogues")}>
+              <button
+                className="hover:underline transition-all font-light"
+                onClick={redirectWithScroll(router, "/", "#catalogues")}
+              >
                 Clientes
               </button>
             </li>
             <li>
-              <button className="hover:underline transition-all font-light"  onClick={redirectWithScroll(router, "/", "#nosotros")}>
+              <button
+                className="hover:underline transition-all font-light"
+                onClick={redirectWithScroll(router, "/", "#nosotros")}
+              >
                 Nosotros
               </button>
             </li>
-            
 
             {/* <Input
               type="text"
@@ -170,7 +187,7 @@ const NavBar = () => {
         </div>
 
         <div className="relative md:hidden flex items-center gap-3">
-       {/* 
+          {/* 
        <button onClick={() => setIsCartOpen(!isCartOpen)}>
             <BsBag className="text-2xl md:hidden w-12 " />
         </button> 
@@ -208,13 +225,15 @@ const NavBar = () => {
                   <a
                     href="#"
                     onClick={(e) => {
-                      e.preventDefault()
+                      e.preventDefault();
                       router.push({
-                        pathname: '/store',
+                        pathname: "/store",
                         query: { family: category.id },
                       });
                     }}
-                    className={`block ${selectedCategory === category ? 'font-bold' : ''}`}
+                    className={`block ${
+                      selectedCategory === category ? "font-bold" : ""
+                    }`}
                   >
                     {category.title}
                   </a>
@@ -223,12 +242,11 @@ const NavBar = () => {
             ))}
           </ul>
         </div>
-)}
+      )}
 
-<div className="static z-10 top-0 right-0">
-      {  /* <Cart isOpen={isCartOpen} closeCart={setIsCartOpen} /> */}
+      <div className="static z-10 top-0 right-0">
+        {/* <Cart isOpen={isCartOpen} closeCart={setIsCartOpen} /> */}
       </div>
-    
     </>
   );
 };

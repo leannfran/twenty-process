@@ -9,7 +9,6 @@ import { useRouter } from "next/router";
 import { BreadcrumbsWithIcon } from "@/components/atoms/BreadCrumbs";
 import SpeedDial from "../../components/SpeedDial";
 
-
 const store = () => {
   const router = useRouter();
 
@@ -17,7 +16,7 @@ const store = () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [page, setPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
-  const category = router.query.family || '';
+  const category = router.query.family || "";
 
   //* funcion para asignarle el color al boton activo de paginacion
   const getItemProps = (index) => ({
@@ -61,16 +60,19 @@ const store = () => {
     });
   };
 
-
-
   //* peticion a la api
   React.useEffect(() => {
-    
     const fetchData = async () => {
       try {
         if (!category) {
           const productRequest = axios.get(
-            `https://api.zecatdifapro.com/generic_product?page=${page}`
+            `https://api.zecat.com/v1/generic_product?page=${page}`,
+            {
+              headers: {
+                Authorization:
+                  "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
+              },
+            }
           );
           const [productResponse] = await axios.all([productRequest]);
           setProducts(productResponse.data.generic_products);
@@ -78,7 +80,13 @@ const store = () => {
           setIsLoading(false);
         } else {
           const productRequest = await axios.get(
-            `https://api.zecatdifapro.com/generic_product?families[]=${category}&page=${page}`
+            `https://api.zecat.com/v1/generic_product?families[]=${category}&page=${page}`,
+            {
+              headers: {
+                Authorization:
+                  "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
+              },
+            }
           );
           const [productResponse] = await axios.all([productRequest]);
           setProducts(productResponse.data.generic_products);
@@ -91,9 +99,8 @@ const store = () => {
     };
 
     fetchData();
-  }, [page,category]);
+  }, [page, category]);
 
-  
   function setter(category) {
     router.replace(`/store?family=${category}`, undefined, { shallow: true });
     setPage(1);
@@ -106,7 +113,7 @@ const store = () => {
         <SpeedDial />
       </div>
       <main className="min-h-screen text-center">
-      <BreadcrumbsWithIcon first="store" />
+        <BreadcrumbsWithIcon first="store" />
         <section className="flex flex-col 1440px:flex-row w-full">
           <div className=" min-h-screen w-full max-w-[1400px] m-auto">
             <h2 className="text-black text-xl md:text-3xl shadow- py-5">
@@ -120,7 +127,7 @@ const store = () => {
               setter={setter}
               autoplay
             />
-          
+
             <div className="  bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10   ">
               {isLoading ? (
                 Array(20)
@@ -138,21 +145,32 @@ const store = () => {
                     </Card>
                   ))
               ) : products.length < 1 ? (
-                
-                  <h2 className="text-primary text-center font-extrabold text-3xl col-span-3">Nada por aquí! Pronto actualizaremos los productos de esta categoría.</h2>
-                
+                <h2 className="text-primary text-center font-extrabold text-3xl col-span-3">
+                  Nada por aquí! Pronto actualizaremos los productos de esta
+                  categoría.
+                </h2>
               ) : (
-                products.map((product,i) => (
+                products.map((product, i) => (
                   <CardProduct
-                  key={i}
-                  id={product?.id || ''}
-                  name={product?.name || ''}
-                  price={product?.price || ''}
-                  image={product?.images && Array.isArray(product.images) && product.images.length > 0 ? product.images[0].image_url : ''}
-                  category={product?.families && Array.isArray(product.families)
-                    ? product.families.map((family) => family.description).join(", ")
-                    : ''}
-                  loading={isLoading}
+                    key={i}
+                    id={product?.id || ""}
+                    name={product?.name || ""}
+                    price={product?.price || ""}
+                    image={
+                      product?.images &&
+                      Array.isArray(product.images) &&
+                      product.images.length > 0
+                        ? product.images[0].image_url
+                        : ""
+                    }
+                    category={
+                      product?.families && Array.isArray(product.families)
+                        ? product.families
+                            .map((family) => family.description)
+                            .join(", ")
+                        : ""
+                    }
+                    loading={isLoading}
                   />
                 ))
               )}

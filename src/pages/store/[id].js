@@ -171,7 +171,13 @@ export async function getServerSideProps(context) {
 
   try {
     const response = await axios.get(
-      `https://api.zecatdifapro.com/generic_product/${id}`
+      `https://api.zecat.com/v1/generic_product/${id}`,
+      {
+        headers: {
+          Authorization:
+            "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
+        },
+      }
     );
     const product = response.data.generic_product;
 

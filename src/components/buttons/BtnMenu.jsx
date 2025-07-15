@@ -55,7 +55,11 @@ export default function BtnMenu() {
     try {
 
       setIsLoading(true)
-      const response = await fetch(`https://api.zecatdifapro.com/generic_product/autocomplete?name=${value}`)
+      const response = await fetch(`https://api.zecat.com/v1/generic_product/autocomplete?name=${value}`,{
+        headers: {
+          Authorization: 'Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v'
+        }
+      })
       const data = await response.json();
       setAutocompleteResults(data.generic_products)
 

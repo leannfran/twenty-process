@@ -14,8 +14,8 @@ import CategoriesProduct from "./CategoriesProduct";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "@material-tailwind/react";
-import jsonCatalogues from '../data/catalogues.json'
-import featuredProducts from '../../featuredProducts.json'
+import jsonCatalogues from "../data/catalogues.json";
+import featuredProducts from "../../featuredProducts.json";
 
 const CardSwiper = ({
   openCatalogue,
@@ -26,13 +26,13 @@ const CardSwiper = ({
   setter,
   link,
   navigation,
-  
-  actualProductName
+
+  actualProductName,
 }) => {
   const [categories, setCategories] = useState([]);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [loader , setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
 
   const [keyword] = actualProductName ? actualProductName.split(" ") : "";
   const cataloguesTest = 7;
@@ -40,17 +40,30 @@ const CardSwiper = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const categoryRequest = axios.get(
-          "https://api.zecatdifapro.com/family"
-        );
+        const categoryRequest = axios.get("https://api.zecat.com/v1/family", {
+          headers: {
+            Authorization:
+              "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
+          },
+        });
         const relatedProductsRequest = axios.get(
-          `https://api.zecatdifapro.com/generic_product?name=${keyword}`
+          `https://api.zecat.com/v1/generic_product?name=${keyword}`,
+          {
+            headers: {
+              Authorization:
+                "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
+            },
+          }
         );
-        const [ categoryResponse , relatedProductsResponse ] = await axios.all([
+        const [categoryResponse, relatedProductsResponse] = await axios.all([
           categoryRequest,
-          relatedProductsRequest
+          relatedProductsRequest,
         ]);
-        setCategories(categoryResponse.data.families.filter((family)=> family.title !== "Próximos Arribos"));
+        setCategories(
+          categoryResponse.data.families.filter(
+            (family) => family.title !== "Próximos Arribos"
+          )
+        );
         setRelatedProducts(relatedProductsResponse.data.generic_products);
         setIsLoading(false);
       } catch (error) {
@@ -72,11 +85,11 @@ const CardSwiper = ({
       } py-2`}
       direction={vertical ? "vertical" : "horizontal"}
       pagination={{ clickable: true }}
-      navigation={navigation?true:false }
+      navigation={navigation ? true : false}
       /*   loop={true} */
       mousewheel={true}
       autoplay={autoplay ? { delay: 3000 } : false}
-     /*  autoplay={false} */
+      /*  autoplay={false} */
       modules={[Autoplay, Navigation]}
       spaceBetween={swiperClass == "categories" ? 90 : null}
       breakpoints={{
@@ -129,16 +142,16 @@ const CardSwiper = ({
               : length,
         },
         918: {
-          slidesPerView: 
-          swiperClass === "products" || swiperClass === "relatedProducts"
+          slidesPerView:
+            swiperClass === "products" || swiperClass === "relatedProducts"
               ? 2.7
               : swiperClass === "categories"
               ? 8
               : length,
         },
         918: {
-          slidesPerView: 
-          swiperClass === "products"
+          slidesPerView:
+            swiperClass === "products"
               ? 3.5
               : swiperClass === "categories"
               ? 7
@@ -152,7 +165,8 @@ const CardSwiper = ({
             .fill()
             .map((_, index) => (
               <SwiperSlide key={index}>
-                {swiperClass === "products" || swiperClass === "relatedProducts" ? (
+                {swiperClass === "products" ||
+                swiperClass === "relatedProducts" ? (
                   <Card className="w-80 h-80 md:w-96 m-auto border">
                     <div className="bg-white animate-pulse rounded p-4 h-full flex flex-col gap-3">
                       <div className="h-52 w-full bg-gray-300 rounded mb-2"></div>
@@ -162,25 +176,20 @@ const CardSwiper = ({
                   </Card>
                 ) : swiperClass === "categories" ? (
                   <div className=" flex flex-col items-center justify-center animate-pulse gap-2">
-                    <div className="w-32 h-32 bg-gradient-to-t from-teal-500 to-teal-200 rounded-full">                     
-                    </div>
+                    <div className="w-32 h-32 bg-gradient-to-t from-teal-500 to-teal-200 rounded-full"></div>
                     <div className="h-4 w-24 bg-gray-300 rounded"></div>
                   </div>
                 ) : null}
               </SwiperSlide>
             ))
         : swiperClass === "catalogues"
-          ? [...Array(cataloguesTest)].map((e, i) => (
-            jsonCatalogues.map((items,i) => (
+        ? [...Array(cataloguesTest)].map((e, i) =>
+            jsonCatalogues.map((items, i) => (
               <SwiperSlide key={i}>
-
-
                 <CardCatalogue openCatalogue={openCatalogue} items={items} />
-
-
               </SwiperSlide>
             ))
-          ))
+          )
         : swiperClass === "logos"
         ? [...Array(cataloguesTest)].map((e, i) => (
             <SwiperSlide key={i}>
@@ -196,30 +205,37 @@ const CardSwiper = ({
                 id={product.id}
                 name={product.name}
                 image={product.image}
-              /*  price={isNaN(parseFloat(product.price)) ? null : product.price}
+                /*  price={isNaN(parseFloat(product.price)) ? null : product.price}
                 /* category={product.families
                   .map((family) => family.title)
                   .join(", ")} */
-                  
               />
             </SwiperSlide>
           ))
         : swiperClass === "relatedProducts"
         ? relatedProducts.map((product, i) => (
-          <SwiperSlide key={i}>
-          <CardProduct
-            id={product.id}
-            name={product.name}
-           /* price={isNaN(parseFloat(product.price)) ? '' : product.price}*/
+            <SwiperSlide key={i}>
+              <CardProduct
+                id={product.id}
+                name={product.name}
+                /* price={isNaN(parseFloat(product.price)) ? '' : product.price}*/
 
-            image={product.images && product.images.length > 0 ? product.images[0].image_url : ''}
-            category={product.families && Array.isArray(product.families)
-              ? product.families.map((family) => family.description).join(", ")
-              : ''}
-            loading={isLoading}
-          />
-        </SwiperSlide>
-      ))
+                image={
+                  product.images && product.images.length > 0
+                    ? product.images[0].image_url
+                    : ""
+                }
+                category={
+                  product.families && Array.isArray(product.families)
+                    ? product.families
+                        .map((family) => family.description)
+                        .join(", ")
+                    : ""
+                }
+                loading={isLoading}
+              />
+            </SwiperSlide>
+          ))
         : swiperClass === "categories"
         ? categories.map((category, i) => (
             <SwiperSlide key={i}>
@@ -237,6 +253,6 @@ const CardSwiper = ({
         : null}
     </Swiper>
   );
-}
+};
 
 export default CardSwiper;
