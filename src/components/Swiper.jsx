@@ -60,22 +60,20 @@ const CardSwiper = ({
           relatedProductsRequest,
         ]);
         setCategories(
-          categoryResponse.data.families.filter((family) => {
-            const title = family.title;
-            // Excluir "Próximos Arribos"
-            if (title === "Próximos Arribos") return false;
-            // Excluir títulos que contienen años (ej: 2024, 2025, etc.)
-            if (/\b(19|20)\d{2}\b/.test(title)) return false;
-            // Excluir títulos que contienen referencias a fechas/días especiales
-            const excludeKeywords = [
-              "Día de la madre",
-              "Día del Padre",
-              "Día del trabajador",
-              
-            ];
-            if (excludeKeywords.some((kw) => title.toLowerCase().includes(kw.toLowerCase()))) return false;
-            return true;
-          })
+          Array.isArray(categoryResponse.data.families)
+            ? categoryResponse.data.families.filter((family) => {
+                const title = typeof family.title === "string" ? family.title : "";
+                if (title === "Próximos Arribos") return false;
+                if (/\b(19|20)\d{2}\b/.test(title)) return false;
+                const excludeKeywords = [
+                  "Día de la madre",
+                  "Día del Padre",
+                  "Día del trabajador",
+                ];
+                if (excludeKeywords.some((kw) => title.toLowerCase().includes(kw.toLowerCase()))) return false;
+                return true;
+              })
+            : []
         );
         setRelatedProducts(relatedProductsResponse.data.generic_products);
         setIsLoading(false);
