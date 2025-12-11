@@ -12,7 +12,7 @@ import brandLogo from "../../public/assets/slazenger-logo.png";
 import CardProduct from "./cards/CardProduct";
 import CategoriesProduct from "./CategoriesProduct";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import useSWR from "swr";
 import { Card } from "@material-tailwind/react";
 import jsonCatalogues from "../data/catalogues.json";
 import featuredProducts from "../../featuredProducts.json";
@@ -37,53 +37,41 @@ const CardSwiper = ({
   const [keyword] = actualProductName ? actualProductName.split(" ") : "";
   const cataloguesTest = 7;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const categoryRequest = axios.get("https://api.zecat.com/v1/family", {
-          headers: {
-            Authorization:
-              "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
-          },
-        });
-        const relatedProductsRequest = axios.get(
-          `https://api.zecat.com/v1/generic_product?name=${keyword}`,
-          {
-            headers: {
-              Authorization:
-                "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
-            },
-          }
-        );
-        const [categoryResponse, relatedProductsResponse] = await axios.all([
-          categoryRequest,
-          relatedProductsRequest,
-        ]);
-        setCategories(
-          Array.isArray(categoryResponse.data.families)
-            ? categoryResponse.data.families.filter((family) => {
-                const title = typeof family.title === "string" ? family.title : "";
-                if (title === "Próximos Arribos") return false;
-                if (/\b(19|20)\d{2}\b/.test(title)) return false;
-                const excludeKeywords = [
-                  "Día de la madre",
-                  "Día del Padre",
-                  "Día del trabajador",
-                ];
-                if (excludeKeywords.some((kw) => title.toLowerCase().includes(kw.toLowerCase()))) return false;
-                return true;
-              })
-            : []
-        );
-        setRelatedProducts(relatedProductsResponse.data.generic_products);
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const { data: familyData, isLoading: loadingFamilies } = useSWR(
+    `/api/family`,
+    fetcher,
+    { revalidateOnFocus: false, dedupingInterval: 60000 }
+  );
+  const { data: relatedData, isLoading: loadingRelated } = useSWR(
+    keyword ? `/api/products/search?name=${keyword}` : null,
+    fetcher,
+    { revalidateOnFocus: false, dedupingInterval: 60000 }
+  );
 
-    fetchData();
-  }, []);
+  useEffect(() => {
+    if (familyData?.families) {
+      const filtered = Array.isArray(familyData.families)
+        ? familyData.families.filter((family) => {
+            const title = typeof family.title === "string" ? family.title : "";
+            if (title === "Próximos Arribos") return false;
+            if (/\b(19|20)\d{2}\b/.test(title)) return false;
+            const excludeKeywords = [
+              "Día de la madre",
+              "Día del Padre",
+              "Día del trabajador",
+            ];
+            if (excludeKeywords.some((kw) => title.toLowerCase().includes(kw.toLowerCase()))) return false;
+            return true;
+          })
+        : [];
+      setCategories(filtered);
+    }
+    if (relatedData?.generic_products) {
+      setRelatedProducts(relatedData.generic_products);
+    }
+    setIsLoading(loadingFamilies || loadingRelated);
+  }, [familyData, relatedData, loadingFamilies, loadingRelated]);
 
   return (
     <Swiper

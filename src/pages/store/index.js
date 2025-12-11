@@ -1,7 +1,7 @@
 import { Layout } from "@/components/layout/Layout";
 import React from "react";
 import CardProduct from "@/components/cards/CardProduct";
-import axios from "axios";
+import useSWR from "swr";
 import Pagination from "@/components/Pagination";
 import { Breadcrumbs, Card } from "@material-tailwind/react";
 import CardSwiper from "@/components/Swiper";
@@ -12,11 +12,30 @@ import SpeedDial from "../../components/SpeedDial";
 const store = () => {
   const router = useRouter();
 
-  const [products, setProducts] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [isLoadingClient, setIsLoadingClient] = React.useState(true);
   const [page, setPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
   const category = router.query.family || "";
+
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const { data, isLoading: isLoadingSWR, error } = useSWR(
+    `/api/products?page=${page}${category ? `&family=${category}` : ""}`,
+    fetcher,
+    { revalidateOnFocus: false, dedupingInterval: 5000 }
+  );
+
+  const products = data?.generic_products || [];
+  React.useEffect(() => {
+    setIsLoadingClient(isLoadingSWR);
+    if (data?.total_pages) setTotalPages(data.total_pages);
+  }, [isLoadingSWR, data]);
+
+  // Prefetch siguiente página para transición más rápida
+  React.useEffect(() => {
+    if (page === 1) {
+      fetcher(`/api/products?page=2${category ? `&family=${category}` : ""}`);
+    }
+  }, [page, category]);
 
   //* funcion para asignarle el color al boton activo de paginacion
   const getItemProps = (index) => ({
@@ -24,7 +43,7 @@ const store = () => {
     color: page === index ? "teal" : "blue-gray",
     onClick: () => {
       setPage(index);
-      setIsLoading(true);
+      setIsLoadingClient(true);
       /* window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -35,11 +54,11 @@ const store = () => {
 
   //* funciones para el paginado (puede refactorizarse en una sola funcion)
   const next = () => {
-    if (page === 5) return;
+    if (page >= totalPages) return;
 
     setPage(page + 1);
 
-    setIsLoading(true);
+    setIsLoadingClient(true);
 
     window.scrollTo({
       top: 0,
@@ -52,7 +71,7 @@ const store = () => {
 
     setPage(page - 1);
 
-    setIsLoading(true);
+    setIsLoadingClient(true);
 
     window.scrollTo({
       top: 0,
@@ -60,51 +79,12 @@ const store = () => {
     });
   };
 
-  //* peticion a la api
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (!category) {
-          const productRequest = axios.get(
-            `https://api.zecat.com/v1/generic_product?page=${page}`,
-            {
-              headers: {
-                Authorization:
-                  "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
-              },
-            }
-          );
-          const [productResponse] = await axios.all([productRequest]);
-          setProducts(productResponse.data.generic_products);
-          setTotalPages(productResponse.data.total_pages);
-          setIsLoading(false);
-        } else {
-          const productRequest = await axios.get(
-            `https://api.zecat.com/v1/generic_product?families[]=${category}&page=${page}`,
-            {
-              headers: {
-                Authorization:
-                  "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
-              },
-            }
-          );
-          const [productResponse] = await axios.all([productRequest]);
-          setProducts(productResponse.data.generic_products);
-          setTotalPages(productResponse.data.total_pages);
-          setIsLoading(false);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [page, category]);
+  // SWR maneja la petición y el cacheo
 
   function setter(category) {
     router.replace(`/store?family=${category}`, undefined, { shallow: true });
     setPage(1);
-    setIsLoading(true);
+    setIsLoadingClient(true);
   }
 
   return (
@@ -129,7 +109,7 @@ const store = () => {
             />
 
             <div className="  bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10   ">
-              {isLoading ? (
+              {isLoadingClient ? (
                 Array(20)
                   .fill()
                   .map((_, index) => (
@@ -170,7 +150,7 @@ const store = () => {
                             .join(", ")
                         : ""
                     }
-                    loading={isLoading}
+                    loading={isLoadingClient}
                   />
                 ))
               )}

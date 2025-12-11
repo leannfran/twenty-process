@@ -10,7 +10,7 @@ import Cart from "../Cart";
 import { useCart } from "@/context/cartContext";
 import { Input, List, ListItem, Spinner } from "@material-tailwind/react";
 import { BiDownArrow } from "react-icons/bi";
-import axios from "axios";
+import useSWR from "swr";
 
 const NavBar = () => {
   const router = useRouter();
@@ -48,23 +48,16 @@ const NavBar = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await axios.get("https://api.zecat.com/v1/family", {
-          headers: {
-            Authorization:
-              "Bearer dHdlbnR5LmVjb21tZXJjZUBnbWFpbC5jb206ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LkltaHRZM2xzWlRVd056bHNZamx5ZUcwaS5CR2pXZzA1SGFkMXN6aU1NQ0FHR3ZGU0gtS29SWXAxVE95NEhXRTI0SE9v",
-          },
-        });
-        setCategories(response.data.families);
-      } catch (error) {
-        console.error("Error al obtener las categorías", error);
-      }
-    };
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const { data: familyData, isLoading: loadingFamilies } = useSWR(
+    `/api/family`,
+    fetcher,
+    { revalidateOnFocus: false, dedupingInterval: 60000 }
+  );
 
-    fetchCategories();
-  }, []);
+  useEffect(() => {
+    if (familyData?.families) setCategories(familyData.families);
+  }, [familyData]);
 
   const handleChange = async (event) => {
     const { value } = event.target;

@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const nextConfig = {
   reactStrictMode: true,
   experimental: { esmExternals: true },
@@ -9,6 +13,8 @@ const nextConfig = {
         hostname: "zecat-user-images-prod.s3.amazonaws.com",
         port: "",
       },
+      { protocol: 'https', hostname: '**.zecat.com' },
+      { protocol: 'https', hostname: '**.cdn**' },
     ],
     domains: [
       "res.cloudinary.com",
@@ -19,4 +25,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

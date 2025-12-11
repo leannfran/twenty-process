@@ -43,7 +43,7 @@ const Productos = ({ id, name, price, image, category }) => {
             }
             `}
               onLoadingComplete={() => setIsImageLoading(false)}
-              priority={true}
+              priority={false}
             />
           ) : null}
           {isImageLoading && (
@@ -74,4 +74,4 @@ const Productos = ({ id, name, price, image, category }) => {
   );
 };
 
-export default Productos;
+export default React.memo(Productos);
