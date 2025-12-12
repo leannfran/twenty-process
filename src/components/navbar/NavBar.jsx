@@ -86,14 +86,14 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="relative z-10 w-full !text-white h-20 md:h-[10vh] bg-primary flex items-center justify-between shadow-xl ">
+      <nav className="relative z-10 w-full !text-white h-20 md:h-[10vh] bg-primary flex items-center justify-between shadow-xl md:overflow-hidden">
         <Link href="/">
           <Image
             src={twentyLogo}
             alt="Twenty Logo"
             width={500}
             height={500}
-            className=" rounded-full ml-3 p-2 md:p-4 w-20 py-1 md:w-22"
+            className=" rounded-full ml-3 p-2 md:p-0 w-20 max-sm:py-1 md:w-32"
           />
         </Link>
 
