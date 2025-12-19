@@ -102,7 +102,7 @@ const ContactForm = () => {
         className="flex flex-col md:flex-row justify-center items-center gap-12 mt-24 md:mt-0 mb-10"
         id="contacto"
       >
-        <div className="bg-primary p-44 w-2/4 h-96 flex flex-col justify-center items-center relative md:mt-5 md:w-2/4 md:h-full">
+        <div className="bg-primary w-full p-4 h-96 desktop:h-96 flex flex-col justify-center items-center relative md:mt-5 md:w-2/4 md:h-full">
           <div
             className="absolute top-0 left-0 w-full h-full backdrop-blur bg-[url(../../public/assets/message-illustration.png)] bg-center bg-contain bg-no-repeat"
             style={{ opacity: 0.2 }}
