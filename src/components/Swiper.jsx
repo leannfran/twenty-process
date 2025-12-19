@@ -9,13 +9,14 @@ import "swiper/css/scrollbar";
 import CardCatalogue from "./cards/CardCatalogue";
 import Image from "next/image";
 import brandLogo from "../../public/assets/slazenger-logo.png";
-import CardProduct from "./cards/CardProduct";
+import CardProductSlider from "./cards/CardProductSlider";
 import CategoriesProduct from "./CategoriesProduct";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 import { Card } from "@material-tailwind/react";
 import jsonCatalogues from "../data/catalogues.json";
 import featuredProducts from "../../featuredProducts.json";
+import CardProduct from "./cards/CardProduct";
 
 const CardSwiper = ({
   openCatalogue,
@@ -200,21 +201,25 @@ const CardSwiper = ({
         : swiperClass === "products"
         ? featuredProducts.map((product, i) => (
             <SwiperSlide key={i}>
-              <CardProduct
+              <div className=" py-2">
+
+              <CardProductSlider
                 id={product.id}
                 name={product.name}
                 image={product.image}
                 /*  price={isNaN(parseFloat(product.price)) ? null : product.price}
                 /* category={product.families
-                  .map((family) => family.title)
-                  .join(", ")} */
-              />
+                .map((family) => family.title)
+                .join(", ")} */
+                />
+                </div>
             </SwiperSlide>
           ))
         : swiperClass === "relatedProducts"
         ? relatedProducts.map((product, i) => (
             <SwiperSlide key={i}>
-              <CardProduct
+              <div className=" py-2">
+              <CardProductSlider
                 id={product.id}
                 name={product.name}
                 /* price={isNaN(parseFloat(product.price)) ? '' : product.price}*/
@@ -232,7 +237,8 @@ const CardSwiper = ({
                     : ""
                 }
                 loading={isLoading}
-              />
+              /> </div>
+              
             </SwiperSlide>
           ))
         : swiperClass === "categories"

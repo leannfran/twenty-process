@@ -19,6 +19,8 @@ const Productos = ({ id, name, price, image, category }) => {
 
   return (
     <Link
+    className="w-[80%] md:w-60"
+    
       href={`/store/${id}`}
       onClick={() => {
         setIsImageLoading(true);
@@ -27,7 +29,7 @@ const Productos = ({ id, name, price, image, category }) => {
         }, 5000);
       }}
     >
-      <Card className="w-60 h-full md:w-60 md:h-auto  m-auto border-primary border">
+      <Card className=" w-[80%] h-[330px] md:w-60   m-auto ">
         <CardHeader className={`relative h-64 m-0 rounded-b-none shadow-none `}>
           {image ? (
             <Image
@@ -52,15 +54,15 @@ const Productos = ({ id, name, price, image, category }) => {
             </div>
           )}
         </CardHeader>
-        <CardBody className="p-3 border-primary border-t text-left">
-          <Typography variant="h5" color="blue-gray">
+        <CardBody className="p-3  text-center ">
+          <Typography variant="h5"  className="font-raleway text-gray-800 font-medium">
             {name}
           </Typography>
-          <span className="text-gray-600 text-sm block">{category} </span>
+          {/* <span className="text-gray-600 text-sm block">{category} </span> */}
 
-          <p className="bg-white border text-primary hover:bg-primary transition-colors font-light border-primary  inline-block hover:text-white text-sm rounded-lg p-1 mt-2 shadow-primary shadow-md">
+          {/* <p className="bg-white border text-primary hover:bg-primary transition-colors font-light border-primary  inline-block hover:text-white text-sm rounded-lg p-1 mt-2 shadow-primary shadow-md">
             Ver mas{" "}
-          </p>
+          </p> */}
           {/* <Link
             href={`https://wa.me/+5491178311503?text=Hola%20quisiera%20consultar%20el%20precio%20e%20info%20de%20este%20producto:%20${name}%20${image}`}
             target="_blank"

@@ -8,6 +8,9 @@ import CardSwiper from "@/components/Swiper";
 import { useRouter } from "next/router";
 import { BreadcrumbsWithIcon } from "@/components/atoms/BreadCrumbs";
 import SpeedDial from "../../components/SpeedDial";
+import Image from "next/image";
+import banner from "../../../public/assets/7.png";
+import CategoryContainer from "@/components/CategoryContainer";
 
 const store = () => {
   const router = useRouter();
@@ -82,6 +85,7 @@ const store = () => {
   // SWR maneja la petición y el cacheo
 
   function setter(category) {
+    if (`${router.query.family || ""}` === `${category}`) return;
     router.replace(`/store?family=${category}`, undefined, { shallow: true });
     setPage(1);
     setIsLoadingClient(true);
@@ -96,17 +100,19 @@ const store = () => {
         <BreadcrumbsWithIcon first="store" />
         <section className="flex flex-col 1440px:flex-row w-full">
           <div className=" min-h-screen w-full max-w-[1400px] m-auto">
-            <h2 className="text-black text-xl md:text-3xl shadow- py-5">
+            <Image src={banner} alt="Store Banner" />
+            {/* <h2 className="text-black text-xl md:text-3xl shadow- py-5">
               Conoce todos nuestros{" "}
               <span className="border-b pb-1 border-primary"> productos</span>!
-            </h2>
+            </h2> 
             <CardSwiper
               vertical={false}
               swiperClass="categories"
               length={3.6}
               setter={setter}
               autoplay
-            />
+            />*/}
+            <CategoryContainer setter={setter} activeId={category} />
 
             <div className="  bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10   ">
               {isLoadingClient ? (
@@ -114,7 +120,7 @@ const store = () => {
                   .fill()
                   .map((_, index) => (
                     <Card
-                      className="w-60 h-60 md:w-72 md:h-72 2xl:w-96 m-auto border"
+                      className="w-60 h-60 md:w-72  md:h-72 2xl:w-96 m-auto border"
                       key={index}
                     >
                       <div className="bg-white animate-pulse rounded p-4 h-full flex flex-col gap-3">

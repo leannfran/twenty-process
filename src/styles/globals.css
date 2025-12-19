@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,10 +8,15 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --font-geist-raleway: "Raleway", "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@theme inline{
+  --font-raleway: var(--font-geist-raleway);
 }
 
 
@@ -30,7 +36,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    font-family: 'Poppins', sans-serif !important;
+     /* font-family: 'Poppins', sans-serif !important;  */
+    font-family: var(--font-geist-raleway) !important;
 }
 
 .swiper-button-next, .swiper-button-prev {

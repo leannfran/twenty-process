@@ -22,6 +22,7 @@ module.exports = withMT({
     },
     screens: {
       "1440px": "1440px",
+      desktop: "1000px",
     }
   },
   plugins: [

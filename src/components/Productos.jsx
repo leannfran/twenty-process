@@ -22,7 +22,7 @@ const Productos = () => {
      
         <div className="flex justify-between items-center" id="productos">
           <div className="md:ml-24">
-            <h2 className="text-black  flex gap-3 items-center text-lg py-3 pl-4 lg:pl-0">
+            <h2 className="text-black  flex gap-3 items-center text-lg py-3 pl-4 lg:pl-0 font-semibold">
               PRODUCTOS DESTACADOS{" "}
   
 
@@ -58,8 +58,8 @@ const Productos = () => {
 
         <CardSwiper autoplay={true} vertical={false} swiperClass="products" length={2.3}/>
         <Link href='/store?family=121'>
-        <h2 className="md:hidden text-right text-black  text-lg font-light flex items-center justify-end gap-5 mr-2">
-          Ver más productos <FaArrowRight />
+        <h2 className="md:hidden text-right text-black  text-lg font-semibold flex items-center justify-end gap-5 mr-2">
+          Ver todo <FaArrowRight />
         </h2>
         </Link>
       

@@ -100,6 +100,14 @@ const NavBar = () => {
         <div className="hidden md:flex items-center w-full justify-end px-4 lg:px-9 ">
           <ul className="flex gap-4 lg:gap-7 font-bold text-sm lg:text-lg cursor-pointer items-center">
             <li>
+              <Link
+                className="hover:underline transition-all font-light"
+                href="/store?family=121"
+              >
+                Productos
+              </Link>
+            </li>
+            <li>
               <button
                 className="hover:underline transition-all font-light"
                 onClick={redirectWithScroll(router, "/", "#contacto")}

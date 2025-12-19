@@ -30,6 +30,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import {InstagramLogo, FacebookLogo, LinkedinLogo} from '../components/Svgs'
+import Image from "next/image";
+import schoolBoy from '../../public/assets/AIimages/school-kid.png';
+import cheef from '../../public/assets/AIimages/cheef.png';
+import oficina from '../../public/assets/AIimages/oficina.png';
+import summer from '../../public/assets/AIimages/summer.png';
+import textil from '../../public/assets/AIimages/textil.png';
+import drinkware from '../../public/assets/AIimages/drinkware.png';
+import Entrerprises from "@/components/Entrerprises";
 
 
 export default function Home() {
@@ -51,12 +59,12 @@ export default function Home() {
   return (
     <Layout>
       <div className=" block fixed right-9 bottom-9 z-10">
-        <SpeedDial />≠
+        <SpeedDial />
       </div>
 
       <header>{/*   <CarouselHero />*/}</header>
       <main className="m-auto py-2">
-        <div className="flex flex-col md:flex-row p-4 md:p-10 mb-10 items-start">
+        <div className="flex flex-col md:flex-row p-4 md:p-10  items-start">
           <div className="w-full md:w-1/2 gap-10 md:gap-6 flex flex-col text-center md:text-start">
             <h1 className="animate-fade text-gray-800 font-bold text-4xl md:text-7xl">
               <span className="text-primary">MERCHANDISING </span> PERSONALIZADO
@@ -87,6 +95,141 @@ export default function Home() {
             />
           </div>
         </div>
+
+
+
+        <section className="py-12 ">
+          <h1 className="text-gray-800 font-extrabold text-[60px] text-center pb-10">TU MERCH</h1>
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <Link
+                href="/store?family=125"
+                className="bg-white p-0 rounded-2xl shadow-lg overflow-hidden relative h-56 md:h-72 cursor-pointer block"
+                aria-label="Ir a Vuelta a Clases"
+              >
+                <Image
+                  src={schoolBoy}
+                  alt="chico de guardapolvo"
+                  fill
+                  className="object-cover"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <h2 className="text-white text-3xl md:text-5xl font-bold text-center">
+                    VUELTA A CLASES
+                  </h2>
+                </div>
+              </Link>
+              
+
+              
+
+              <Link
+                href="/store?family=129"
+                className="bg-white p-0 rounded-2xl shadow-lg overflow-hidden relative h-56 md:h-72 cursor-pointer block"
+                aria-label="Ir a Cocina"
+              >
+                <Image
+                  src={cheef}
+                  alt="chico de guardapolvo"
+                  fill
+                  className="object-cover"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <h2 className="text-white text-3xl md:text-5xl font-bold text-center">
+                    COCINA
+                  </h2>
+                </div>
+              </Link>
+
+
+              <Link
+                href="/store?family=124"
+                className="bg-white p-0 rounded-2xl shadow-lg overflow-hidden relative h-56 md:h-72 cursor-pointer block"
+                aria-label="Ir a Summer"
+              >
+                <Image
+                  src={summer}
+                  alt="chico de guardapolvo"
+                  fill
+                  className="object-cover"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <h2 className="text-white text-3xl md:text-5xl font-bold text-center">
+                    SUMMER
+                  </h2>
+                </div>
+              </Link>
+
+              <Link
+                href="/store?family=96"
+                className="bg-white p-0 rounded-2xl shadow-lg overflow-hidden relative h-56 md:h-72 cursor-pointer block"
+                aria-label="Ir a Nómadas"
+              >
+                <Image
+                  src={drinkware}
+                  alt="chico de guardapolvo"
+                  fill
+                  className="object-cover"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <h2 className="text-white text-3xl md:text-5xl font-bold text-center">
+                    DRINKWARE
+                  </h2>
+                </div>
+              </Link>
+
+              <Link
+                href="/store?family=40"
+                className="bg-white p-0 rounded-2xl shadow-lg overflow-hidden relative h-56 md:h-72 cursor-pointer block"
+                aria-label="Ir a Nómadas"
+              >
+                <Image
+                  src={oficina}
+                  alt="chico de guardapolvo"
+                  fill
+                  className="object-cover"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <h2 className="text-white text-3xl md:text-5xl font-bold text-center">
+                    OFICINA
+                  </h2>
+                </div>
+              </Link>
+
+              <Link
+                href="/store?family=99"
+                className="bg-white p-0 rounded-2xl shadow-lg overflow-hidden relative h-56 md:h-72 cursor-pointer block"
+                aria-label="Ir a Nómadas"
+              >
+                <Image
+                  src={textil}
+                  alt="chico de guardapolvo"
+                  fill
+                  className="object-cover"
+                  aria-hidden="true"
+                />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <h2 className="text-white text-3xl md:text-5xl font-bold text-center">
+                    TEXTIL
+                  </h2>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+        <Productos />
+<Entrerprises/>
 
         <section className="py-12 bg-gray-100">
           <div className="container mx-auto px-6">
@@ -126,170 +269,9 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="text-gray-800 py-12">
-          <div className="container mx-auto px-4">
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              spaceBetween={50}
-              slidesPerView={1}
-              pagination={{ clickable: true }}
-              autoplay={{
-                delay: 3000, // Cambia cada 3 segundos.
-                disableOnInteraction: false, // Continúa el autoplay después de la interacción del usuario.
-              }}
-              className="flex flex-col md:flex-row items-center md:space-x-8 swiper-container"
-            >
-              <SwiperSlide>
-                <div className="flex flex-col md:flex-row items-center md:space-x-8 p-4">
-                  <div className="md:flex-1">
-                    <img
-                      src="../assets/clientes2.png"
-                      alt="Logotipo de Los woup"
-                      className="max-w-xs md:max-w-sm mx-auto mb-6 md:mb-0"
-                    />
-                  </div>
-                  <div className="border-primary text-start border p-6 rounded-lg shadow-lg md:flex-1">
-                    <h3 className="text-2xl font-semibold mb-4">Woowup</h3>
-                    <div className="flex items-center mb-4">
-                      <strong>Nivel de satisfacción: 5/5 </strong>
-                      {/* Inserta aquí los íconos de las estrellas */}
-                    </div>
-                    <p className="mb-4">
-                      <strong>Comentarios:</strong> "Que las chicas siempre
-                      estuvieron muy atentas en todo lo que necesite, cumplieron
-                      con los tiempos de entrega y me ayudaron con las cajas
-                      hasta el auto jaja gracias!! Los productos todos de muy
-                      buena calidad "
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="flex flex-col md:flex-row items-center md:space-x-8 p-4">
-                  <div className="md:flex-1">
-                    <img
-                      src="../assets/clientes.png"
-                      alt="Logotipo de Los Pinos Lubricantes SRL"
-                      className="max-w-xs md:max-w-sm mx-auto mb-6 md:mb-0"
-                    />
-                  </div>
-                  <div className="border-primary text-start border p-6 rounded-lg shadow-lg md:flex-1">
-                    <h3 className="text-2xl font-semibold mb-4">
-                      Los Pinos Lubricantes SRL
-                    </h3>
-                    <div className="flex items-center mb-4">
-                      <strong>Nivel de satisfacción: 5/5 </strong>
-                      {/* Inserta aquí los íconos de las estrellas */}
-                    </div>
-                    <p className="mb-4">
-                      <strong>Comentarios:</strong> "Las mochilas industriales
-                      son un excelente producto, y el trabajo en logos es muy
-                      prolijo. El asesoramiento de diseño prestando atención a
-                      ciertos 'detalles' fue muy valioso."
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="flex flex-col md:flex-row items-center md:space-x-8 p-4">
-                  <div className="md:flex-1">
-                    <img
-                      src="../assets/clientes3.png"
-                      alt="Logotipo de Los Pinos Lubricantes SRL"
-                      className="max-w-xs md:max-w-sm mx-auto mb-6 md:mb-0"
-                    />
-                  </div>
-                  <div className="border-primary text-start border p-6 rounded-lg shadow-lg md:flex-1">
-                    <h3 className="text-2xl font-semibold mb-4">
-                      Smiles Trading Group
-                    </h3>
-                    <div className="flex items-center mb-4">
-                      <strong>Nivel de satisfacción: 5/5 </strong>
-                      {/* Inserta aquí los íconos de las estrellas */}
-                    </div>
-                    <p className="mb-4">
-                      <strong>Comentarios:</strong> "Muy Buena atencion por
-                      WhatsApp"
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
+        
 
-              <SwiperSlide>
-                <div className="flex flex-col md:flex-row items-center md:space-x-8 p-4">
-                  <div className="md:flex-1">
-                    <img
-                      src="../assets/cliente-6.png"
-                      alt="Logotipo de Los banco comafi"
-                      className="max-w-xs md:max-w-sm mx-auto mb-6 md:mb-0"
-                    />
-                  </div>
-                  <div className="border-primary text-start border p-6 rounded-lg shadow-lg md:flex-1">
-                    <h3 className="text-2xl font-semibold mb-4">
-                      Banco Comafi
-                    </h3>
-                    <div className="flex items-center mb-4">
-                      <strong>Nivel de satisfacción: 5/5 </strong>
-                      {/* Inserta aquí los íconos de las estrellas */}
-                    </div>
-                    <p className="mb-4">
-                      <strong>Comentarios:</strong> " 5/5 ..."
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="flex flex-col md:flex-row items-center md:space-x-8 p-4">
-                  <div className="md:flex-1">
-                    <img
-                      src="../assets/clientes4.png"
-                      alt="Logotipo de sebigus"
-                      className="max-w-xs md:max-w-sm mx-auto mb-6 md:mb-0"
-                    />
-                  </div>
-                  <div className="border-primary text-start border p-6 rounded-lg shadow-lg md:flex-1">
-                    <h3 className="text-2xl font-semibold mb-4">Sebigus</h3>
-                    <div className="flex items-center mb-4">
-                      <strong>Nivel de satisfacción: 5/5 </strong>
-                      {/* Inserta aquí los íconos de las estrellas */}
-                    </div>
-                    <p className="mb-4">
-                      <strong>Comentarios:</strong> "Muy Buena atencion por
-                      WhatsApp"
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="flex flex-col md:flex-row items-center md:space-x-8 p-4">
-                  <div className="md:flex-1">
-                    <img
-                      src="../assets/cliente-5.png"
-                      alt="Logotipo de sebigus"
-                      className="max-w-xs md:max-w-sm mx-auto mb-6 md:mb-0"
-                    />
-                  </div>
-                  <div className="border-primary text-start border p-6 rounded-lg shadow-lg md:flex-1">
-                    <h3 className="text-2xl font-semibold mb-4">Metzer</h3>
-                    <div className="flex items-center mb-4">
-                      <strong>Nivel de satisfacción: 5/5 </strong>
-                      {/* Inserta aquí los íconos de las estrellas */}
-                    </div>
-                    <p className="mb-4">
-                      <strong>Comentarios:</strong> "Predisposición"
-                    </p>
-                  </div>
-                </div>
-              </SwiperSlide>
-              {/* Repite SwiperSlide para más elementos */}
-            </Swiper>
-
-            {/* Personalización de los botones de navegación */}
-          </div>
-        </div>
-
-        <ContactForm />
+        
 
         <section className="flex flex-col items-center py-20 gap-4">
           <h3 className="text-primary font-black text-xl text-center md:text-4xl ">
@@ -312,7 +294,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center py-20 gap-4">
+        <section className="flex flex-col items-center py-0 gap-4">
           <h3 className="text-primary font-black text-xl text-center md:text-4xl ">
             ¡Suscribite a Nuestro Newsletter!
           </h3>
@@ -334,8 +316,8 @@ export default function Home() {
           <CardSwiper autoplay={true} swiperClass="logos" length={4} />
         </section>*/}
 
-        <Productos />
-        <Categories />
+        
+        {/* <Categories /> */}
         <div className="flex md:flex-row flex-col justify-between">
 
           <div className="bg-white text-center  my-20 text-gray-800 p-4 ">
@@ -376,6 +358,7 @@ export default function Home() {
               </a>
             </div>{" "}
                 </div>
+                <ContactForm />
       </main>
     </Layout>
   );

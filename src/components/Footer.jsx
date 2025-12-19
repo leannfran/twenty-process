@@ -119,10 +119,10 @@ const Footer = () => {
           </a>
           <span className="hidden md:flex">|</span>
           <a
-            href="https://www.future-agency.tech/"
+            href="https://www.linkedin.com/in/alan-ezequiel-vargas-263075229/"
             className=" hover:text-gray-900 transition-colors"
           >
-            Future Agency
+            Alan Vargas
           </a>
         </div>
       </div>
