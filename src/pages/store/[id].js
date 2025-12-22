@@ -1,7 +1,7 @@
 import { BreadcrumbsWithIcon } from "@/components/atoms/BreadCrumbs";
+import ProductImage from "@/components/atoms/ProductImage";
 import { Layout } from "@/components/layout/Layout";
 import axios from "axios";
-import Image from "next/image";
 import React from "react";
 import { Carousel, IconButton } from "@material-tailwind/react";
 import SpeedDial from "../../components/SpeedDial";
@@ -100,14 +100,13 @@ const ProductDetail = ({ product }) => {
           >
             {product.images.map((image) =>
               image.image_url ? (
-                <Image
+                <ProductImage
                   key={image.id}
                   src={image.image_url}
                   alt="product image"
                   className="h-full w-full object-cover sm:object-contain"
                   width={500}
                   height={500}
-                  priority
                 />
               ) : null
             )}

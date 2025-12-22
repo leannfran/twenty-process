@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/atoms/ProductImage";
 import { IconTrashSvg } from "../Svgs";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ const CardCart = ({ id, quantity, title, removeFromCartById, image }) => {
         href={`/store/${id}`}
       >
         {image ? (
-          <Image
+          <ProductImage
             src={image}
             alt="product image"
             className="rounded-md"

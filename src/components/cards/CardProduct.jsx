@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import ProductImage from "@/components/atoms/ProductImage";
 import {
   Card,
   CardHeader,
@@ -32,8 +32,7 @@ const Productos = ({ id, name, price, image, category }) => {
       <Card className=" w-[80%] h-[330px] md:w-60   m-auto ">
         <CardHeader className={`relative h-64 m-0 rounded-b-none shadow-none `}>
           {image ? (
-            <Image
-            unnoptimized
+            <ProductImage
               src={image}
               width={500}
               height={500}
@@ -45,8 +44,8 @@ const Productos = ({ id, name, price, image, category }) => {
                 : "grayscale-0 blur-0 scale-100"
             }
             `}
-              onLoadingComplete={() => setIsImageLoading(false)}
-              priority={false}
+              onLoad={() => setIsImageLoading(false)}
+              onError={() => setIsImageLoading(false)}
             />
           ) : null}
           {isImageLoading && (
