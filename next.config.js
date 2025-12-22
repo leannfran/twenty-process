@@ -5,8 +5,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = {
   reactStrictMode: true,
-  // `distDir` debe ser relativo al root del proyecto (Next concatena si es absoluto)
-  distDir: process.env.NEXT_DIST_DIR || ".next-dist",
+  // En Vercel, Next debe generar en `.next` (Vercel busca manifests ahí).
+  // Localmente (Windows en Program Files), usamos `.next-dist` para evitar problemas de permisos.
+  // `distDir` debe ser relativo al root del proyecto (Next concatena si es absoluto).
+  distDir: process.env.VERCEL
+    ? ".next"
+    : process.env.NEXT_DIST_DIR || ".next-dist",
   experimental: { esmExternals: true },
   images: {
     remotePatterns: [
