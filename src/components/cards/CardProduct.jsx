@@ -33,6 +33,7 @@ const Productos = ({ id, name, price, image, category }) => {
         <CardHeader className={`relative h-64 m-0 rounded-b-none shadow-none `}>
           {image ? (
             <Image
+            unnoptimized
               src={image}
               width={500}
               height={500}
