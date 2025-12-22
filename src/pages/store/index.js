@@ -15,7 +15,6 @@ import CategoryContainer from "@/components/CategoryContainer";
 const store = () => {
   const router = useRouter();
 
-  const [isLoadingClient, setIsLoadingClient] = React.useState(true);
   const [page, setPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
   const category = Array.isArray(router.query.family)
@@ -41,22 +40,26 @@ const store = () => {
 
   const products = data?.generic_products || [];
   React.useEffect(() => {
-    setIsLoadingClient(isLoadingSWR);
     if (data?.total_pages) setTotalPages(data.total_pages);
   }, [isLoadingSWR, data]);
 
   // Cuando cambia la categoría, volver a la página 1 y mostrar skeleton
   React.useEffect(() => {
     setPage(1);
-    setIsLoadingClient(true);
   }, [category]);
 
   // Prefetch siguiente página para transición más rápida
   React.useEffect(() => {
     if (page === 1) {
-      fetcher(`/api/products?page=2${category ? `&family=${category}` : ""}`);
+      // Prefetch sin romper el render si falla
+      fetcher(`/api/products?page=2${category ? `&family=${category}` : ""}`).catch(
+        () => {}
+      );
     }
   }, [page, category]);
+
+  // Mostrar skeleton sólo mientras no haya data y esté cargando/validando
+  const showSkeleton = !error && !data && isLoadingSWR;
 
   //* funcion para asignarle el color al boton activo de paginacion
   const getItemProps = (index) => ({
@@ -64,7 +67,6 @@ const store = () => {
     color: page === index ? "teal" : "blue-gray",
     onClick: () => {
       setPage(index);
-      setIsLoadingClient(true);
       /* window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -79,8 +81,6 @@ const store = () => {
 
     setPage(page + 1);
 
-    setIsLoadingClient(true);
-
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -91,8 +91,6 @@ const store = () => {
     if (page === 1) return;
 
     setPage(page - 1);
-
-    setIsLoadingClient(true);
 
     window.scrollTo({
       top: 0,
@@ -106,7 +104,6 @@ const store = () => {
     if (`${router.query.family || ""}` === `${category}`) return;
     router.replace(`/store?family=${category}`);
     setPage(1);
-    setIsLoadingClient(true);
   }
 
   return (
@@ -148,7 +145,7 @@ const store = () => {
             ) : null}
 
             <div className="  bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10   ">
-              {isLoadingClient ? (
+              {showSkeleton ? (
                 Array(20)
                   .fill()
                   .map((_, index) => (
@@ -189,7 +186,7 @@ const store = () => {
                             .join(", ")
                         : ""
                     }
-                    loading={isLoadingClient}
+                    loading={showSkeleton}
                   />
                 ))
               )}
