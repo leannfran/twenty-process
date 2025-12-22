@@ -1,9 +1,11 @@
 import axios from "axios";
 
 const ZECAT_URL = "https://api.zecat.com/v1/generic_product";
+const cache = {};
 
 export default async function handler(req, res) {
   const { page = 1, family } = req.query;
+  const key = `p:${page}|f:${family || ""}`;
 
     async function fetchWithRetries(url, token, attempts = 2, timeout = 5000) {
       let lastError;
@@ -25,7 +27,7 @@ export default async function handler(req, res) {
 
     try {
       const url = family
-        ? `${ZECAT_URL}?families[]=${encodeURIComponent(family)}&page=${page}`
+        ? `${ZECAT_URL}?families[]=${encodeURIComponent(family)}&families=${encodeURIComponent(family)}&page=${page}`
         : `${ZECAT_URL}?page=${page}`;
 
     const token = process.env.ZECAT_TOKEN;
@@ -51,9 +53,23 @@ export default async function handler(req, res) {
     );
     res.status(200).json(response.data);
   } catch (error) {
+    const cached = cache[key];
+    if (cached && Date.now() - cached.ts < 1000 * 60 * 5) {
+      res.setHeader("X-Cache", "HIT-FALLBACK");
+      res.setHeader("Cache-Control", "public, max-age=30, s-maxage=30");
+      return res.status(200).json(cached.data);
+    }
+
     const status = error?.response?.status || 500;
     const payload = error?.response?.data || { message: error?.message };
-    console.error("API products error:", status, payload);
-    res.status(status).json({ error: "fetch_failed", details: payload });
+    console.error("API products error:", {
+      status,
+      payload,
+      page,
+      family,
+    });
+    res
+      .status(status)
+      .json({ error: "fetch_failed", message: payload?.message, details: payload, status });
   }
 }

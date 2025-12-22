@@ -18,9 +18,21 @@ const store = () => {
   const [isLoadingClient, setIsLoadingClient] = React.useState(true);
   const [page, setPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
-  const category = router.query.family || "";
+  const category = Array.isArray(router.query.family)
+    ? router.query.family[0]
+    : router.query.family || "";
 
-  const fetcher = (url) => fetch(url).then((r) => r.json());
+  const fetcher = async (url) => {
+    const r = await fetch(url);
+    const json = await r.json();
+    if (!r.ok) {
+      const err = new Error(json?.message || json?.error || "Request failed");
+      err.status = r.status;
+      err.info = json;
+      throw err;
+    }
+    return json;
+  };
   const { data, isLoading: isLoadingSWR, error } = useSWR(
     `/api/products?page=${page}${category ? `&family=${category}` : ""}`,
     fetcher,
@@ -32,6 +44,12 @@ const store = () => {
     setIsLoadingClient(isLoadingSWR);
     if (data?.total_pages) setTotalPages(data.total_pages);
   }, [isLoadingSWR, data]);
+
+  // Cuando cambia la categoría, volver a la página 1 y mostrar skeleton
+  React.useEffect(() => {
+    setPage(1);
+    setIsLoadingClient(true);
+  }, [category]);
 
   // Prefetch siguiente página para transición más rápida
   React.useEffect(() => {
@@ -86,7 +104,7 @@ const store = () => {
 
   function setter(category) {
     if (`${router.query.family || ""}` === `${category}`) return;
-    router.replace(`/store?family=${category}`, undefined, { shallow: true });
+    router.replace(`/store?family=${category}`);
     setPage(1);
     setIsLoadingClient(true);
   }
@@ -113,6 +131,21 @@ const store = () => {
               autoplay
             />*/}
             <CategoryContainer setter={setter} activeId={category} />
+
+            {error ? (
+              <div className="max-w-[900px] mx-auto my-6 bg-red-50 border border-red-200 text-red-800 rounded-xl p-4 text-left">
+                <p className="font-bold">Error cargando productos</p>
+                <p className="text-sm">
+                  {error?.status ? `HTTP ${error.status} — ` : ""}
+                  {error?.message || "fetch_failed"}
+                </p>
+                {error?.info ? (
+                  <pre className="mt-3 text-xs overflow-auto bg-white/60 p-3 rounded-lg">
+                    {JSON.stringify(error.info, null, 2)}
+                  </pre>
+                ) : null}
+              </div>
+            ) : null}
 
             <div className="  bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10   ">
               {isLoadingClient ? (

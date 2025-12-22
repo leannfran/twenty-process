@@ -5,6 +5,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = {
   reactStrictMode: true,
+  // `distDir` debe ser relativo al root del proyecto (Next concatena si es absoluto)
+  distDir: process.env.NEXT_DIST_DIR || ".next-dist",
   experimental: { esmExternals: true },
   images: {
     remotePatterns: [
