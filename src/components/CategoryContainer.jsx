@@ -96,8 +96,8 @@ const CategoryContainer = ({ setter, link, activeId, className = "" }) => {
   }, [categories, activeId]);
 
   return (
-    <div className={`w-full ${className} pt-10 pb-20`}>
-      <h1 className="hidden desktop:block text-gray-800 font-extrabold text-[60px] text-center pb-10">CATEGORÍAS</h1>
+    <div className={`w-full ${className} pt-10 pb-20 px-12`}>
+      <h1 className="hidden desktop:block text-gray-800 font-extrabold text-[20px] xs:text-center desktop:text-left pb-6 ">CATEGORÍAS</h1>
       {isLoading ? (
         <div className="grid grid-cols-3 gap-6">
           {Array.from({ length: 3 }).map((_, colIdx) => (
@@ -118,7 +118,7 @@ const CategoryContainer = ({ setter, link, activeId, className = "" }) => {
         <>
           {/* Mobile/tablet (<1000px): selector compacto */}
           <div className="block desktop:hidden py-3 px-4 " ref={dropdownRef}>
-            <label className="block text-left text-2xl font-semibold text-gray-700 mb-2">
+            <label className="block text-center text-2xl font-semibold text-gray-700 mb-8">
               Categorías
             </label>
             <button
@@ -185,7 +185,7 @@ const CategoryContainer = ({ setter, link, activeId, className = "" }) => {
           </div>
 
           {/* Desktop (>=1000px): 3 columnas */}
-          <div className="hidden desktop:grid grid-cols-3 gap-6">
+          <div className="hidden desktop:grid grid-cols-1 gap-6">
             {columns.map((col, colIdx) => (
               <div key={colIdx} className="flex flex-col gap-3 ">
                 {col.map((category) => (
@@ -194,7 +194,7 @@ const CategoryContainer = ({ setter, link, activeId, className = "" }) => {
                     type="button"
                     onClick={() => handleCategoryClick(category.id)}
                     disabled={`${activeId || ""}` === `${category.id}`}
-                    className={`flex items-center pl-4 gap-3 text-left transition-colors ${
+                    className={`flex items-center  gap-3 text-left transition-colors ${
                       `${activeId || ""}` === `${category.id}`
                         ? "text-teal-700 opacity-70 cursor-default"
                         : "text-gray-800 hover:text-teal-600"

@@ -32,10 +32,20 @@ const store = () => {
     }
     return json;
   };
-  const { data, isLoading: isLoadingSWR, error } = useSWR(
+  const {
+    data,
+    isLoading: isLoadingSWR,
+    error,
+  } = useSWR(
     `/api/products?page=${page}${category ? `&family=${category}` : ""}`,
     fetcher,
-    { revalidateOnFocus: false, dedupingInterval: 5000 }
+    {
+      revalidateOnFocus: false,
+      dedupingInterval: 5000,
+      shouldRetryOnError: true,
+      errorRetryCount: 8,
+      errorRetryInterval: 1500,
+    }
   );
 
   const products = data?.generic_products || [];
@@ -52,14 +62,14 @@ const store = () => {
   React.useEffect(() => {
     if (page === 1) {
       // Prefetch sin romper el render si falla
-      fetcher(`/api/products?page=2${category ? `&family=${category}` : ""}`).catch(
-        () => {}
-      );
+      fetcher(
+        `/api/products?page=2${category ? `&family=${category}` : ""}`
+      ).catch(() => {});
     }
   }, [page, category]);
 
-  // Mostrar skeleton sólo mientras no haya data y esté cargando/validando
-  const showSkeleton = !error && !data && isLoadingSWR;
+  // Mantener skeleton hasta tener data (aunque haya errores/transitorios por backend lento)
+  const showSkeleton = !data;
 
   //* funcion para asignarle el color al boton activo de paginacion
   const getItemProps = (index) => ({
@@ -114,7 +124,7 @@ const store = () => {
       <main className="min-h-screen text-center">
         <BreadcrumbsWithIcon first="store" />
         <section className="flex flex-col 1440px:flex-row w-full">
-          <div className=" min-h-screen w-full max-w-[1400px] m-auto">
+          <div className=" min-h-screen w-full  m-auto">
             <Image src={banner} alt="Store Banner" />
             {/* <h2 className="text-black text-xl md:text-3xl shadow- py-5">
               Conoce todos nuestros{" "}
@@ -127,69 +137,56 @@ const store = () => {
               setter={setter}
               autoplay
             />*/}
-            <CategoryContainer setter={setter} activeId={category} />
+            <div className="desktop:flex max-w-[1700px]  m-auto">
+              <CategoryContainer setter={setter} activeId={category} />
 
-            {error ? (
-              <div className="max-w-[900px] mx-auto my-6 bg-red-50 border border-red-200 text-red-800 rounded-xl p-4 text-left">
-                <p className="font-bold">Error cargando productos</p>
-                <p className="text-sm">
-                  {error?.status ? `HTTP ${error.status} — ` : ""}
-                  {error?.message || "fetch_failed"}
-                </p>
-                {error?.info ? (
-                  <pre className="mt-3 text-xs overflow-auto bg-white/60 p-3 rounded-lg">
-                    {JSON.stringify(error.info, null, 2)}
-                  </pre>
-                ) : null}
-              </div>
-            ) : null}
-
-            <div className="  bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10   ">
-              {showSkeleton ? (
-                Array(20)
-                  .fill()
-                  .map((_, index) => (
-                    <Card
-                      className="w-60 h-60 md:w-72  md:h-72 2xl:w-96 m-auto border"
-                      key={index}
-                    >
-                      <div className="bg-white animate-pulse rounded p-4 h-full flex flex-col gap-3">
-                        <div className="h-52 w-full bg-gray-300 rounded mb-2"></div>
-                        <div className="h-4 w-60 bg-gray-300 rounded"></div>
-                        <div className="h-4 w-24 bg-gray-300 rounded"></div>
-                      </div>
-                    </Card>
+              <div className=" pt-10 bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10 desktop:px-10 ">
+                {showSkeleton ? (
+                  Array(20)
+                    .fill()
+                    .map((_, index) => (
+                      <Card
+                        className="w-60 h-60 md:w-72  md:h-72 2xl:w-96 m-auto border"
+                        key={index}
+                      >
+                        <div className="bg-white animate-pulse rounded p-4 h-full flex flex-col gap-3">
+                          <div className="h-52 w-full bg-gray-300 rounded mb-2"></div>
+                          <div className="h-4 w-60 bg-gray-300 rounded"></div>
+                          <div className="h-4 w-24 bg-gray-300 rounded"></div>
+                        </div>
+                      </Card>
+                    ))
+                ) : products.length < 1 ? (
+                  <h2 className="text-primary text-center font-extrabold text-3xl col-span-3">
+                    Nada por aquí! Pronto actualizaremos los productos de esta
+                    categoría.
+                  </h2>
+                ) : (
+                  products.map((product, i) => (
+                    <CardProduct
+                      key={i}
+                      id={product?.id || ""}
+                      name={product?.name || ""}
+                      price={product?.price || ""}
+                      image={
+                        product?.images &&
+                        Array.isArray(product.images) &&
+                        product.images.length > 0
+                          ? product.images[0].image_url
+                          : ""
+                      }
+                      category={
+                        product?.families && Array.isArray(product.families)
+                          ? product.families
+                              .map((family) => family.description)
+                              .join(", ")
+                          : ""
+                      }
+                      loading={showSkeleton}
+                    />
                   ))
-              ) : products.length < 1 ? (
-                <h2 className="text-primary text-center font-extrabold text-3xl col-span-3">
-                  Nada por aquí! Pronto actualizaremos los productos de esta
-                  categoría.
-                </h2>
-              ) : (
-                products.map((product, i) => (
-                  <CardProduct
-                    key={i}
-                    id={product?.id || ""}
-                    name={product?.name || ""}
-                    price={product?.price || ""}
-                    image={
-                      product?.images &&
-                      Array.isArray(product.images) &&
-                      product.images.length > 0
-                        ? product.images[0].image_url
-                        : ""
-                    }
-                    category={
-                      product?.families && Array.isArray(product.families)
-                        ? product.families
-                            .map((family) => family.description)
-                            .join(", ")
-                        : ""
-                    }
-                    loading={showSkeleton}
-                  />
-                ))
-              )}
+                )}
+              </div>
             </div>
           </div>
         </section>

@@ -86,14 +86,14 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="relative z-10 w-full !text-white h-20 md:h-[10vh] bg-primary flex items-center justify-between shadow-xl md:overflow-hidden">
+      <nav className="relative z-10 w-full !text-white h-20  bg-primary flex items-center justify-between shadow-xl ">
         <Link href="/">
           <Image
             src={twentyLogo}
             alt="Twenty Logo"
             width={500}
             height={500}
-            className=" rounded-full ml-3 p-2 md:p-0 w-20 max-sm:py-1 md:w-32"
+            className=" rounded-full ml-3 p-2 md:p-0 w-20 max-sm:py-1 md:w-26"
           />
         </Link>
 
@@ -133,7 +133,7 @@ const NavBar = () => {
               </button>
             </li>
 
-            {/* <Input
+            <Input
               type="text"
               placeholder="Buscar..."
               className="!border !border-blue-gray-50 bg-white text-blue-gray-500 shadow-lg shadow-blue-gray-900/5 ring-4 ring-transparent placeholder:text-blue-gray-200 rounded-sm md:w-[15rem] lg:w-[20rem]"
@@ -143,7 +143,7 @@ const NavBar = () => {
               value={searchInput}
               onChange={handleChange}
             />
-            <li>
+            {/* <li>
               <button onClick={() => setIsCartOpen(!isCartOpen)}>
                 <BsBag className="text-2xl" />
               </button>
@@ -152,11 +152,11 @@ const NavBar = () => {
                   {cartLength}
                 </span>
               )}
-            </li>
+            </li> */}
 
             {searchInput && (
               <div
-                className="scrollbar absolute bg-white z-10 max-h-36 overflow-y-auto rounded-sm md:w-[15rem] lg:w-[20rem]  border border-blue-gray-200 shadow-md md:top-[3.8rem] md:right-14 lg:top-[3.9rem] lg:right-[88px]"
+                className="scrollbar absolute bg-white z-10 max-h-56 overflow-y-auto rounded-sm md:w-[15rem] lg:w-[20rem]  border border-blue-gray-200 shadow-md md:top-[3.8rem] md:right-4 lg:top-[3.9rem] lg:right-[36px]"
                 ref={searchContainerRef}
               >
                 <List>
@@ -183,7 +183,7 @@ const NavBar = () => {
                   )}
                 </List>
               </div>
-            )}*/}
+            )}
           </ul>
         </div>
 
