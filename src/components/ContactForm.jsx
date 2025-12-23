@@ -104,7 +104,7 @@ const ContactForm = () => {
       >
         <div className="bg-primary w-full p-4 h-96 desktop:h-96 flex flex-col justify-center items-center relative md:mt-5 md:w-2/4 md:h-full">
           <div
-            className="absolute top-0 left-0 w-full h-full backdrop-blur bg-[url(../../public/assets/message-illustration.png)] bg-center bg-contain bg-no-repeat"
+            className="absolute top-0 left-0 w-full h-full backdrop-blur bg-[url(/assets/message-illustration.png)] bg-center bg-contain bg-no-repeat"
             style={{ opacity: 0.2 }}
           ></div>
           <div className="flex justify-start items-start flex-col relative">
