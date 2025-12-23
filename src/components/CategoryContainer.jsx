@@ -96,7 +96,7 @@ const CategoryContainer = ({ setter, link, activeId, className = "" }) => {
   }, [categories, activeId]);
 
   return (
-    <div className={`w-full ${className} pt-10 pb-20 px-12`}>
+    <div className={`w-full ${className} pt-10 pb-20 px-12 desktop:w-[400px]`}>
       <h1 className="hidden desktop:block text-gray-800 font-extrabold text-[20px] xs:text-center desktop:text-left pb-6 ">CATEGORÍAS</h1>
       {isLoading ? (
         <div className="grid grid-cols-3 gap-6">
@@ -185,7 +185,7 @@ const CategoryContainer = ({ setter, link, activeId, className = "" }) => {
           </div>
 
           {/* Desktop (>=1000px): 3 columnas */}
-          <div className="hidden desktop:grid grid-cols-1 gap-6">
+          <div className="hidden desktop:grid grid-cols-1 gap-6 ">
             {columns.map((col, colIdx) => (
               <div key={colIdx} className="flex flex-col gap-3 ">
                 {col.map((category) => (

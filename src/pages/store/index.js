@@ -140,7 +140,7 @@ const store = () => {
             <div className="desktop:flex max-w-[1700px]  m-auto">
               <CategoryContainer setter={setter} activeId={category} />
 
-              <div className=" pt-10 bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10 desktop:px-10 ">
+              <div className=" pt-10 bg-gradient-to-t from-primary  justify-evenly  flex flex-wrap gap-4 pb-10 desktop:px-10 w-full">
                 {showSkeleton ? (
                   Array(20)
                     .fill()
