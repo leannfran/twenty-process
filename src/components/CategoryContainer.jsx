@@ -1,32 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/router";
+import filterFamilies from "../utils/filterFamilies";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
-
-const filterFamilies = (families) => {
-  if (!Array.isArray(families)) return [];
-
-  return families.filter((family) => {
-    const title = typeof family?.title === "string" ? family.title : "";
-    if (title === "Próximos Arribos") return false;
-    if (/\b(19|20)\d{2}\b/.test(title)) return false;
-
-    const excludeKeywords = [
-      "Día de la madre",
-      "Día del Padre",
-      "Día del trabajador",
-    ];
-    if (
-      excludeKeywords.some((kw) =>
-        title.toLowerCase().includes(kw.toLowerCase())
-      )
-    )
-      return false;
-
-    return true;
-  });
-};
 
 const chunkIntoColumns = (items, maxPerColumn) => {
   const colCount = 3;

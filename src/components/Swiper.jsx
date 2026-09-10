@@ -17,6 +17,7 @@ import { Card } from "@material-tailwind/react";
 import jsonCatalogues from "../data/catalogues.json";
 import featuredProducts from "../../featuredProducts.json";
 import CardProduct from "./cards/CardProduct";
+import filterFamilies from "../utils/filterFamilies";
 
 const CardSwiper = ({
   openCatalogue,
@@ -52,21 +53,7 @@ const CardSwiper = ({
 
   useEffect(() => {
     if (familyData?.families) {
-      const filtered = Array.isArray(familyData.families)
-        ? familyData.families.filter((family) => {
-            const title = typeof family.title === "string" ? family.title : "";
-            if (title === "Próximos Arribos") return false;
-            if (/\b(19|20)\d{2}\b/.test(title)) return false;
-            const excludeKeywords = [
-              "Día de la madre",
-              "Día del Padre",
-              "Día del trabajador",
-            ];
-            if (excludeKeywords.some((kw) => title.toLowerCase().includes(kw.toLowerCase()))) return false;
-            return true;
-          })
-        : [];
-      setCategories(filtered);
+      setCategories(filterFamilies(familyData.families));
     }
     if (relatedData?.generic_products) {
       setRelatedProducts(relatedData.generic_products);

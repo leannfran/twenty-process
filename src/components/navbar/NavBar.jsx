@@ -11,6 +11,7 @@ import { useCart } from "@/context/cartContext";
 import { Input, List, ListItem, Spinner } from "@material-tailwind/react";
 import { BiDownArrow } from "react-icons/bi";
 import useSWR from "swr";
+import filterFamilies from "../../utils/filterFamilies";
 
 const NavBar = () => {
   const router = useRouter();
@@ -56,7 +57,7 @@ const NavBar = () => {
   );
 
   useEffect(() => {
-    if (familyData?.families) setCategories(familyData.families);
+    if (familyData?.families) setCategories(filterFamilies(familyData.families));
   }, [familyData]);
 
   const handleChange = async (event) => {
