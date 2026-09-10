@@ -1,5 +1,6 @@
 // Hides promotional/price-based "families" returned by /api/family that are not real product categories.
 const PRICE_PROMO_TITLE_PATTERN = /^(desde|hasta|todo por|de\s+\$)/i;
+const SALE_PERCENT_OFF_TITLE_PATTERN = /^sale\s*\d+%\s*off/i;
 
 const filterFamilies = (families) => {
   if (!Array.isArray(families)) return [];
@@ -9,6 +10,7 @@ const filterFamilies = (families) => {
     if (title === "Próximos Arribos") return false;
     if (/\b(19|20)\d{2}\b/.test(title)) return false;
     if (PRICE_PROMO_TITLE_PATTERN.test(title.trim())) return false;
+    if (SALE_PERCENT_OFF_TITLE_PATTERN.test(title.trim())) return false;
 
     const excludeKeywords = [
       "Día de la madre",

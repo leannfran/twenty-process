@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check:categories": "node scripts/check-family-filter.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
